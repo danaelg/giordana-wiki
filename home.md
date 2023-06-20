@@ -2,13 +2,13 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-06-20T13:57:11.465Z
+date: 2023-06-20T13:57:58.924Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
 ---
 
-# Home
+# Giordana Wiki
 Wiki technique personnel, je référence ici les connaissances que j'accumule avec le temps.
 
 # Qui je suis ?
