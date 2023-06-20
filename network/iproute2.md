@@ -2,8 +2,8 @@
 title: iproute2
 description: 
 published: true
-date: 2023-06-20T19:05:17.799Z
-tags: linux, networking
+date: 2023-06-20T19:10:14.325Z
+tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
 ---
