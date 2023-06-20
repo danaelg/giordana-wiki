@@ -2,16 +2,17 @@
 title: Docker
 description: 
 published: true
-date: 2023-06-20T13:55:18.086Z
+date: 2023-06-20T19:53:34.915Z
 tags: docker, container
 editor: markdown
 dateCreated: 2023-06-20T11:37:39.821Z
 ---
 
 # Installation
-- [Installation sur Debian ou Ubuntu](/docker/install/debian-ubuntu)
-- [Installation sur CentOS](/docker/install/centos)
-- [Installation sur RedHat](/docker/install/redhat)
+- [Installation sur Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Installation sur Debian](https://docs.docker.com/engine/install/debian/)
+- [Installation sur CentOS](https://docs.docker.com/engine/install/centos/)
+- [Installation sur RedHat](https://docs.docker.com/engine/install/rhel/)
 {.links-list}
 
 # Exposer l'API Docker
