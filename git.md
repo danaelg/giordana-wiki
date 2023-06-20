@@ -2,8 +2,8 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T19:48:15.863Z
-tags: git, software, vcs, development
+date: 2023-06-20T19:57:05.291Z
+tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
 ---
