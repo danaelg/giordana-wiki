@@ -2,7 +2,7 @@
 title: Netplan
 description: 
 published: true
-date: 2023-06-20T15:02:33.838Z
+date: 2023-06-20T15:10:12.234Z
 tags: linux, networking, netplan
 editor: markdown
 dateCreated: 2023-06-20T15:02:33.838Z
@@ -11,7 +11,7 @@ dateCreated: 2023-06-20T15:02:33.838Z
 # Introduction
 Netplan sert à la configuration réseau en pilotant directement NetworkManger ou systemd-networkd. Il permet ainsi d'ajouter une couche d'abstraction qui peut s'avérer très utiles.
 
-![netplan-architecture.svg](/network/netplan-architecture.svg =40%x)
+![netplan-architecture.svg](/network/netplan-architecture.svg =25%x)
 
 # Configuration
 Les fichiers de configuration Netplan sont au format YAML dans `/etc/netplan`
