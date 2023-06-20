@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T19:43:57.782Z
+date: 2023-06-20T19:48:15.863Z
 tags: git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -13,8 +13,26 @@ dateCreated: 2023-06-20T19:43:57.782Z
 ![git-workflow.jpeg](/git-workflow.jpeg =30%x)
 
 # Installation
+- [Installation sur Windows](https://git-scm.com/download/win)
+- [Installation sur Linux](https://git-scm.com/download/linux)
+{.links-list}
+
+# Dépôts
+## Cloner un dépôt
+```bash
+git clone URL
+```
 
 # Commits
+## Définir les informations d'auteur des commit
+Chaque commit contient un auteur qui est identifier par un nom et un email
+```bash
+git config --global user.name "PRENOM NOM" 
+git config --global user.email "EMAIL"
+```
+> L'option `--global` permet d'appliquer la configuration à l'ensemble des dépôts. Sans cette option, la configuration est local au dépôt actuellement utilisé
+{.is-info}
+
 ## Réaliser un commit
 1. Ajouter les fichiers à la stagging area
 ```bash
