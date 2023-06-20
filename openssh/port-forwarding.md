@@ -2,7 +2,7 @@
 title: Utilisation du transfert de port SSH
 description: 
 published: true
-date: 2023-06-20T14:41:59.582Z
+date: 2023-06-20T14:43:29.020Z
 tags: openssh, networking
 editor: markdown
 dateCreated: 2023-06-20T14:23:47.026Z
@@ -32,6 +32,7 @@ ssh -L localhost:8080:localhost:80 user@server
 Voici une image d'illustration :
 ![port-forwarding-local.png](/openssh/port-forwarding-local.png =50%x)
 *[Ivan Velichko - A Visual Guide to SSH Tunnels: Local and Remote Port Forwarding](https://iximiuz.com/en/posts/ssh-tunnels/)*
+
 
 Dans ce cas la ressource distante est un serveur web présent sur le même serveur que celui auquel on se connecte. Mais cela n'est pas forcément le cas. Par exemple, on peut avoir un serveur web auquel le serveur SSH peut se connecter mais pas nous. Le serveur SSH est alors un **bastion**.
 
