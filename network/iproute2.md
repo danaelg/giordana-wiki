@@ -2,7 +2,7 @@
 title: iproute2
 description: 
 published: true
-date: 2023-06-20T19:10:14.325Z
+date: 2023-06-20T19:17:07.215Z
 tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
@@ -37,6 +37,13 @@ ip link show
 ## Allumer/éteindre une interface
 ```bash
 ip link set DEVICE {up|down}
+```
+> *DEVICE*: Nom de l'interface associé à la route
+{.is-info}
+
+## Activer le mode promiscuous
+```bash
+ip link set DEVICE promisc on
 ```
 > *DEVICE*: Nom de l'interface associé à la route
 {.is-info}
