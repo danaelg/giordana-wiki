@@ -2,8 +2,8 @@
 title: OpenSSH
 description: 
 published: true
-date: 2023-06-20T14:24:13.259Z
-tags: linux, windows, openssh
+date: 2023-06-20T19:56:14.061Z
+tags: linux, windows, openssh, software
 editor: markdown
 dateCreated: 2023-06-20T14:14:35.446Z
 ---
