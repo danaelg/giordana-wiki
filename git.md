@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T19:59:40.717Z
+date: 2023-06-20T20:02:29.409Z
 tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -26,6 +26,10 @@ dateCreated: 2023-06-20T19:43:57.782Z
 ```bash
 git clone URL
 ```
+> L'URL peut être un lien *http* ou *ssh*
+> http: `https://github.com/torvalds/linux.git`
+> ssh: `git@github.com:torvalds/linux.git`
+{.is-info}
 
 # Commits
 ## Définir les informations d'auteur des commit
