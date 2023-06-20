@@ -2,7 +2,7 @@
 title: Utilisation du transfert de port SSH
 description: 
 published: true
-date: 2023-06-20T14:23:47.026Z
+date: 2023-06-20T14:27:35.358Z
 tags: openssh, networking
 editor: markdown
 dateCreated: 2023-06-20T14:23:47.026Z
@@ -17,6 +17,9 @@ L'illustration suivante résume très bien les différents cas de figure
 
 # Pré-requis
 Les directives `AllowTcpForwarding` (local forwarding) et `GatewayPorts` (remote forwarding) du fichier de configuration sshd contrôlent si le transfert de port est autorisé.
+
+# Transfert de port local (local forwarding)
+
 
 # Références
 - https://iximiuz.com/en/posts/ssh-tunnels/
