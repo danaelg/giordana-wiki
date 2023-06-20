@@ -2,8 +2,8 @@
 title: Docker
 description: 
 published: true
-date: 2023-06-20T19:53:34.915Z
-tags: docker, container
+date: 2023-06-20T19:55:30.536Z
+tags: docker, container, software
 editor: markdown
 dateCreated: 2023-06-20T11:37:39.821Z
 ---
