@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-06-20T15:37:26.474Z
+date: 2023-06-20T15:47:03.121Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -58,19 +58,56 @@ En exprimant un nombre d'extent
 ```bash
 lvcreate -n LV_NAME -l EXTENT[%{FREE|PVS|VG|ORIGIN}] VG 
 ```
+
 > La taille d'un extent s'obtient via la commande `pvdisplay`
 {.is-info}
 
 > Cette commande est pratique pour définir une taille exprimé en pourcentage en ajoutant un suffixe.
 > - *%VG*: Pourcentage de l'espace total du VG
 > - *%FREE*: Pourcentage de l'espace restant dans le VG
-> - D'autre suffixe existe, se référer au manuel.
+> - D'autre suffixes existent, se référer au manuel
 {.is-info}
+
 
 Exemple : Créer un volume logique utilisant tout l'espace restant dans le groupe de volume
 ```bash
 lvcreate -n LV_NAME -l 100%FREE VG 
 ```
+
+## Etendre un volume logique
+En exprimant une taille fixe
+```bash
+lvextend -L +SIZE VG_NAME/LV_NAME 
+```
+> *SIZE* doit être exprimé avec une unité K, M, G, T, P ou E
+{.is-info}
+
+En exprimant un nombre d'extent
+```bash
+lvextend -l EXTENT[%{FREE|PVS|VG|ORIGIN}] VG/LV 
+```
+> La taille d'un extent s'obtient via la commande `pvdisplay`
+{.is-info}
+
+> Cette commande est pratique pour définir une taille exprimé en pourcentage en ajoutant un suffixe.
+> - *%VG*: Pourcentage de l'espace total du VG
+> - *%FREE*: Pourcentage de l'espace restant dans le VG
+>
+> D'autre suffixes existent, se référer au manuel
+{.is-info}
+
+## Suppression d'un volume logique
+Il faut d'abord désactiver le volume
+```bash
+lvchange -an VG_NAME/LV_NAME 
+```
+
+Ensuite, on peut supprimer le volume
+```bash
+lvremove VG_NAME/LV_NAME 
+```
+> Il faut penser à supprimer toute référence de volume dans le fichier `/etc/fstab`  
+{.is-info}
 
 # Références
 
