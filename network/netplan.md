@@ -2,8 +2,8 @@
 title: Netplan
 description: 
 published: true
-date: 2023-06-20T15:10:12.234Z
-tags: linux, networking, netplan
+date: 2023-06-20T18:31:42.538Z
+tags: linux, yaml, networking, netplan
 editor: markdown
 dateCreated: 2023-06-20T15:02:33.838Z
 ---
