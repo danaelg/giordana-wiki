@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T19:57:05.291Z
+date: 2023-06-20T19:59:40.717Z
 tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -15,6 +15,10 @@ dateCreated: 2023-06-20T19:43:57.782Z
 # Installation
 - [Installation sur Windows](https://git-scm.com/download/win)
 - [Installation sur Linux](https://git-scm.com/download/linux)
+{.links-list}
+
+# Fonctionnement
+- [Savez-vous vraiment comment fonctionne git ? - Sébastien LECACHEUR - DevoxxFR 2023](https://youtu.be/uA2WZCQP4EI)
 {.links-list}
 
 # Dépôts
