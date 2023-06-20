@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T20:02:29.409Z
+date: 2023-06-20T20:09:26.831Z
 tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -71,6 +71,8 @@ Si les changements avait été poussés sur un dépôt distant, on peut forcer l
 ```bash
 git push -f 
 ```
+> Attention, forcer un push est une opération pouvant être dangeureuse, notamment si plusieurs personnes travaillent sur une même branche. Dans un tel cas, mieux vaut réaliser un commit qui annule les changements que d'annuler un commit.
+{.is-danger}
 
 ## Modifier la description du dernier commit
 ```bash
