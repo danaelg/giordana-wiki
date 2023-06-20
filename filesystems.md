@@ -2,7 +2,7 @@
 title: Filesystems
 description: 
 published: true
-date: 2023-06-20T13:17:44.623Z
+date: 2023-06-20T13:55:20.112Z
 tags: filesystem, storage
 editor: markdown
 dateCreated: 2023-06-20T09:29:09.640Z

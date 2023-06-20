@@ -2,7 +2,7 @@
 title: XFS
 description: 
 published: true
-date: 2023-06-20T11:20:31.776Z
+date: 2023-06-20T13:55:40.568Z
 tags: linux, filesystem, xfs
 editor: markdown
 dateCreated: 2023-06-20T11:20:29.779Z

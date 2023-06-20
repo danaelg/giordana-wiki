@@ -2,7 +2,7 @@
 title: Swap
 description: 
 published: true
-date: 2023-06-20T13:29:53.788Z
+date: 2023-06-20T13:55:28.381Z
 tags: linux, swap, memory
 editor: markdown
 dateCreated: 2023-06-20T12:49:41.800Z

@@ -2,7 +2,7 @@
 title: EXT4
 description: 
 published: true
-date: 2023-06-20T11:20:46.361Z
+date: 2023-06-20T13:55:36.513Z
 tags: linux, filesystem, ext4
 editor: markdown
 dateCreated: 2023-06-20T11:14:33.980Z

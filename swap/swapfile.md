@@ -2,7 +2,7 @@
 title: Créer un fichier swapfile
 description: 
 published: true
-date: 2023-06-20T13:15:46.525Z
+date: 2023-06-20T13:55:42.718Z
 tags: linux, swap
 editor: markdown
 dateCreated: 2023-06-20T13:03:14.301Z

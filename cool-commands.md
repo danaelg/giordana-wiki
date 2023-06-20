@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-20T13:25:42.645Z
+date: 2023-06-20T13:55:16.001Z
 tags: linux, command, tips&tricks
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z

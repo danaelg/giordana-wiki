@@ -2,7 +2,7 @@
 title: Ansible
 description: 
 published: true
-date: 2023-06-20T11:27:06.518Z
+date: 2023-06-20T13:55:14.008Z
 tags: linux, windows, iac, yaml, automatisation, ansible
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
