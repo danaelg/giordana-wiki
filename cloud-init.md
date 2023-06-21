@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-21T10:47:44.821Z
+date: 2023-06-21T10:48:29.000Z
 tags: iac, yaml, cloud-init, virtualisation
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -25,7 +25,7 @@ Cloud-init va générer une configuration unique à partir de différentes sourc
 {.links-list}
 
 ## Configuration de base
-Dans la configuration de base, on retrouve :
+Dans la configuration de base (du moins prioritaire au plus prioritaire) :
 1. **La configuration codé en dur** que l'on ne peut pas modifier.
 2. **Les fichiers de configuration** défini par `/etc/cloud/cloud.cfg` et `/etc/cloud/cloud.cfg.d/`
 3. **La configuration d'exécution (runtime config)** : défini par `/run/cloud-init/cloud.cfg`
