@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-21T10:44:17.213Z
+date: 2023-06-21T10:47:44.821Z
 tags: iac, yaml, cloud-init, virtualisation
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -68,4 +68,4 @@ Dans la suite de la documentation nous allons décrire la création d'une image 
 
 # Références
 - https://cloudinit.readthedocs.io/
-- https://cloudinit.readthedocs.io/en/latest/reference/modules.html
+{.links-list}
