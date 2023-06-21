@@ -2,7 +2,7 @@
 title: Ansible
 description: 
 published: true
-date: 2023-06-20T19:56:33.197Z
+date: 2023-06-21T05:16:52.389Z
 tags: linux, windows, iac, yaml, automatisation, ansible, software
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
@@ -31,48 +31,33 @@ all:
   children:
     webservers:
       hosts:
-        foo.example.com:
-        bar.example.com:
+         one.example.com:
     dbservers:
       hosts:
-        one.example.com:
         two.example.com:
-        three.example.com:
 ```
 
 ### Hôtes dans plusieurs groupes
 ```yaml
-  hosts:
-    mail.example.com:
   children:
     webservers:
       hosts:
-        foo.example.com:
-        bar.example.com:
+        one.example.com:
     dbservers:
       hosts:
-        one.example.com:
-        two.example.com:
-        three.example.com:
+      	two.example.com:
     east:
       hosts:
-        foo.example.com:
         one.example.com:
-        two.example.com:
     west:
       hosts:
-        bar.example.com:
-        three.example.com:
+        two.example.com:
     prod:
       hosts:
-        foo.example.com:
         one.example.com:
         two.example.com:
-    test:
-      hosts:
-        bar.example.com:
-        three.example.com:
 ```
+> A titre personnel, je n'aime pas faire ce genre de chose, car cela peut surcharger l'inventaire. Je préfère alors imbriquer les groupes (voir exemple ci-dessous)
 
 ### Groupes imbriqués
 ```yaml
@@ -97,28 +82,26 @@ all:
         west:
 ```
 ## Priorité des variables dans les fichiers d'inventaire
-Il est possible de définir des variables dans le fichier d'inventaire à plusieurs niveaux : par hôte, par groupes d'hôtes ou de façon globale.
+Il est possible de définir des variables dans le fichier d'inventaire à plusieurs niveaux : par hôte ou par groupes.
 ```yaml
 all:
   vars:
     var: '!'
     ansible_connection: local
-
-apache:
-  hosts:
-    apache-1:
-      my_var: 'Hello'
-
-mysql:
-  hosts:
-    mysql-1:
-	mysql-2:
-  vars:
-    my_var: 'World'
-
-proxy:
-  hosts:
-    proxy-1:
+  children:
+    apache:
+      hosts:
+        apache-1:
+          my_var: 'Hello'
+    mysql:
+      hosts:
+        mysql-1:
+	      mysql-2:
+      vars:
+        my_var: 'World'
+    proxy:
+      hosts:
+        proxy-1:
 ```
 Si on lance la commande :
 ```bash
@@ -138,7 +121,7 @@ On obtient le résultat suivant :
 > 	"my_var": "!"
 > }
 
-Comme on peut le voir, un ordre de priorité s'applique de la définition la plus gloable à la plus spécifique. 
+On voit qu'un ordre de priorité s'applique. Plus la variable est définit proche de l'hôte, plus elle est prioritaires. 
 
 # Playbooks
 
