@@ -2,11 +2,14 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-22T15:19:26.990Z
+date: 2023-06-22T15:41:29.479Z
 tags: linux, command, tips&tricks
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
 ---
+
+# La pire page
+Cette page se veut d'être mal construite. L'objectif est de me permettre de déposer des commandes utiles en vue de créer des pages plus complètes. C'est une page fourre-tout.
 
 ## Obtenir la date de création du système
 ```bash
@@ -44,3 +47,41 @@ grep . /var/spool/cron/crontabs/*
 ```bash
 aws s3api put-bucket-versioning --bucket BUCKET_NAME --versioning-configuration Status=Enabled
 ```
+
+## Afficher la version de Debian
+```bash
+cat /etc/debian_version
+```
+
+## Afficher les information du noyau
+```bash
+uname -a
+```
+> -a : All
+> -r : Kernel version
+> -i : Hardware plateform
+{.is-info}
+
+## Afficher les informations Spanning Tree sous Cisco IOS
+```
+show spanning-tree
+```
+
+## Afficher les logs avec `journalctl`
+```
+journalctl
+```
+> --system : Journaux système
+> -k : Journaux du noyaux
+> -b : Journaux de démarrage
+> -S --since=DATE : Journaux depuis DATE
+> -U --until=DATE : Journaux jusqu'à DATE
+> -u --unit=UNIT : Jounaux de l'unité UNIT
+> -f --follow : Suivi en temps réel
+{.is-info}
+
+## Afficher les version et la distribution Linux
+```bash
+lsb_release -a
+```
+
