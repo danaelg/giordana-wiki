@@ -2,8 +2,8 @@
 title: Terraform
 description: 
 published: true
-date: 2023-06-22T16:40:42.129Z
-tags: iac, terraform, infrastructure
+date: 2023-06-22T16:41:11.364Z
+tags: iac, work-in-progress, terraform, infrastructure
 editor: markdown
 dateCreated: 2023-06-22T16:39:15.846Z
 ---
