@@ -2,8 +2,8 @@
 title: State Terraform
 description: 
 published: true
-date: 2023-06-22T16:27:57.068Z
-tags: terraform
+date: 2023-06-22T16:36:45.420Z
+tags: terraform, terraform_state
 editor: markdown
 dateCreated: 2023-06-22T16:27:57.068Z
 ---
