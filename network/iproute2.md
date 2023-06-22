@@ -2,7 +2,7 @@
 title: iproute2
 description: 
 published: true
-date: 2023-06-20T19:17:07.215Z
+date: 2023-06-22T15:43:30.164Z
 tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
@@ -53,6 +53,14 @@ ip link set DEVICE promisc on
 ```bash
 ip addr show
 ```
+
+## Ajouter une adresse IP à une interface
+```bash
+ip addr add IP_CIDR dev DEVICE
+```
+> IP_CIRD: Adresse IP au format CIDR (ex: 192.0.2.10/24)
+> DEVICE: Nom de l'interface
+{.is-info}
 
 # Configuration du routage
 ## Afficher la table de routage
