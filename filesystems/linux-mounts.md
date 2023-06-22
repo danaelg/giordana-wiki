@@ -2,7 +2,7 @@
 title: Montage des système de fichiers sous Linux
 description: 
 published: true
-date: 2023-06-20T13:55:38.590Z
+date: 2023-06-22T16:17:47.992Z
 tags: linux, filesystem, fstab
 editor: markdown
 dateCreated: 2023-06-20T13:15:17.460Z
@@ -13,6 +13,13 @@ Pour monter un système de fichiers sous Linux, on passe par la commande `mount`
 
 # Commande mount
 La commande `mount` permet de monter un système de fichier à chaud sans que cela ne soit persistant après un redémarrage.
+
+```bash
+mount [-o OPTIONS] DEVICE MOUNTPOINT
+```
+> *MOUNTPOINT*: doit être un dossier existant
+{.is-info}
+
 
 # Fichier /etc/fstab
 Le fichier `/etc/fstab` est une table de tableau où chaque ligne correspond à un montage. Les montages seront alors montées automatiquement au démarrage du système.
