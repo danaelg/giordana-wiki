@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-21T16:47:13.970Z
+date: 2023-06-22T16:21:21.679Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -100,6 +100,17 @@ Il faut être vigilent sur la version de cloud-init qui tourne sur l'image, car 
 
 
 Dans la suite de la documentation nous allons décrire la création d'une image (Template VMWare) à l'aide de la Datasource NoCloud qui permet de fournir les user-data soit par un ISO attaché à la VM, soit par une commande kernel ou enfin par le positionnement des fichiers dans `/var/lib/cloud/seed/cloud-net/`. C'est la datasource la plus flexible qui permet de s'adapter à n'importe quel provider (VMWare, Nutanix, Proxmox, etc.)
+
+# Commandes
+## Effacer la configuration cloud-init
+```bash
+cloud-init clean
+```
+
+## Lancer la configuration cloud-init
+```
+cloud-init init
+```
 
 # Références
 - https://cloudinit.readthedocs.io/
