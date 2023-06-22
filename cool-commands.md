@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-22T16:16:09.283Z
+date: 2023-06-22T16:19:03.160Z
 tags: linux, command, tips&tricks
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -129,7 +129,17 @@ tar -xf <archive>
 show spanning-tree
 ```
 
+## Sauvegarder la configuration d'un équipement Cisco IOS
+```
+# copy running-config startup-config
+```
+
 ## Annuler les changements effectué sous Cisco IOS
 ```
 # copy startup-config running-config
+```
+
+## Réinitialiser la configuration d'un équipement Cisco IOS
+```
+# erase startup-config
 ```
