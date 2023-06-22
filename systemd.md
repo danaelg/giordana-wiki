@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-22T18:49:04.579Z
+date: 2023-06-22T18:58:40.244Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -23,6 +23,11 @@ A ce sujet, les discussions sur le choix du système de démarrage par défaut d
 Lennart Poettering, créateur de systemd, exprime son point de vue dans un article répondant aux critiques qui lui sont faites : http://0pointer.de/blog/projects/the-biggest-myths.html
 
 # Autres composants
+- [systemd-journald](/systemd/journald)
+- [systemd-hostnamed](/systemd/hostnamed)
+- [systemd-timedated](systemd/timedated)
+- [systemd-timesyncd](systemd/timesyncd)
+{.links-list}
 
 # Références
 - https://systemd.io/
