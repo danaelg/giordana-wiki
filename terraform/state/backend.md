@@ -2,8 +2,8 @@
 title: Backend Terraform
 description: 
 published: true
-date: 2023-06-22T16:36:19.663Z
-tags: terraform, state
+date: 2023-06-22T16:37:06.962Z
+tags: terraform, terraform_state, terraform_backend
 editor: markdown
 dateCreated: 2023-06-22T16:36:19.663Z
 ---
