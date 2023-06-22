@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-22T15:41:29.479Z
+date: 2023-06-22T16:16:09.283Z
 tags: linux, command, tips&tricks
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -11,6 +11,7 @@ dateCreated: 2023-06-20T13:25:40.644Z
 # La pire page
 Cette page se veut d'être mal construite. L'objectif est de me permettre de déposer des commandes utiles en vue de créer des pages plus complètes. C'est une page fourre-tout.
 
+# En vrac
 ## Obtenir la date de création du système
 ```bash
 df / | awk '{print $1}' | grep dev | xargs tune2fs -l | grep create
@@ -62,11 +63,6 @@ uname -a
 > -i : Hardware plateform
 {.is-info}
 
-## Afficher les informations Spanning Tree sous Cisco IOS
-```
-show spanning-tree
-```
-
 ## Afficher les logs avec `journalctl`
 ```
 journalctl
@@ -85,3 +81,55 @@ journalctl
 lsb_release -a
 ```
 
+## Changer de hostname sous Linux avec `hostname`
+```bash
+hostname HOSTNAME
+```
+
+## Changer de hostname sous Linux avec `hostnamectl`
+```bash
+hostnamectl set-hostname HOSTNAME
+```
+
+## Déterminer le système de fichiers d'une partition sous Linux
+```bash
+file -s -L DEVICE
+```
+> L'option `-L` permet de suivre les liens symbolique (pratique pour les volumes logiques)
+{.is-info}
+
+# timedatectl
+## Changer le fuseau horaire
+```
+timedatectl set-timezone TIMEZONE
+```
+
+## Lister les fuseaux horaire
+```bash
+timedatectl list-timezones
+```
+
+# Tar
+## Créer une archive avec Tar
+```bash
+tar -cf FILE FOLDER
+```
+> *FILE*: nom de l'archive (par convention on met l'extension .tar) 
+> *FOLDER*: dossier à archiver
+{.is-info}
+
+## Extraire une archive avec Tar
+```bash
+tar -xf <archive>
+```
+
+# Cisco IOS
+## Afficher les informations Spanning Tree sous Cisco IOS
+```
+show spanning-tree
+```
+
+## Annuler les changements effectué sous Cisco IOS
+```
+# copy startup-config running-config
+```
