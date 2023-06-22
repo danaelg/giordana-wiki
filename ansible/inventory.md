@@ -2,8 +2,8 @@
 title: Inventaires
 description: 
 published: true
-date: 2023-06-21T06:49:31.521Z
-tags: ansible, inventory
+date: 2023-06-22T19:04:48.581Z
+tags: ansible, ansible_inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
 ---
