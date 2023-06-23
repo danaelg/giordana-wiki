@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-06-22T19:07:20.892Z
+date: 2023-06-23T06:42:20.874Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -16,3 +16,4 @@ Jeune administrateur système Linux, je viens d'une formation système & réseau
 
 # Liens
 - [Sources du wiki - Github](https://github.com/danaelg/giordana-wiki)
+{.links-list}
