@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T07:52:04.131Z
+date: 2023-06-23T07:56:11.699Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -44,7 +44,7 @@ Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être p
 - `/usr/lib/systemd/user/*`
 - `$XDG_RUNTIME_DIR/systemd/generator.late/*`
 
-Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)).
+Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
 
 ## Types d'unit
 Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**.
