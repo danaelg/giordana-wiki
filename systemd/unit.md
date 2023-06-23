@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T06:40:42.129Z
+date: 2023-06-23T06:45:29.183Z
 tags: systemd, systemd.unit
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -12,7 +12,7 @@ dateCreated: 2023-06-23T06:25:09.939Z
 Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
 
 
-sont les fichiers contient les informations à propos d'un *service*, *socket*, *périphérique*, *point de montage*, *point de montage automatique*, *partitions*, *fichier swap*, *target*, *timer ou d'une surveillance de fichier ou dossier*.
+Les units sont les fichiers contenant les informations à propos d'un *service*, *socket*, *périphérique*, *point de montage*, *point de montage automatique*, *partitions*, *fichier swap*, *target*, *timer ou d'une surveillance de fichier ou dossier*.
 
 En d'autres termes, un élément géré par systemd s'appelle un *unit*.
 
