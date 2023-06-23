@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T06:46:51.928Z
+date: 2023-06-23T07:35:25.378Z
 tags: systemd, systemd.unit
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
