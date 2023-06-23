@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T08:20:04.979Z
+date: 2023-06-23T20:22:33.258Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -55,6 +55,7 @@ Pour plus d'info sur la syntaxe, référez-vous à la documentation :
 {.links-list}
 
 ### Section [Unit]
+à compléter
 - [systemd.unit - [Unit] Section Option - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
 {.links-list}
 
