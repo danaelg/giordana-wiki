@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-22T18:58:40.244Z
+date: 2023-06-23T06:15:36.722Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -21,6 +21,15 @@ Bien que systemd soit devenu incourtounable sous Linux, il est souvent sujet à 
 
 A ce sujet, les discussions sur le choix du système de démarrage par défaut de Debian sont très intéressantes : https://wiki.debian.org/Debate/initsystem
 Lennart Poettering, créateur de systemd, exprime son point de vue dans un article répondant aux critiques qui lui sont faites : http://0pointer.de/blog/projects/the-biggest-myths.html
+
+# Fonctionnement
+A compléter
+## Unit
+Les éléments gérés par systemd sont appelé des **unit**. Il s'agit d'un fichier texte qui contient les informations à propos d'un *service*, *socket*, *périphérique*, *point de montage*, *point de montage automatique*, *partitions*, *fichier swap*, *target*, *timer* ou d'une *surveillance de fichier ou dossier*
+
+En savoir plus : 
+- [systemd.unit](/systemd/unit)
+{.links-list}
 
 # Autres composants
 - [systemd-journald](/systemd/journald)
