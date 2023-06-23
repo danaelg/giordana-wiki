@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-23T06:53:08.415Z
+date: 2023-06-23T06:53:25.844Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -10,7 +10,7 @@ dateCreated: 2023-06-21T10:44:17.213Z
 
 # Introduction
 
-Cloud-init est un outil d'initialisation d'instances. Il permet la configuration des paramètres de base (hostname, réseau, utilisateurs) d'une image (template VMWare, image d'instance EC2, etc.).
+Cloud-init est un outil d'initialisation d'instances développé par Canoncial. Il permet la configuration des paramètres de base (hostname, réseau, utilisateurs) d'une image (template VMWare, image d'instance EC2, etc.).
 
 Cela permet d'avoir une VM prête à l'emploi pour la configuration finale. Ainsi le périmètre de cloud-init est assez large en allant de la configuration réseau jusqu'aux packages en passant par les utilisateurs. Une liste plus exhaustive se trouve ici : [Module reference - coud-init documentation](https://cloudinit.readthedocs.io/en/latest/reference/modules.html).
 
