@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T06:45:57.394Z
+date: 2023-06-23T06:46:51.928Z
 tags: systemd, systemd.unit
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -28,7 +28,7 @@ Il existe plusieurs type d'unit qui répondent à des besoins différents. Les t
 {.links-list}
 
 # Générateur d'unit
-Les générateurs d'unit sont des exécutables placé par exempel dans `/usr/lib/systemd/system-generators/`. Systemd les exécute à un stade précoce du démarrage, avant même que les units soient chargées. Leur objectif est de générer dynamiquement des fichiers units.
+Les générateurs d'unit sont des exécutables placé par exemple dans `/usr/lib/systemd/system-generators/`. Systemd les exécute à un stade précoce du démarrage, avant même que les units soient chargées. Leur objectif est de générer dynamiquement des fichiers units.
 
 En savoir plus :
 - [systemd.generator](/systemd/unit/generator)
