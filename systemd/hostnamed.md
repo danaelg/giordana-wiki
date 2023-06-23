@@ -2,7 +2,7 @@
 title: Service hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:21:34.390Z
+date: 2023-06-23T19:23:46.834Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
@@ -12,7 +12,7 @@ dateCreated: 2023-06-23T17:59:09.765Z
 Le service systemd *systemd-hostnamed* est un service permettant de gérer le nom d'hôte.
 
 # Fonctionnement
-Le service fournit une interface [D-Bus](https://en.wikipedia.org/wiki/D-Bus) pour gérer le nom d'hôte au travers de cinq variables :
+Le service fournit une interface [D-Bus](https://en.wikipedia.org/wiki/D-Bus) pour gérer le nom d'hôte au travers de plusieurs variables :
 - **Hostname**: Hostname courant 
 - **StaticHostname**: Hostname statique défini dans `/etc/hostname`
 - **PrettyHostname**: Hostname sour forme libre UTF8 
@@ -31,7 +31,7 @@ La commande `hostnamectl` est le programme client du service *systemd-hostnamed*
 
 ## Changer de hostname sous Linux avec hostnamectl
 ```bash
-hostnamectl set-hostname HOSTNAME
+hostnamectl hostname HOSTNAME
 ```
 
 # Références
