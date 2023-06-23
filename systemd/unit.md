@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T07:56:11.699Z
+date: 2023-06-23T08:18:27.574Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -12,6 +12,7 @@ dateCreated: 2023-06-23T06:25:09.939Z
 Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
 
 # Configuration
+## Emplacement et nommage
 Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire :
 **Unit système**:
 - `/etc/systemd/system.control/*`
@@ -46,7 +47,16 @@ Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être p
 
 Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
 
-## Types d'unit
+## Syntaxe
+La syntaxe est celle d'un fichier INI, voir [systemd.syntax - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.syntax.html#) pour plus de détail.
+
+## Sections
+Les sections regroupent un ensemble d'options `key=value`. Chaque section porte un nom spécifique, s'il est préfixé de `x-` la section est ignoré par systemd, de même pour les nom des options.
+### Section [Unit]
+- [systemd.unit - [Unit] Section Option - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
+{.links-list}
+
+# Types d'unit
 Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**.
 
 - [systemd.service](/systemd/unit/service)
