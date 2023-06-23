@@ -2,7 +2,7 @@
 title: Service hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:28:11.017Z
+date: 2023-06-23T19:32:22.303Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
@@ -29,10 +29,12 @@ Pour en savoir plus :
 # Commandes
 La commande `hostnamectl` est le programme client du service *systemd-hostnamed*.
 
-## Changer de hostname sous Linux avec hostnamectl
+## Changer le hostname 
 ```bash
 hostnamectl hostname HOSTNAME
 ```
+> Cela affecte également le hostname courant et le hostname sous forme libre (`PrettyHostname`) 
+{.is-info}
 
 # Références
 - [systemd-hostnamed.service - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd-hostnamed.service.html)
