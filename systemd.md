@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-23T06:25:37.512Z
+date: 2023-06-23T06:27:35.892Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -40,6 +40,6 @@ En savoir plus :
 
 # Références
 - https://systemd.io/
-- http://0pointer.de/blog/projects/systemd.html
-- https://en.wikipedia.org/wiki/Systemd
+- [Rethinking PID 1 - Pid Eins](http://0pointer.de/blog/projects/systemd.html)
+- [systemd - Wikipedia](https://en.wikipedia.org/wiki/Systemd)
 {.links-list}
