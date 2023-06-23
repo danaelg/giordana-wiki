@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-06-23T20:10:01.159Z
+date: 2023-06-23T20:11:13.841Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -37,8 +37,8 @@ Dernière raison, il est probable que le contenu de ce wiki puisse être utile �
 # Navigation
 Trois solutions sont possibles pour trouver de l'informations :
 1. La barre de navigation à gauche
-2. La recherche par tag
-3. La recherche en haut (recherche de contenu)
+2. La recherche de contenu via la barre de recherche en haut
+3. La recherche par tag via le petit bouton à droite de la barre de recherche
 
 # Qui suis-je ?
 Je suis un jeune administrateur système Linux, je viens d'une formation système & réseaux. J'affectionne particulièrement ce qui touche à l'automatisation et l'optimisation des processus métiers.
