@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-23T06:53:25.844Z
+date: 2023-06-23T06:54:36.115Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -119,5 +119,6 @@ cloud-init init
 ```
 
 # Références
-- https://cloudinit.readthedocs.io/
+- [cloud-init documentation](https://cloudinit.readthedocs.io/)
+- [canonical/cloud-init - Github](https://github.com/canonical/cloud-init)
 {.links-list}
