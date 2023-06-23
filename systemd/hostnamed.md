@@ -2,7 +2,7 @@
 title: Service hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:27:30.698Z
+date: 2023-06-23T19:28:11.017Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
@@ -21,7 +21,7 @@ Le service fournit une interface [D-Bus](https://en.wikipedia.org/wiki/D-Bus) po
 - **Deployment**: Environnement de déploiement (ex: *production*, *development*, *integration*, *staging*)
 - **Location**: Emplacement, doit être une chaîne de caratère sous forme libre 
 
-Voir aussi :
+Pour en savoir plus :
 - [org.freedesktop.hostname1 - D-Bus Interface of systemd-hostnamed - freedesktop](https://www.freedesktop.org/software/systemd/man/org.freedesktop.hostname1.html)
 - [D-Bus - Wikipedia](https://en.wikipedia.org/wiki/D-Bus)
 {.links-list}
