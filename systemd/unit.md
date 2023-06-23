@@ -2,8 +2,8 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T07:35:25.378Z
-tags: systemd, systemd.unit
+date: 2023-06-23T07:51:04.197Z
+tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
 ---
@@ -11,7 +11,42 @@ dateCreated: 2023-06-23T06:25:09.939Z
 # Introduction
 Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
 
-# Types d'unit
+# Configuration
+Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire :
+**Unit système**:
+- `/etc/systemd/system.control/*`
+- `/run/systemd/system.control/*`
+- `/run/systemd/transient/*`
+- `/run/systemd/generator.early/*`
+- `/etc/systemd/system/*`
+- `/etc/systemd/system.attached/*`
+- `/run/systemd/system/*`
+- `/run/systemd/system.attached/*`
+- `/run/systemd/generator/*`
+- …
+- `/usr/lib/systemd/system/*`
+- `/run/systemd/generator.late/*`
+
+**Unit utilisateur**:
+- `~/.config/systemd/user.control/*`
+- `$XDG_RUNTIME_DIR/systemd/user.control/*`
+- `$XDG_RUNTIME_DIR/systemd/transient/*`
+- `$XDG_RUNTIME_DIR/systemd/generator.early/*`
+- `~/.config/systemd/user/*`
+- `$XDG_CONFIG_DIRS/systemd/user/*`
+- `/etc/systemd/user/*`
+- `$XDG_RUNTIME_DIR/systemd/user/*`
+- `/run/systemd/user/*`
+- `$XDG_RUNTIME_DIR/systemd/generator/*`
+- `$XDG_DATA_HOME/systemd/user/*`
+- `$XDG_DATA_DIRS/systemd/user/*`
+- …
+- `/usr/lib/systemd/user/*`
+- `$XDG_RUNTIME_DIR/systemd/generator.late/*`
+
+Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf [type d'unit](/systemd/unit#type-d-unit))
+
+## Types d'unit
 Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**.
 
 - [systemd.service](/systemd/unit/service)
