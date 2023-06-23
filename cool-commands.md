@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-22T16:20:10.442Z
+date: 2023-06-23T17:59:06.016Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -84,11 +84,6 @@ lsb_release -a
 ## Changer de hostname sous Linux avec `hostname`
 ```bash
 hostname HOSTNAME
-```
-
-## Changer de hostname sous Linux avec `hostnamectl`
-```bash
-hostnamectl set-hostname HOSTNAME
 ```
 
 ## Déterminer le système de fichiers d'une partition sous Linux
