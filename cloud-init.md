@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-22T16:21:21.679Z
+date: 2023-06-23T06:53:08.415Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -29,7 +29,13 @@ Pour assurer l'initialisation d'une instance, Cloud-Init va intervenir à diffé
 {.links-list}
 
 ## Generator
-A compléter
+Lorsque le système utilise [systemd](/systemd), ce dernier exécutera le script [cloud-init-generator](https://github.com/dmsimard/cloud-init/blob/master/systemd/cloud-init-generator) qui permet de générer la target *cloud-init.target*
+
+### Voir aussi :
+- [systemd.unit](/systemd/unit)
+- [systemd.generator](/systemd/unit/generator)
+- [systemd.target](/systemd/unit/target)
+{.links-list}
 
 ## Local
 | --- | --- |
