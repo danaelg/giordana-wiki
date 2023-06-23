@@ -2,7 +2,7 @@
 title: Service hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:23:46.834Z
+date: 2023-06-23T19:27:08.226Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
@@ -36,4 +36,6 @@ hostnamectl hostname HOSTNAME
 
 # Références
 - [systemd-hostnamed.service - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd-hostnamed.service.html)
+- [hostnamectl - freedesktop](https://www.freedesktop.org/software/systemd/man/hostnamectl.html)
+- [org.freedesktop.hostname1 - D-Bus Interface of systemd-hostnamed - freedesktop](https://www.freedesktop.org/software/systemd/man/org.freedesktop.hostname1.html)
 {.links-list}
