@@ -2,8 +2,8 @@
 title: Générateur d'unit systemd
 description: 
 published: true
-date: 2023-06-23T06:36:48.567Z
-tags: systemd, systemd_unit
+date: 2023-06-23T06:40:56.504Z
+tags: systemd, systemd.unit
 editor: markdown
 dateCreated: 2023-06-23T06:36:48.567Z
 ---
