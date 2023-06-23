@@ -2,7 +2,7 @@
 title: Service hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:32:22.303Z
+date: 2023-06-23T19:34:52.134Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
@@ -33,7 +33,7 @@ La commande `hostnamectl` est le programme client du service *systemd-hostnamed*
 ```bash
 hostnamectl hostname HOSTNAME
 ```
-> Cela affecte également le hostname courant et le hostname sous forme libre (`PrettyHostname`) 
+> Cela affecte également le hostname courant (`StaticHostname`) et le hostname sous forme libre (`PrettyHostname`) 
 {.is-info}
 
 # Références
