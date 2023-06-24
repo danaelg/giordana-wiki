@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-23T18:00:20.957Z
+date: 2023-06-24T21:44:52.531Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -14,29 +14,31 @@ Systemd est un ensemble composants logiciel destiné aux systèmes Linux. Il s'a
 Les autres composants de systemd permettent la gestion de la journalisation des services ou la gestion basique du système tel que le nom d'hôte, la date, les locales, la connexion utilisateur, le réseau, la synchronisation temporelle par le réseau, les points de montage, la résolution de nom...
 
 # Fonctionnalités
-L'une des fonctionnalité phare de systemd est la parallélisation du démarrage des services. C'est ce qui a permis d'accélérer significativement le démarrage du système compaéré à SysV.
+L'une des fonctionnalité phare de systemd est la parallélisation du démarrage des services. C'est ce qui a permis d'accélérer significativement le démarrage du système compaéré à SysV (en plus de ne pas se baser sur des scripts shell).
+
+# Fonctionnement
+Systemd est construit autour des *units*. Il en existe de nombreux types, on peut citer par exemple les *service*, *socket*, *périphérique* ou *target*.
+
+En savoir plus : 
+- [systemd.unit](/systemd/unit)
+{.links-list}
+
+# Autres services
+Systemd se voulant être une suite logiciels permettant de gérer le système dans son ensemble, ce dernier intègre des services supplémentaires pour gérer par exemple la journalisation et ou le nom d'hôte.
+
+Vous pouvez retrouver les pages de ces différents services :
+
+- [systemd-journald](/systemd/journald)
+- [systemd-hostnamed](/systemd/hostnamed)
+- [systemd-timedated](systemd/timedated)
+- [systemd-timesyncd](systemd/timesyncd)
+{.links-list}
 
 # Critiques
 Bien que systemd soit devenu incourtounable sous Linux, il est souvent sujet à des critiques certains se tournant alors vers des distributions sans systemd (*Systemd-Free Linux Distributions*) voire même vers des système BSD.
 
 A ce sujet, les discussions sur le choix du système de démarrage par défaut de Debian sont très intéressantes : https://wiki.debian.org/Debate/initsystem
 Lennart Poettering, créateur de systemd, exprime son point de vue dans un article répondant aux critiques qui lui sont faites : http://0pointer.de/blog/projects/the-biggest-myths.html
-
-# Fonctionnement
-A compléter
-## Unit
-Les éléments gérés par systemd sont appelé des **unit**. Il s'agit d'un fichier texte qui contient les informations à propos d'un *service*, *socket*, *périphérique*, *point de montage*, *point de montage automatique*, *partitions*, *fichier swap*, *target*, *timer* ou d'une *surveillance de fichier ou dossier*
-
-En savoir plus : 
-- [systemd.unit](/systemd/unit)
-{.links-list}
-
-# Autres composants
-- [systemd-journald](/systemd/journald)
-- [systemd-hostnamed](/systemd/hostnamed)
-- [systemd-timedated](systemd/timedated)
-- [systemd-timesyncd](systemd/timesyncd)
-{.links-list}
 
 # Références
 - https://systemd.io/
