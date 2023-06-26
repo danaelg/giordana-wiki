@@ -2,14 +2,14 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-26T13:32:19.195Z
+date: 2023-06-26T18:16:45.321Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
 ---
 
 # Introduction
-Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
+Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent la configuration de l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
 
 # Types d'unit
 Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**.
