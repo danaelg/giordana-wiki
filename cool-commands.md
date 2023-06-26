@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-26T04:57:49.188Z
+date: 2023-06-26T06:11:31.904Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -93,6 +93,14 @@ file -s -L DEVICE
 > L'option `-L` permet de suivre les liens symbolique (pratique pour les volumes logiques)
 {.is-info}
 
+## Définir la date ou l'heure manuellement avec `date`
+```bash
+date --set {HH:mm:ss | YYYY-MM-DD}
+```
+> Remplacer `HH:mm:ss` par l'heure, par exemple `22:04:25` pour 22h04 et 25s
+> Remplacer `YYYY-MM-DD` par la date, par exemple `2023-06-23` pour le 23 juin 2023
+{.is-info}
+
 # timedatectl
 ## Changer le fuseau horaire
 ```
@@ -103,6 +111,13 @@ timedatectl set-timezone TIMEZONE
 ```bash
 timedatectl list-timezones
 ```
+
+## Définir l'heure manuellement
+```bash
+timedatectl set-time HH:mm:ss
+```
+> Remplacer `HH:mm:ss` par l'heure, par exemple `22:04:25` pour 22h04 et 25s
+{.is-info}
 
 # Tar
 ## Créer une archive avec Tar
