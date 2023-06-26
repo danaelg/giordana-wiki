@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-24T21:44:52.531Z
+date: 2023-06-26T06:19:29.405Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -30,8 +30,8 @@ Vous pouvez retrouver les pages de ces différents services :
 
 - [systemd-journald](/systemd/journald)
 - [systemd-hostnamed](/systemd/hostnamed)
-- [systemd-timedated](systemd/timedated)
-- [systemd-timesyncd](systemd/timesyncd)
+- [systemd-timedated](/systemd/timedated)
+- [systemd-timesyncd](/systemd/timesyncd)
 {.links-list}
 
 # Critiques
