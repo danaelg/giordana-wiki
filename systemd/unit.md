@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-26T13:24:52.509Z
+date: 2023-06-26T13:29:15.094Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -28,9 +28,10 @@ Il existe plusieurs type d'unit qui répondent à des besoins différents. Les t
 {.links-list}
 
 # Configuration
-## Emplacement et nommage
+## Emplacement
 Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire, le plus courant étant : `/etc/systemd/system`
 
+## Nommage
 Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
 
 ## Sections
@@ -54,7 +55,9 @@ La liste complète des options se trouve ici :
 - [systemd.unit - [Unit] Section Options - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
 {.links-list}
 
-Pour avoir des exemples de configuration, référez-vous aux pages par type d'unit ([type d'unit](/systemd/unit#types-dunit))
+### Section [Install]
+à compléter
+
 
 # Générateur d'unit
 Les générateurs d'unit sont des exécutables placé par exemple dans `/usr/lib/systemd/system-generators/`. Systemd les exécute à un stade précoce du démarrage, avant même que les units soient chargées. Leur objectif est de générer dynamiquement des fichiers units.
