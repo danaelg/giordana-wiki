@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-26T06:47:26.398Z
+date: 2023-06-26T06:48:41.426Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -14,6 +14,7 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 # Liens en vrac
 ## SNMP MIB Explorer
 - https://mib-explorer.com
+- https://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/
 
 # Commandes En vrac
 ## Obtenir la date de création du système
