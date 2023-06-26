@@ -2,7 +2,7 @@
 title: Montage des système de fichiers sous Linux
 description: 
 published: true
-date: 2023-06-22T16:17:47.992Z
+date: 2023-06-26T06:06:33.187Z
 tags: linux, filesystem, fstab
 editor: markdown
 dateCreated: 2023-06-20T13:15:17.460Z
@@ -22,9 +22,10 @@ mount [-o OPTIONS] DEVICE MOUNTPOINT
 
 
 # Fichier /etc/fstab
-Le fichier `/etc/fstab` est une table de tableau où chaque ligne correspond à un montage. Les montages seront alors montées automatiquement au démarrage du système.
+Le fichier `/etc/fstab` est une table où chaque ligne correspond à un montage. Les montages seront alors montées automatiquement au démarrage du système.
 
 ## Syntaxe
+Chaque ligne doit comporter les éléments suivant. Chaque colonne est séparé par un espace ou une tabulation. 
 ```
 DEVICE    MOUNTPOINT    TYPE    OPTIONS    DUMP    PASS
 ```
@@ -37,3 +38,11 @@ DEVICE    MOUNTPOINT    TYPE    OPTIONS    DUMP    PASS
 - *OPTIONS*:	indique les options au montage.
 - *DUMP*:	définit les sauvegardes via l'utilitaire dump. La valeur classique est 0 (pas de dump).
 - *PASS*:	règle la priorité de vérification des erreurs éventuelles du système de fichiers au démarrage. (0 : pas de vérification, 1 priorité haute, 2 priorité moins haute, etc.)
+
+## Exemple
+```fstab
+/dev/mapper/almalinux-root 								/				xfs	defaults	0 0
+UUID=0e16428e-9a5a-466b-a73e-1ec60a234199 /boot		xfs	defaults	0 0
+/dev/mapper/almalinux-home								/home		xfs defaults	0 0
+/dev/mapper/almalinux-var									/var		xfs defaults	0 0
+```
