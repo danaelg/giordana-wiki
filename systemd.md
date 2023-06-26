@@ -2,8 +2,8 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-26T13:30:26.924Z
-tags: linux, systemd, software
+date: 2023-06-26T18:15:54.341Z
+tags: linux, systemd, software, systemctl
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
 ---
