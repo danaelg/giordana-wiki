@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-26T13:29:15.094Z
+date: 2023-06-26T13:32:19.195Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -37,7 +37,7 @@ Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l
 ## Sections
 Comme pour tous les fichiers INI, les sections regroupent un ensemble d'options `key=value`. Chaque section porte un nom spécifique, s'il est préfixé de `x-` la section est ignoré par systemd, de même pour les nom des options.
 
-Nous ne décrirons que la section `[Unit]`, les autres sections sont spécifiques à chaque type d'unit (cf. [type d'unit](/systemd/unit#types-dunit)).
+Nous ne décrirons que la section `[Unit]` et `[Install]`, les autres sections sont spécifiques à chaque type d'unit (cf. [type d'unit](/systemd/unit#types-dunit)).
 
 Pour plus d'info sur la syntaxe, référez-vous à la documentation : 
 - [systemd.syntax - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.syntax.html#)
