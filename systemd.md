@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-26T13:30:02.277Z
+date: 2023-06-26T13:30:26.924Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -40,11 +40,6 @@ systemd peut se contrôler avec la commande `systemctl`
 ## Afficher le version de systemd
 ```bash
 systemctl --version
-```
-
-## Afficher la configuration d'un unit
-```bash
-systemctl cat UNIT
 ```
 
 # Critiques
