@@ -1,8 +1,8 @@
 ---
-title: Service hostnamed systemd
+title: hostnamed systemd
 description: 
 published: true
-date: 2023-06-23T19:34:52.134Z
+date: 2023-06-26T06:18:50.525Z
 tags: systemd, systemd-hostnamed, hostnamectl
 editor: markdown
 dateCreated: 2023-06-23T17:59:09.765Z
