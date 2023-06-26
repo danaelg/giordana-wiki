@@ -1,17 +1,21 @@
 ---
-title: Commandes cool 😎
+title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-26T06:11:31.904Z
+date: 2023-06-26T06:47:26.398Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
 ---
 
 # La pire page
-Cette page se veut d'être mal construite. L'objectif est de me permettre de déposer des commandes utiles en vue de créer des pages plus complètes. C'est une page fourre-tout.
+Cette page se veut d'être mal construite. L'objectif est de me permettre de déposer des commandes ou des liens utiles en vue de créer des pages plus complètes. C'est une page fourre-tout.
 
-# En vrac
+# Liens en vrac
+## SNMP MIB Explorer
+- https://mib-explorer.com
+
+# Commandes En vrac
 ## Obtenir la date de création du système
 ```bash
 df / | awk '{print $1}' | grep dev | xargs tune2fs -l | grep create
