@@ -2,7 +2,7 @@
 title: Service timesyncd systemd
 description: 
 published: true
-date: 2023-06-26T06:27:48.608Z
+date: 2023-06-26T06:46:19.030Z
 tags: systemd, systemd-timesyncd, timedatectl
 editor: markdown
 dateCreated: 2023-06-26T06:27:08.128Z
