@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-26T07:29:35.613Z
+date: 2023-06-26T12:03:48.336Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -11,10 +11,10 @@ dateCreated: 2023-06-22T18:49:04.579Z
 # Introduction
 Systemd est un ensemble composants logiciel destiné aux systèmes Linux. Il s'agit avant tout d'un gestionnaire de système et de services s'exécutant en tant que PID 1 et assurant le démarrage du système. Il se veut être le remplaçant SysV.
 
-Les autres composants de systemd permettent la gestion de la journalisation des services ou la gestion basique du système tel que le nom d'hôte, la date, les locales, la connexion utilisateur, le réseau, la synchronisation temporelle par le réseau, les points de montage, la résolution de nom...
+Il propose également des services permettant la gestion de la journalisation des services du nom d'hôte, de la date, des locales, de la connexion utilisateur, du réseau, etc.
 
 # Fonctionnalités
-L'une des fonctionnalité phare de systemd est la parallélisation du démarrage des services. C'est ce qui a permis d'accélérer significativement le démarrage du système compaéré à SysV (en plus de ne pas se baser sur des scripts shell).
+L'une des fonctionnalité phare de systemd est la parallélisation du démarrage des services. C'est ce qui a permis d'accélérer significativement le démarrage du système comparé à SysV (en plus de ne pas se baser sur des scripts shell).
 
 # Fonctionnement
 Systemd est construit autour des *units*. Il en existe de nombreux types, on peut citer par exemple les *service*, *socket*, *périphérique* ou *target*.
