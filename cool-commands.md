@@ -2,7 +2,7 @@
 title: Commandes cool 😎
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-26T04:57:17.081Z
+date: 2023-06-26T04:57:49.188Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -117,11 +117,17 @@ tar -cf FILE FOLDER
 ```bash
 tar -xf FILE
 ```
+> *FILE*: nom de l'archive (par convention on met l'extension .tar) 
+> *FOLDER*: dossier à archiver
+{.is-info}
 
 ## Afficher le contenu du d'une archive avec Tar
 ```bash
 tar -tf FILE
 ```
+> *FILE*: nom de l'archive (par convention on met l'extension .tar) 
+> *FOLDER*: dossier à archiver
+{.is-info}
 
 # Cisco IOS
 ## Afficher les informations Spanning Tree sous Cisco IOS
