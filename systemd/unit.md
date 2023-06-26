@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-23T20:22:37.067Z
+date: 2023-06-26T12:22:58.022Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -13,37 +13,7 @@ Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers tex
 
 # Configuration
 ## Emplacement et nommage
-Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire :
-**Unit système**:
-- `/etc/systemd/system.control/*`
-- `/run/systemd/system.control/*`
-- `/run/systemd/transient/*`
-- `/run/systemd/generator.early/*`
-- `/etc/systemd/system/*`
-- `/etc/systemd/system.attached/*`
-- `/run/systemd/system/*`
-- `/run/systemd/system.attached/*`
-- `/run/systemd/generator/*`
-- …
-- `/usr/lib/systemd/system/*`
-- `/run/systemd/generator.late/*`
-
-**Unit utilisateur**:
-- `~/.config/systemd/user.control/*`
-- `$XDG_RUNTIME_DIR/systemd/user.control/*`
-- `$XDG_RUNTIME_DIR/systemd/transient/*`
-- `$XDG_RUNTIME_DIR/systemd/generator.early/*`
-- `~/.config/systemd/user/*`
-- `$XDG_CONFIG_DIRS/systemd/user/*`
-- `/etc/systemd/user/*`
-- `$XDG_RUNTIME_DIR/systemd/user/*`
-- `/run/systemd/user/*`
-- `$XDG_RUNTIME_DIR/systemd/generator/*`
-- `$XDG_DATA_HOME/systemd/user/*`
-- `$XDG_DATA_DIRS/systemd/user/*`
-- …
-- `/usr/lib/systemd/user/*`
-- `$XDG_RUNTIME_DIR/systemd/generator.late/*`
+Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire, le plus courant étant : `/etc/systemd/system`
 
 Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
 
@@ -55,7 +25,7 @@ Pour plus d'info sur la syntaxe, référez-vous à la documentation :
 {.links-list}
 
 ### Section [Unit]
-à compléter
+
 - [systemd.unit - [Unit] Section Option - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
 {.links-list}
 
@@ -86,6 +56,11 @@ En savoir plus :
 ## Lister les units
 ```bash
 systemctl list-units
+```
+
+## Lister les répertoires de chargement des units
+```bash
+systemd-analyze unit-paths
 ```
 
 # Références
