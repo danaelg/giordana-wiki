@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-26T06:27:19.937Z
+date: 2023-06-26T07:29:35.613Z
 tags: linux, systemd, software
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -33,6 +33,14 @@ Vous pouvez retrouver les pages de ces différents services :
 - [systemd-timedated](/systemd/timedated)
 - [systemd-timesyncd](/systemd/timesyncd)
 {.links-list}
+
+# Commandes
+systemd peut se contrôler avec la commande `systemctl`
+
+## Afficher le version de systemd
+```bash
+systemctl --version
+```
 
 # Critiques
 Bien que systemd soit devenu incourtounable sous Linux, il est souvent sujet à des critiques certains se tournant alors vers des distributions sans systemd (*Systemd-Free Linux Distributions*) voire même vers des système BSD.
