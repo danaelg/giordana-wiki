@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-26T18:16:45.321Z
+date: 2023-06-27T15:20:45.681Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -10,22 +10,6 @@ dateCreated: 2023-06-23T06:25:09.939Z
 
 # Introduction
 Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers textes qui décrivent la configuration de l'élément. On trouve plusieurs type d'unit, les plus courant étant les *targets* ou les *services*.
-
-# Types d'unit
-Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**.
-
-- [systemd.service](/systemd/unit/service)
-- [systemd.socket](/systemd/unit/socket)
-- [systemd.device](/systemd/unit/device)
-- [systemd.mount](/systemd/unit/mount)
-- [systemd.automount](/systemd/unit/automount)
-- [systemd.swap](/systemd/unit/swap)
-- [systemd.target](/systemd/unit/target)
-- [systemd.path](/systemd/unit/path)
-- [systemd.timer](/systemd/unit/timer)
-- [systemd.slice](/systemd/unit/slice)
-- [systemd.scope](/systemd/unit/scope)
-{.links-list}
 
 # Configuration
 ## Emplacement
@@ -64,6 +48,22 @@ Les générateurs d'unit sont des exécutables placé par exemple dans `/usr/lib
 
 En savoir plus :
 - [systemd.generator](/systemd/unit/generator)
+{.links-list}
+
+# Types d'unit
+Il existe plusieurs type d'unit qui répondent à des besoins différents. Les type que l'on retrouve le plus courrament sont les **target** et les **service**. Chaque type d'unit peut ajouter ses propres sections. Référez-vous à la page du type d'unit que vous voulez créer.
+
+- [systemd.service](/systemd/unit/service)
+- [systemd.socket](/systemd/unit/socket)
+- [systemd.device](/systemd/unit/device)
+- [systemd.mount](/systemd/unit/mount)
+- [systemd.automount](/systemd/unit/automount)
+- [systemd.swap](/systemd/unit/swap)
+- [systemd.target](/systemd/unit/target)
+- [systemd.path](/systemd/unit/path)
+- [systemd.timer](/systemd/unit/timer)
+- [systemd.slice](/systemd/unit/slice)
+- [systemd.scope](/systemd/unit/scope)
 {.links-list}
 
 # Commandes
