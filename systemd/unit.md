@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-27T20:14:46.122Z
+date: 2023-06-27T20:16:22.982Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -48,7 +48,7 @@ La liste complète des options se trouve ici :
 à compléter
 
 ## Exemple
-Voici l'exemple d'un service simple nommé `hello-world.service`
+Voici l'exemple d'une unit de type service nommée `hello-world.service`
 ```ini
 [Unit]
 Description=Hello World Service
