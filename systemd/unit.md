@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-27T15:20:45.681Z
+date: 2023-06-27T15:24:06.722Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -13,7 +13,9 @@ Les éléments géré par systemd sont appelés *unit*. Ce sont des fichiers tex
 
 # Configuration
 ## Emplacement
-Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire, le plus courant étant : `/etc/systemd/system`
+Les fichiers d'unit sont des fichiers textes formaté en INI qui peuvent être placé dans un certain nombre de répertoire, les plus courant étant :
+- `/etc/systemd/system`: pour les units systèmes
+- `~/.config/systemd/user/`: pour les units utilisateurs
 
 ## Nommage
 Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
