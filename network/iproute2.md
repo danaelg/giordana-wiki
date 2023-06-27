@@ -2,7 +2,7 @@
 title: iproute2
 description: 
 published: true
-date: 2023-06-22T15:43:30.164Z
+date: 2023-06-27T14:25:57.612Z
 tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
@@ -23,7 +23,8 @@ Il est censé remplacé la suite d'outils `net-tools`. Le tableau suivant montre
 | `netstat`                          | `ss`, `ip route`                       | Affichage d'informations et de statistiques réseau |
 | `brctl`                            | `bridge`                             | Gestion des bridges                                |
 
-# Installation sous Debian-based
+# Installation
+## Debian & dérivé
 ```bash
 apt install iproute2
 ```
