@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-27T15:24:06.722Z
+date: 2023-06-27T15:28:59.888Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -76,8 +76,10 @@ systemctl list-units
 
 ## Lister les répertoires de chargement des units
 ```bash
-systemd-analyze unit-paths
+systemd-analyze unit-paths {--user | --system}
 ```
+> Sans option, la commande retourne les répertoires système.
+{.is-info}
 
 ## Afficher la configuration d'un unit
 ```bash
