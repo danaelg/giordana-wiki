@@ -2,7 +2,7 @@
 title: Target systemd
 description: 
 published: true
-date: 2023-06-27T15:18:36.466Z
+date: 2023-06-27T15:22:04.133Z
 tags: systemd, systemd.unit, systemd.target
 editor: markdown
 dateCreated: 2023-06-23T07:35:09.999Z
@@ -12,7 +12,7 @@ dateCreated: 2023-06-23T07:35:09.999Z
 Les *targets* sont des types d'unit utilisés pour grouper des units et pour créer des étapes dans le processus de démarrage. Ils se veulent être le remplaçant des *runlevels* SysV.
 
 # Configuration
-Les fichiers de configuration target doivent être nommé avec `.target`. Le fichier ne contient pas d'options particulière par rapport aux fichiers d'units traditionnels. Se référer à la page des [units](/systemd/unit)
+Les fichiers de configuration target doivent être nommé avec `.target`. Le fichier ne contient pas d'options particulière par rapport aux fichiers d'units traditionnels. Référez-vous à la page des [units](/systemd/unit)
 
 # Exemple
 Voici un exemple de target : `emergency-net.target` :
