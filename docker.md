@@ -2,7 +2,7 @@
 title: Docker
 description: 
 published: true
-date: 2023-06-27T06:50:11.582Z
+date: 2023-06-27T06:50:50.030Z
 tags: docker, container, software
 editor: markdown
 dateCreated: 2023-06-20T11:37:39.821Z
@@ -48,3 +48,7 @@ docker image prune [option]
 ```bash
 docker container
 ```
+
+# Références
+- [Docker Docs](https://docs.docker.com/)
+{.links-list}
