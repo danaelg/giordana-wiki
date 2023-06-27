@@ -2,17 +2,17 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-27T20:11:27.096Z
+date: 2023-06-27T20:36:21.300Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
 ---
 
 # Introduction
-Pour mieux comprendre le système de dépendances de systemd, on va jouer avec les options de dépendances `Wants`, `Requires`, `Requisite`, `BindsTo`, `PartOf`, `Upholds`, `Conflicts`
+Pour mieux comprendre le système de dépendances de systemd, on va jouer avec les options de dépendances `Wants`, `Requires`, `Requisite`, `BindsTo`, `PartOf`, `Upholds`, `Conflicts` via la création de deux services `serviceA.service` et `serviceB.service` dépendant du premier.
 
 # Création des services
-Script `/home/danael/bin/helloWorld.sh`
+Pour créer un service il nous faut avant tout un programme. On va donc créer un script simple `helloWorld.sh`. Dans notre exemple il sera placé dans `/home/danael/bin/helloWorld.sh` :
 ```bash
 #!/bin/bash
 
@@ -36,14 +36,13 @@ while $(sleep 2); do
 	echo "Hello $name"
 done
 ```
+Sans option, le script affiche "*Hello World!*". Ce script peut prendre l'option `-n` auquel il faut ajouter un arguement. Si l'option est défini, le script affiche "*Hello ARGUMENT*" avec `ARGUMENT`, l'argument défini via l'option `-n`.
 
-Sans option, le script affiche "*Hello World!*", si l'option `-n` est défini, le script affiche "*Hello ARGUMENT*" avec `ARGUMENT`, l'argument défini via l'option `-n`.
+Si une autre option inconnu est utilisé, le script affiche "*Invalid syntaxe*" et s'arrête avec le code d'erreur 1. 
 
-Si une autre option inconnu est utilisé, le script affiche "*INvalid syntaxe*" et s'arrête avec le code d'erreur 1. 
+Maintenant que nous avons notre programme, nous pouvons créer nos services `serviceA.service` et `serviceB.service`. Dans notre exemple, nous les placerons dans le répertoire `/home/danael/.config/systemd/user/` 
 
-
-ServiceA n'a aucune dépendance, on créera un autre service qui dépendra de celui-ci :
-`/home/danael/.config/systemd/user/serviceA.service`
+Voici le contenu du fichier `serviceA.service`
 ```ini
 [Unit]
 Description=Hello World Service A
@@ -52,9 +51,7 @@ Description=Hello World Service A
 Type=simple
 ExecStart=/home/danael/bin/helloWorld.sh -n "Service A"
 ```
-
-Pour l'instant serviceB n'a aucune dépendance, on modifiera ceci par la suite
-`/home/danael/.config/systemd/user/serviceB.service`
+et le contenu de `serviceB.service`
 ```ini
 [Unit]
 Description=Hello World Service B
@@ -63,14 +60,16 @@ Description=Hello World Service B
 Type=simple
 ExecStart=/home/danael/bin/helloWorld.sh -n "Service B"
 ```
+> Pour l'instant, serviceB n'a aucune dépendance, nous allons modifier cela par la suite en fonction des exemples.
+{.is-info}
 
 # Wants
-La doc dit :
-> Configures (weak) requirement dependencies on other units. [...] Units listed in this option will be started if the configuring unit is. However, if the listed units fail to start or cannot be added to the transaction, this has no impact on the validity of the transaction as a whole, and this unit will still be started.
+L'option `Wants` est défini de la façon suivante :
+> "Configures (weak) requirement dependencies on other units. [...] Units listed in this option will be started if the configuring unit is. However, if the listed units fail to start or cannot be added to the transaction, this has no impact on the validity of the transaction as a whole, and this unit will still be started."
+>
+> *[systemd.unit - Wants - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Wants=)*
 
-
-On crée serviceB qui dépend de serviceA.
-`/home/danael/.config/systemd/user/serviceB.service`
+On modifie serviceB pour déclaré serviceA en tant que dépendance.
 ```ini
 [Unit]
 Description=Hello World Service B
@@ -82,12 +81,10 @@ ExecStart=/home/danael/bin/helloWorld.sh -n "Service B"
 ```
 
 ## Cas d'un démarrage sans erreur
-Jouons, nos deux service sont arrêtés. On démarre serviceB
+Commençons par un exemple simple, nos deux services sont arrêté et on démarre serviceB.
 `systemctl --user start serviceB`
 
-
-Nos deux services ont démarrés :
-`systemctl --user status serviceA serviceB -n 0`
+Regardons ce qu'il se passe en affichant le statut des deux services via la commande `systemctl --user status serviceA serviceB -n 0` :
 Donne la sortie
 ```
 ● serviceA.service - Hello World Service
@@ -116,16 +113,13 @@ Donne la sortie
              ├─50592 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
              └─50593 sleep 2
 ```
-
-On remarque que bien qu'on ait démarré uniquement serviceB, serviceA a aussi démarré.
+On observeque les deux services sont démarrés alors que nous avons seul le démarrage de serviceB a été explicité.
 
 ## Cas d'un arrêt (ou redémarrage) de serviceA pendant que serviceB tourne
+Lorsque nos deux services tournent correctement, que se passe-t-il si l'on arrête serviceA qui est déclaré en tant que dépendance de serviceB ?
 
-Nos deux services tournent, que se passe-t-il si l'on arrête serviceA ?
-`systemctl --user stop serviceA`
-
-Regardons le statut de nos services
-`systemctl --user status serviceA serviceB -n 0`
+On arrête serviceA via la commande : `systemctl --user stop serviceA`
+Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
 Donne la sortie
 ```
 ○ serviceA.service - Hello World Service
@@ -151,11 +145,10 @@ Donne la sortie
              ├─50592 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
              └─51454 sleep 2
 ```
-Seul serviceA est arrêté, serviceB tourne correctement.
+On observice que seul serviceA est arrêté, serviceB continu de tourner correctement.
 
 ## Cas d'un démarrage où serviceA échoue
-On va forcer l'échec du démarrage de serviceA pour voir comment serviceB se comporte. Pour cela on modifie l'option `ExecStart` de serviceA
-`/home/danael/.config/systemd/user/serviceA.service`
+On va maintenant complexifier un peu, on va modifier serviceA pour que son démarrage échoue. Pour cela on modifie l'option `ExecStart` de serviceA :
 ```ini
 [Unit]
 Description=Hello World Service
@@ -164,13 +157,11 @@ Description=Hello World Service
 Type=simple
 ExecStart=/home/danael/bin/helloWorld.sh -x
 ```
-L'option `-x` utilisé fera échoué l'exécution du script
+> L'option `-x` fera échoué l'exécution du script
+{.is-info}
 
-En partant du principe que nos deux services sont arrêtés. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus).
-`systemctl --user start serviceB`
-
-Regardons maintenant le statut des services
-`systemctl --user status serviceA serviceB -n 0`
+En partant du principe que nos deux services sont arrêtés. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus) via la commande : `systemctl --user start serviceB`
+Regardons maintenant le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
 Donne la sortie
 ```
 × serviceA.service - Hello World Service
@@ -196,12 +187,15 @@ Donne la sortie
              ├─52559 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
              └─52563 sleep 2
 ```
-
-On voit que serviceB est démarré tandis que le démarrage de serviceA est en échec.
+On observce que serviceB est démarré tandis que le démarrage de serviceA est en échec.
 
 ## Conclusion
-L'option `Wants` permet de déclarer des dépendances. Le démarrage du service entraînera alors le démarrage des dépendances. L'échec du démarrage d'une dépendances n'a pas d'influence sur le démarrage du service.
-L'arrêt (ou le redémarrage) des dépendances, n'a pas d'influence sur le service.
+L'option `Wants` permet de déclarer des dépendances et se comporte comme suit :
+- Le démarrage du service entraîne le démarrage des dépendances.
+- L'échec du démarrage d'une dépendances n'a pas d'influence sur le démarrage du service.
+- L'arrêt (ou le redémarrage) des dépendances, n'a pas d'influence sur le service.
+
+La documentation recommande l'utilisation de `Wants` pour lié le démarrage des services tout en assurant la fiabilité du système en cas de défaillance de certains services. 
 
 # Requires
 La doc dit :
