@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-06-27T15:29:25.406Z
+date: 2023-06-27T16:51:03.025Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -13,6 +13,15 @@ Bienvenue sur mon wiki personnel orienté systèmes & réseaux. Je référence i
 
 # Objectif
 Ce wiki a pour objectif de synthétiser mes connaissances autour des outils systèmes et réseaux Linux. Ce n'est pas une grande cheatsheet, mais plutôt un mini-wikipedia ou un mini-man.
+
+# Navigation dans le wiki
+Trois solutions sont possibles pour trouver de l'informations :
+1. La barre de navigation à gauche
+2. La recherche de contenu via la barre de recherche en haut
+3. La recherche par tag via le petit bouton à droite de la barre de recherche
+
+# Format de la documentation
+Pour toutes les commandes j'essaye de me rapprocher de la convention de google : https://developers.google.com/style/code-syntax
 
 # Méthode de création de pages
 Il y a deux cas  :
@@ -25,7 +34,7 @@ Dans le second cas, lorsque j'étudie un outil (ex: ansible, systemd ou cloud-in
 
 Je m'appuie au maximum sur des sources de haut niveaux, généralement, cela correspond aux documentions des officielles.
 
-# Pourquoi ?
+# Pourquoi ce wiki ?
 La raison de la création de ce wiki part d'un constat simple : notre cerveau oublie les informations dont il ne se sert pas (il a son *garbage collector* le coquin). Ce wiki sert alors de "*second cerveau*" qui garde en mémoire la connaissance que j'ai eu à un moment donné et que je peux relire facilement.
 
 Deuxième raison, lorsque j'étudie un outil, créer des pages wiki permet d'organiser les idées et les concepts que je suis en train d'apprendre.
@@ -34,11 +43,6 @@ Enfin, le fait d'expliquer les choses permet de mieux fixer les connaissances. L
 
 Dernière raison, il est probable que le contenu de ce wiki puisse être utile à d'autres.
 
-# Navigation
-Trois solutions sont possibles pour trouver de l'informations :
-1. La barre de navigation à gauche
-2. La recherche de contenu via la barre de recherche en haut
-3. La recherche par tag via le petit bouton à droite de la barre de recherche
 
 # Qui suis-je ?
 Je suis un jeune administrateur système Linux, je viens d'une formation système & réseaux. J'affectionne particulièrement ce qui touche à l'automatisation et l'optimisation des processus métiers.
