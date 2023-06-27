@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-06-23T20:11:13.841Z
+date: 2023-06-27T15:29:25.406Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -14,7 +14,7 @@ Bienvenue sur mon wiki personnel orienté systèmes & réseaux. Je référence i
 # Objectif
 Ce wiki a pour objectif de synthétiser mes connaissances autour des outils systèmes et réseaux Linux. Ce n'est pas une grande cheatsheet, mais plutôt un mini-wikipedia ou un mini-man.
 
-# Méthode
+# Méthode de création de pages
 Il y a deux cas  :
 1. L'accumulation de commandes utiles
 2. La documentation autour d'un outil
