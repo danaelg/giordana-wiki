@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-27T18:33:24.363Z
+date: 2023-06-27T20:09:18.550Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -41,8 +41,23 @@ La liste complète des options se trouve ici :
 - [systemd.unit - [Unit] Section Options - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
 {.links-list}
 
+> L'option `Wants` est loin d'être la seule à permettre la déclaration de dépendances. Des exemples d'utilisation des différentes options sont listés ici : [Gestion des dépendances systemd](/systemd/unit/dependency)
+{.is-info}
+
 ### Section [Install]
 à compléter
+
+## Exemple
+Voici l'exemple d'un service simple nommé `hello-world.service`
+```ini
+[Unit]
+Description=Hello World Service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/helloWorld.sh
+```
+On remarque la présence de la section `[Unit]` que nous avons décrit plus haut et la section `[Service]` qui est spécifique aux units de type service (cf. [systemd.service](/systemd/unit)).
 
 # Générateur d'unit
 Les générateurs d'unit sont des exécutables placé par exemple dans `/usr/lib/systemd/system-generators/`. Systemd les exécute à un stade précoce du démarrage, avant même que les units soient chargées. Leur objectif est de générer dynamiquement des fichiers units.
