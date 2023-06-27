@@ -2,11 +2,14 @@
 title: Docker
 description: 
 published: true
-date: 2023-06-20T19:55:30.536Z
+date: 2023-06-27T06:50:11.582Z
 tags: docker, container, software
 editor: markdown
 dateCreated: 2023-06-20T11:37:39.821Z
 ---
+
+# Introduction
+*Docker* est un outil de développement permettant de packager des applications dans des environnements isolés appelé *conteneurs*.
 
 # Installation
 - [Installation sur Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
