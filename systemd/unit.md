@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-27T20:09:18.550Z
+date: 2023-06-27T20:14:46.122Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -18,7 +18,7 @@ Les fichiers d'unit sont des fichiers textes INI qui peuvent être placés dans 
 - `~/.config/systemd/user/`: pour les units utilisateurs
 
 ## Nommage
-Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est un target et `apache2.service` est un service.
+Un fichier unit doit être nommé avec des caractère ASCII auquel est ajouté l'extension correspondant à son type (cf. [type d'unit](/systemd/unit#types-dunit)). Par exemple, `network.target` est une target et `apache2.service` est un service.
 
 ## Sections
 Comme pour tous les fichiers INI, les sections regroupent un ensemble d'options `key=value`. Chaque section porte un nom entre crochets : `[Section]`, si le nom de la section est préfixé de `x-` la section est ignoré par systemd, de même pour le nom des options.
