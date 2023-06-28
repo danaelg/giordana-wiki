@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-28T06:06:47.600Z
+date: 2023-06-28T06:16:07.852Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -83,6 +83,10 @@ Il existe plusieurs type d'unit qui répondent à des besoins différents. Les t
 {.links-list}
 
 # Commandes
+Systemd offre plusieurs commandes, la plus courante étant `systemd`. Cette commande peut prendre les options `--user` ou `--system` pour traîter les units système ou utilisateur. Sans options, on traîte par défaut les units système.
+
+Dans la suite nous ne spécifierons pas ces deux options pour ne pas surcharger les exemples.
+
 ## Lister les units
 ```bash
 systemctl list-units [--type=UNIT_TYPE]
@@ -92,10 +96,8 @@ systemctl list-units [--type=UNIT_TYPE]
 
 ## Lister les répertoires de chargement des units
 ```bash
-systemd-analyze unit-paths {--user | --system}
+systemd-analyze unit-paths
 ```
-> Sans option, la commande retourne les répertoires système.
-{.is-info}
 
 ## Afficher la configuration d'une unit
 ```bash
