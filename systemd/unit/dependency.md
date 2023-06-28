@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-28T07:21:03.014Z
+date: 2023-06-28T07:31:33.976Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -15,8 +15,6 @@ Pour mieux comprendre le système de dépendances de systemd, on va jouer avec l
 Pour créer un service il nous faut avant tout un programme. On va donc créer un script simple `helloWorld.sh`. Dans notre exemple il sera placé dans `/home/danael/bin/helloWorld.sh` :
 ```bash
 #!/bin/bash
-
-echo "started at $(date +%T-%N)" # Affiche l'heure avec les nanosecondes d'exécution du script 
 
 while getopts "n:" opt; do
 	case $opt in 
