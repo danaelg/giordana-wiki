@@ -2,43 +2,93 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-28T07:31:33.976Z
+date: 2023-06-28T09:40:31.062Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
 ---
 
 # Introduction
-Pour mieux comprendre le système de dépendances de systemd, on va jouer avec les options de dépendances `After`, `Before` `Wants`, `Requires`, `Requisite`, `BindsTo`, `PartOf`, `Upholds` et `Conflicts` via la création de deux services `serviceA.service` et `serviceB.service` dépendant du premier.
+Pour mieux comprendre le système de dépendances de systemd, on va jouer avec les options de dépendances `Wants`, `Requires`, `Requisite`, `BindsTo`, `PartOf`, `Upholds` et `Conflicts` ainsi que les options de séquençage de démarrage `Before` et `After` via la création de deux services `serviceA.service` et `serviceB.service` dépendant du premier.
 
 # Création des services
-Pour créer un service il nous faut avant tout un programme. On va donc créer un script simple `helloWorld.sh`. Dans notre exemple il sera placé dans `/home/danael/bin/helloWorld.sh` :
+Pour créer un service il nous faut avant tout un programme. On va donc créer deux scripts simples, un par service. Dans notre exemple il sera placé dans `/home/danael/bin/` :
+
+Commençons par `helloWorld-ServiceA.sh`
 ```bash
 #!/bin/bash
 
+# Affichage de l'heure de démarrage du script
+echo "started at $(date +%T-%N)"
+
+# On accepte l'option facultative -n qui attend un argument
 while getopts "n:" opt; do
-	case $opt in 
-		n)
-			name=$OPTARG
-			;;
-		*)
-			echo "Invalid syntax"
-			exit 1
-			;;
-	esac
+    case $opt in
+        n)
+            name=$OPTARG
+            ;;
+        *)
+            echo "Invalid syntax"
+            exit 1
+            ;;
+    esac
 done
 
+# On gère le cas où aucune option n'a été passé
 if [ -z "$name" ]; then
-	name="World!"
+    name="World!"
 fi
 
+sleep 2
+systemd-notify --ready
+
+# Boucle d'affichage du Hello
 while $(sleep 2); do
-	echo "Hello $name"
+        echo "Hello $name"
 done
 ```
-Sans option, le script affiche "*Hello World!*". Ce script peut prendre l'option `-n` auquel il faut ajouter un arguement. Si l'option est défini, le script affiche "*Hello ARGUMENT*" avec `ARGUMENT`, l'argument défini via l'option `-n`.
 
-Si une autre option inconnu est utilisé, le script affiche "*Invalid syntaxe*" et s'arrête avec le code d'erreur 1. 
+Maintenant créons `helloWorld-ServiceB.sh`
+```bash
+#!/bin/bash
+
+# Affichage de l'heure de démarrage du script
+echo "started at $(date +%T-%N)"
+
+# On accepte l'option facultative -n qui attend un argument
+while getopts "n:" opt; do
+    case $opt in
+        n)
+            name=$OPTARG
+            ;;
+        *)
+            echo "Invalid syntax"
+            exit 1
+            ;;
+    esac
+done
+
+# On gère le cas où aucune option n'a été passé
+if [ -z "$name" ]; then
+    name="World!"
+fi
+
+# Boucle d'affichage du Hello
+while $(sleep 2); do
+        echo "Hello $name"
+done
+```
+
+Les deux scripts sont très similaire. Sans option, ils affichent "*Hello World!*". Avec l'option `-n` qui attend un arguement, ils affichent "*Hello ARGUMENT*" avec `ARGUMENT`, l'argument défini via l'option `-n`.
+
+Si une autre option inconnu est utilisé, les scripts affichent "*Invalid syntaxe*" et s'arrêtent avec le code d'erreur 1.
+
+Le script `helloWorld-ServiceA.sh` contient deux lignes supplémentaires :
+```bash
+sleep 2
+systemd-notify --ready
+```
+Ces lignes nous servirons pour démontrer si les services démarrent en même temps ou non. Pour faire simple, on attend 2 second avant d'envoyer une notification à systemd indiquant que le service est prêt et peut être considéré comme démarré.
 
 Maintenant que nous avons notre programme, nous pouvons créer nos services `serviceA.service` et `serviceB.service`. Dans notre exemple, nous les placerons dans le répertoire `/home/danael/.config/systemd/user/` 
 
@@ -48,8 +98,9 @@ Voici le contenu du fichier `serviceA.service`
 Description=Hello World Service A
 
 [Service]
-Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -n "Service A"
+Type=notify
+NotifyAccess=all
+ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -n "Service A"
 StandardOutput=journal
 ```
 et le contenu de `serviceB.service`
@@ -59,11 +110,19 @@ Description=Hello World Service B
 
 [Service]
 Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -n "Service B"
+ExecStart=/home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
 StandardOutput=journal
 ```
 > Pour l'instant, serviceB n'a aucune dépendance, nous allons modifier cela par la suite en fonction des exemples.
 {.is-info}
+
+Comme on peut le voir, il y a une légère différence entre les deux services. ServiceA est configuré avec l'option `Type=notify` et l'option `NotifyAccess=all`. ServiceB, quant à lui est configuré avec l'option `Type=simple`.
+
+Le type `simple` indique à systemd que le service doit être considéré comme démarré lorsque ce dernier viens de créer le processus exécutant la commande défini par `ExecStart`. Le service est donc considéré comme démarré quasi immédiatement après l'instruction de démarrage. 
+
+Le type `notify` indique à systemd que le service doit être considéré comme démarré lorsqu'il reçoit le statut `READY=1` de la part du processus exécutant la commande défini par `ExecStart`. Dans le script  créé précédemment, cette notification est envoyé via la commande `systemd-notify --ready`. On ajoute l'option `NotifyAccess=all` pour permettre à tous les sous-processus d'envoyer la notification à systemd. Cela est nécessaire, car la commande `systemd-notify --ready` est exécuté dans un processus enfant du processus exécutant le script. (voir [cette issue pour les détails](https://github.com/systemd/systemd/issues/24516#issuecomment-1233032190))
+
+Pour faire très faire simple, on simule un long temps de démarrage de serviceA tandis que serviceB démarre immédiatement. Cela a pour but de mettre en évidence l'ordonnancement de démarrage des services. Si serviceA et serviceB sont démarrés en même temps, l'heure de démarrage du serviceA sera après celle du serviceB (puisqu'il met plus de temps à démarrer). Si serviceB démarre après serviceA, l'heure de démarrage des deux services sera quasiment identique.
 
 # Before et After
 Les options `Before` et `After` sont définis de la façon suivante :
@@ -87,7 +146,6 @@ Dans nos exemples on ne va utiliser que l'option `After`, car le comportement de
 ### Démarrage de serviceB
 Les deux services sont arrêtés, on lance le démarrage de serviceB via la commande `systemctl --user start serviceB`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
-Donne le résultat
 ```
 ○ serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
@@ -95,22 +153,56 @@ Donne le résultat
 
 ● serviceB.service - Hello World Service B
      Loaded: loaded (/home/danael/.config/systemd/user/serviceB.service; static)
-     Active: active (running) since Wed 2023-06-28 08:56:51 CEST; 1s ago
-   Main PID: 2222 (helloWorld.sh)
+     Active: active (running) since Wed 2023-06-28 11:26:10 CEST; 8s ago
+   Main PID: 4047 (helloWorld-Serv)
       Tasks: 2 (limit: 11067)
-     Memory: 540.0K
-        CPU: 5ms
+     Memory: 548.0K
+        CPU: 14ms
      CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceB.service
-             ├─2222 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
-             └─2223 sleep 2
+             ├─4047 /bin/bash /home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+             └─4056 sleep 2
 ```
 On observe que seul serviceB est démarré. serivceA est toujours arrêté.
 
 ### Démarrage simultané
 On part du principe que les deux services sont arrêtés. On lance le démarrage simultané des deux service via la commande : `systemctl --user start serviceA serviceB`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
+```
+● serviceA.service - Hello World Service A
+     Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
+     Active: active (running) since Wed 2023-06-28 11:27:19 CEST; 6s ago
+   Main PID: 4087 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 572.0K
+        CPU: 21ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceA.service
+             ├─4087 /bin/bash /home/danael/bin/helloWorld-ServiceA.sh -n "Service A"
+             └─4102 sleep 2
+
+Jun 28 11:27:17 ansible systemd[1387]: Starting Hello World Service A...
+Jun 28 11:27:17 ansible helloWorld-ServiceA.sh[4087]: started at 11:27:17-150578799
+Jun 28 11:27:19 ansible systemd[1387]: Started Hello World Service A.
+Jun 28 11:27:21 ansible helloWorld-ServiceA.sh[4087]: Hello Service A
+
+● serviceB.service - Hello World Service B
+     Loaded: loaded (/home/danael/.config/systemd/user/serviceB.service; static)
+     Active: active (running) since Wed 2023-06-28 11:27:19 CEST; 6s ago
+   Main PID: 4091 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 564.0K
+        CPU: 12ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceB.service
+             ├─4091 /bin/bash /home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+             └─4101 sleep 2
+
+Jun 28 11:27:19 ansible systemd[1387]: Started Hello World Service B.
+Jun 28 11:27:19 ansible helloWorld-ServiceB.sh[4091]: started at 11:27:19-172084920
+Jun 28 11:27:21 ansible helloWorld-ServiceB.sh[4091]: Hello Service B
+```
+On observe que les deux services sont démarrés. On observe que la ligne `Active: active (running) since [...]` indique une heure de démarrage identique pour les deux services (cf. ligne 3 et 19). Le log d'exécution des services indique que serviceA `started at 11:27:17-150578799` et que serviceB `started at 11:27:19-172084920` (cf. ligne 13 et 29). Cela indique que le démarrage de serviceB a été lancé après serviceA. 
 
 ## Conclusion
+Les options `Before` et `After` permettent de définir un ordre de démarrage des services sans que cela n'implique de dépendances (par exemple, démarrage de serviceA lorsque l'instruction de démarrage du serviceB lancé). Pour cela il faut utiliser les a 
 
 # Wants
 L'option `Wants` est défini de la façon suivante :
