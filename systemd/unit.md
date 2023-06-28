@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-28T06:16:07.852Z
+date: 2023-06-28T06:16:29.210Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -91,7 +91,7 @@ Dans la suite nous ne spécifierons pas ces deux options pour ne pas surcharger 
 ```bash
 systemctl list-units [--type=UNIT_TYPE]
 ```
-> L'option `--type` permet de filtrer les units par type. `UNIT_TYPE` doit être remplacer par le type d'unit, par exemple `service`, `target` ou `timer` (cf. [type d'unit](/systemd/unit#types-dunit))
+> L'option `--type` permet de filtrer les units par type. `UNIT_TYPE` doit être remplacé par le type d'unit, par exemple `service`, `target` ou `timer` (cf. [type d'unit](/systemd/unit#types-dunit))
 {.is-info}
 
 ## Lister les répertoires de chargement des units
