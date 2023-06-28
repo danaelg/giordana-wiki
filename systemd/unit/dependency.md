@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-28T09:40:31.062Z
+date: 2023-06-28T13:25:47.938Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -17,9 +17,6 @@ Pour créer un service il nous faut avant tout un programme. On va donc créer d
 Commençons par `helloWorld-ServiceA.sh`
 ```bash
 #!/bin/bash
-
-# Affichage de l'heure de démarrage du script
-echo "started at $(date +%T-%N)"
 
 # On accepte l'option facultative -n qui attend un argument
 while getopts "n:" opt; do
@@ -51,9 +48,6 @@ done
 Maintenant créons `helloWorld-ServiceB.sh`
 ```bash
 #!/bin/bash
-
-# Affichage de l'heure de démarrage du script
-echo "started at $(date +%T-%N)"
 
 # On accepte l'option facultative -n qui attend un argument
 while getopts "n:" opt; do
@@ -139,6 +133,8 @@ After=serviceA.service
 [Service]
 Type=simple
 ```
+> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+{.is-info}
 
 Dans nos exemples on ne va utiliser que l'option `After`, car le comportement de l'option `Before` est similaire à la différence qu'il serait configuré dans serviceA plutôt que serviceB.
 
@@ -166,7 +162,7 @@ On observe que seul serviceB est démarré. serivceA est toujours arrêté.
 
 ### Démarrage simultané
 On part du principe que les deux services sont arrêtés. On lance le démarrage simultané des deux service via la commande : `systemctl --user start serviceA serviceB`
-Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
+Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB`
 ```
 ● serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
@@ -180,7 +176,6 @@ Regardons alors le statut des deux services via la commande : `systemctl --user 
              └─4102 sleep 2
 
 Jun 28 11:27:17 ansible systemd[1387]: Starting Hello World Service A...
-Jun 28 11:27:17 ansible helloWorld-ServiceA.sh[4087]: started at 11:27:17-150578799
 Jun 28 11:27:19 ansible systemd[1387]: Started Hello World Service A.
 Jun 28 11:27:21 ansible helloWorld-ServiceA.sh[4087]: Hello Service A
 
@@ -196,13 +191,12 @@ Jun 28 11:27:21 ansible helloWorld-ServiceA.sh[4087]: Hello Service A
              └─4101 sleep 2
 
 Jun 28 11:27:19 ansible systemd[1387]: Started Hello World Service B.
-Jun 28 11:27:19 ansible helloWorld-ServiceB.sh[4091]: started at 11:27:19-172084920
 Jun 28 11:27:21 ansible helloWorld-ServiceB.sh[4091]: Hello Service B
 ```
-On observe que les deux services sont démarrés. On observe que la ligne `Active: active (running) since [...]` indique une heure de démarrage identique pour les deux services (cf. ligne 3 et 19). Le log d'exécution des services indique que serviceA `started at 11:27:17-150578799` et que serviceB `started at 11:27:19-172084920` (cf. ligne 13 et 29). Cela indique que le démarrage de serviceB a été lancé après serviceA. 
+On observe que les deux services sont démarrés et que la ligne `Active: active (running) since [...]` indique une heure de démarrage identique pour les deux services (cf. ligne 3 et 19). Le log d'exécution des services indique que serviceA passe dans le statut démarré à 11h27 et 17 secondes tandis que serviceB passe dans ce statut à 11h27 et 19 secondes (cf. ligne 14 et 28). Cela indique que le démarrage de serviceB a été lancé après serviceA. 
 
 ## Conclusion
-Les options `Before` et `After` permettent de définir un ordre de démarrage des services sans que cela n'implique de dépendances (par exemple, démarrage de serviceA lorsque l'instruction de démarrage du serviceB lancé). Pour cela il faut utiliser les a 
+Les options `Before` et `After` permettent de définir un ordre de démarrage des services sans que cela n'implique de dépendances (par exemple, démarrage de serviceA lorsque l'instruction de démarrage du serviceB est lancé). Pour cela il faut utiliser une option de dépedance `Wants`, `Requires`, `Requisite`, etc. 
 
 # Wants
 L'option `Wants` est défini de la façon suivante :
@@ -210,7 +204,7 @@ L'option `Wants` est défini de la façon suivante :
 >
 > *[systemd.unit - Wants - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Wants=)*
 
-On modifie serviceB pour déclaré serviceA en tant que dépendance.
+On modifie serviceB pour déclaré serviceA en tant que dépendance (on enlève l'option `After`).
 ```ini
 [Unit]
 Description=Hello World Service B
@@ -218,43 +212,48 @@ Wants=serviceA.service
 
 [Service]
 Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -n "Service B"
+ExecStart=/home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+StandardOutput=journal
 ```
+> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+{.is-info}
 
 ## Cas d'un démarrage sans erreur
 Commençons par un exemple simple, nos deux services sont arrêté et on démarre serviceB.
 `systemctl --user start serviceB`
 
-Regardons ce qu'il se passe en affichant le statut des deux services via la commande `systemctl --user status serviceA serviceB -n 0` :
+Regardons ce qu'il se passe en affichant le statut des deux services via la commande `systemctl --user status serviceA serviceB` :
 Donne la sortie
 ```
-● serviceA.service - Hello World Service
+● serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: active (running) since Tue 2023-06-27 21:47:19 CEST; 1s ago
-   Main PID: 50590 (helloWorld.sh)
-      Tasks: 2 (limit: 9270)
-     Memory: 576.0K
-        CPU: 7ms
-     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/serviceA.service
-             ├─50590 /bin/bash /home/danael/bin/helloWorld.sh
-             └─50591 sleep 2
+     Active: active (running) since Wed 2023-06-28 11:44:39 CEST; 395ms ago
+   Main PID: 5137 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 564.0K
+        CPU: 15ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceA.service
+             ├─5137 /bin/bash /home/danael/bin/helloWorld-ServiceA.sh -n "Service A"
+             └─5145 sleep 2
+
+Jun 28 11:44:37 ansible systemd[1387]: Starting Hello World Service A...
+Jun 28 11:44:39 ansible systemd[1387]: Started Hello World Service A.
 
 ● serviceB.service - Hello World Service B
      Loaded: loaded (/home/danael/.config/systemd/user/serviceB.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: active (running) since Tue 2023-06-27 21:47:19 CEST; 1s ago
-   Main PID: 50592 (helloWorld.sh)
-      Tasks: 2 (limit: 9270)
-     Memory: 564.0K
+     Active: active (running) since Wed 2023-06-28 11:44:37 CEST; 2s ago
+   Main PID: 5138 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 556.0K
         CPU: 8ms
-     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/serviceB.service
-             ├─50592 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
-             └─50593 sleep 2
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceB.service
+             ├─5138 /bin/bash /home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+             └─5144 sleep 2
+
+Jun 28 11:44:37 ansible systemd[1387]: Started Hello World Service B.
+Jun 28 11:44:39 ansible helloWorld-ServiceB.sh[5138]: Hello Service B
 ```
-On observeque les deux services sont démarrés en même temps (voir la ligne `active (running) since ...`) alors que nous avons lancé uniquement le démarrage de serviceB.
+On observe que les deux services sont démarrés et que la ligne `Active: active (running) since [...]` de service indique une heure de démarrage postérieur à celle de serviceB (cf. ligne 3 et 17). Le log d'exécution des services indique que le lancement du démarrage du serviceA est fait à  11h44 et 37 secondes tandis que serviceB passe dans le statut démarré à ce même moment (cf. ligne 12 et 26). Cela indique que le démarrage des deux services est fait en même temps (serviceA fini son démarrage après serviceB)
 
 ## Cas d'un arrêt (ou redémarrage) de serviceA pendant que serviceB tourne
 Lorsque nos deux services tournent correctement, que se passe-t-il si l'on arrête serviceA qui est déclaré en tant que dépendance de serviceB ?
@@ -263,80 +262,77 @@ On arrête serviceA via la commande : `systemctl --user stop serviceA`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
 Donne la sortie
 ```
-○ serviceA.service - Hello World Service
+○ serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: inactive (dead) since Tue 2023-06-27 21:51:00 CEST; 24s ago
-   Duration: 3min 40.629s
-    Process: 50590 ExecStart=/home/danael/bin/helloWorld.sh (code=killed, signal=TERM)
-   Main PID: 50590 (code=killed, signal=TERM)
-        CPU: 290ms
+     Active: inactive (dead) since Wed 2023-06-28 15:14:57 CEST; 7s ago
+   Duration: 3.695s
+    Process: 27291 ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -n Service A (code=killed, signal=TERM)
+   Main PID: 27291 (code=killed, signal=TERM)
+        CPU: 15ms
 
 ● serviceB.service - Hello World Service B
      Loaded: loaded (/home/danael/.config/systemd/user/serviceB.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: active (running) since Tue 2023-06-27 21:47:19 CEST; 4min 5s ago
-   Main PID: 50592 (helloWorld.sh)
-      Tasks: 2 (limit: 9270)
-     Memory: 576.0K
-        CPU: 328ms
-     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/serviceB.service
-             ├─50592 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
-             └─51454 sleep 2
+     Active: active (running) since Wed 2023-06-28 15:14:51 CEST; 12s ago
+   Main PID: 27292 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 568.0K
+        CPU: 17ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceB.service
+             ├─27292 /bin/bash /home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+             └─27306 sleep 2
 ```
-On observice que seul serviceA est arrêté, serviceB continu de tourner correctement.
+On observe que que seul serviceA est arrêté, serviceB continu de tourner correctement.
 
 ## Cas d'un démarrage où serviceA échoue
 On va maintenant complexifier un peu, on va modifier serviceA pour que son démarrage échoue. Pour cela on modifie l'option `ExecStart` de serviceA :
 ```ini
 [Unit]
-Description=Hello World Service
+Description=Hello World Service A
 
 [Service]
-Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -x
+Type=notify
+NotifyAccess=all
+ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -x
+StandardOutput=journal
 ```
 > L'option `-x` fera échoué l'exécution du script
+{.is-info}
+
+> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
 {.is-info}
 
 En partant du principe que nos deux services sont arrêtés. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus) via la commande : `systemctl --user start serviceB`
 Regardons maintenant le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
 Donne la sortie
 ```
-× serviceA.service - Hello World Service
+× serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: failed (Result: exit-code) since Tue 2023-06-27 21:58:25 CEST; 2s ago
-   Duration: 5ms
-    Process: 52558 ExecStart=/home/danael/bin/helloWorld.sh -x (code=exited, status=1/FAILURE)
-   Main PID: 52558 (code=exited, status=1/FAILURE)
-        CPU: 2ms
+     Active: failed (Result: exit-code) since Wed 2023-06-28 15:16:35 CEST; 3s ago
+    Process: 27353 ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -x (code=exited, status=1/FAILURE)
+   Main PID: 27353 (code=exited, status=1/FAILURE)
+        CPU: 3ms
 
 ● serviceB.service - Hello World Service B
      Loaded: loaded (/home/danael/.config/systemd/user/serviceB.service; static)
-    Drop-In: /usr/lib/systemd/user/service.d
-             └─10-timeout-abort.conf
-     Active: active (running) since Tue 2023-06-27 21:58:25 CEST; 2s ago
-   Main PID: 52559 (helloWorld.sh)
-      Tasks: 2 (limit: 9270)
-     Memory: 560.0K
-        CPU: 5ms
-     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/serviceB.service
-             ├─52559 /bin/bash /home/danael/bin/helloWorld.sh -n "Service B"
-             └─52563 sleep 2
+     Active: active (running) since Wed 2023-06-28 15:16:35 CEST; 3s ago
+   Main PID: 27354 (helloWorld-Serv)
+      Tasks: 2 (limit: 11067)
+     Memory: 556.0K
+        CPU: 6ms
+     CGroup: /user.slice/user-1001.slice/user@1001.service/app.slice/serviceB.service
+             ├─27354 /bin/bash /home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+             └─27356 sleep 2
 ```
 On observce que serviceB est démarré tandis que le démarrage de serviceA est en échec.
 
 ## Conclusion
 L'option `Wants` permet de déclarer des dépendances et se comporte comme suit :
 - Le démarrage du service entraîne le démarrage des dépendances.
+- Le démarrage du services et des dépendances est fait en même temps. Il n'y a pas d'ordonnancement (pour cela il faut utiliser les option `Before` ou `After`).
 - L'échec du démarrage d'une dépendances n'a pas d'influence sur le démarrage du service.
 - L'arrêt (ou le redémarrage) des dépendances, n'a pas d'influence sur le service.
 
-La documentation recommande l'utilisation de `Wants` pour lié le démarrage des services tout en assurant la fiabilité du système en cas de défaillance de certains services. 
+La documentation recommande l'utilisation de `Wants` pour lier le démarrage des services tout en assurant la fiabilité du système en cas de défaillance de certains services. 
 
 # Requires
 La doc dit :
@@ -350,8 +346,11 @@ Requires=serviceA.service
 
 [Service]
 Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -n "Service B"
+ExecStart=/home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
+StandardOutput=journal
 ```
+> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+{.is-info}
 
 On s'assure également que l'option `ExecStart` permet au serviceA de démarrer correctement.
 ```ini
@@ -359,9 +358,13 @@ On s'assure également que l'option `ExecStart` permet au serviceA de démarrer 
 Description=Hello World Service A
 
 [Service]
-Type=simple
-ExecStart=/home/danael/bin/helloWorld.sh -n "Service A"
+Type=notify
+NotifyAccess=all
+ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -n "Service A"
+StandardOutput=journal
 ```
+> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+{.is-info}
 
 ## Cas d'un démarrage sans erreur
 Nous n'allons pas refaire cette exemple, le résultat est identique au comportement de l'option `Wants` (cf. [Wants - Cas d'un démarrage sans erreur](https://wiki.giordana.cc/systemd/unit/dependency#cas-dun-d%C3%A9marrage-sans-erreur))
