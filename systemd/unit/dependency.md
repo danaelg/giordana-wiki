@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T19:29:23.676Z
+date: 2023-06-29T19:47:06.431Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -119,14 +119,31 @@ Le type `notify` indique à systemd que le service doit être considéré comme 
 Pour faire très faire simple, on simule un long temps de démarrage de serviceA tandis que serviceB démarre immédiatement. Cela a pour but de mettre en évidence l'ordonnancement de démarrage des services. Si serviceA et serviceB sont démarrés en même temps, l'heure de démarrage du serviceA sera après celle du serviceB (puisqu'il met plus de temps à démarrer). Si serviceB démarre après serviceA, l'heure de démarrage des deux services sera quasiment identique.
 
 ```kroki
-mermaid
+plantuml
 
-graph TD
-  A[ Anyone ] -->|Can help | B( Go to github.com/yuzutech/kroki )
-  B --> C{ How to contribute? }
-  C --> D[ Reporting bugs ]
-  C --> E[ Sharing ideas ]
-  C --> F[ Advocating ]
+robust "helloWorld-serviceA.sh" as serviceAscript
+robust "helloWorld-serviceB.sh" as serviceBscript
+
+concise "serviceA.service" as serviceA
+concise "serviceB.service" as serviceB
+
+@0
+serviceA is Starting
+serviceAscript is ""
+serviceB is Starting
+serviceBscript is ""
+
+@+1
+serviceAscript is "Sleep 2"
+serviceBscript is Exécution
+serviceB is Started
+
+@+2
+serviceAscript is "Notification systemd"
+
+@+1
+serviceAscript is Exécution
+serviceA is Started
 ```
 
 # Before et After
