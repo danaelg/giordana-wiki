@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T19:47:06.431Z
+date: 2023-06-29T19:53:13.913Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -120,6 +120,8 @@ Pour faire très faire simple, on simule un long temps de démarrage de serviceA
 
 ```kroki
 plantuml
+
+scale 2
 
 robust "helloWorld-serviceA.sh" as serviceAscript
 robust "helloWorld-serviceB.sh" as serviceBscript
