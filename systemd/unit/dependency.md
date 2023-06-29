@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T20:16:58.853Z
+date: 2023-06-29T20:17:17.001Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -150,6 +150,7 @@ serviceA is Started
 
 et ce qui serait attendu en cas de démarrage séquentiel.
 ```kroki
+plantuml
 scale 1 as 80 pixels
 
 robust "helloWorld-serviceA.sh" as serviceAscript
