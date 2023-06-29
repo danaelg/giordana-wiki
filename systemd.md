@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-26T18:15:54.341Z
+date: 2023-06-29T18:51:14.598Z
 tags: linux, systemd, software, systemctl
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -15,6 +15,8 @@ Il propose également des services permettant la gestion de la journalisation de
 
 # Fonctionnalités
 L'une des fonctionnalité phare de systemd est la parallélisation du démarrage des services. C'est ce qui a permis d'accélérer significativement le démarrage du système comparé à SysV (en plus de ne pas se baser sur des scripts shell).
+
+Systemd ne fonctionne que sous Linux, car il est dépendant de fonctionnalités du noyau qui lui sont spécifiques commme les cgroups.
 
 # Fonctionnement
 Systemd est construit autour des *units*. Il en existe de nombreux types, on peut citer par exemple les *service*, *socket*, *périphérique* ou *target*.
