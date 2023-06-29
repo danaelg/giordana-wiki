@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-28T13:25:47.938Z
+date: 2023-06-29T19:27:43.345Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -117,6 +117,12 @@ Le type `simple` indique à systemd que le service doit être considéré comme 
 Le type `notify` indique à systemd que le service doit être considéré comme démarré lorsqu'il reçoit le statut `READY=1` de la part du processus exécutant la commande défini par `ExecStart`. Dans le script  créé précédemment, cette notification est envoyé via la commande `systemd-notify --ready`. On ajoute l'option `NotifyAccess=all` pour permettre à tous les sous-processus d'envoyer la notification à systemd. Cela est nécessaire, car la commande `systemd-notify --ready` est exécuté dans un processus enfant du processus exécutant le script. (voir [cette issue pour les détails](https://github.com/systemd/systemd/issues/24516#issuecomment-1233032190))
 
 Pour faire très faire simple, on simule un long temps de démarrage de serviceA tandis que serviceB démarre immédiatement. Cela a pour but de mettre en évidence l'ordonnancement de démarrage des services. Si serviceA et serviceB sont démarrés en même temps, l'heure de démarrage du serviceA sera après celle du serviceB (puisqu'il met plus de temps à démarrer). Si serviceB démarre après serviceA, l'heure de démarrage des deux services sera quasiment identique.
+
+```kroki
+digraph G {
+  Hello->World
+}
+```
 
 # Before et After
 Les options `Before` et `After` sont définis de la façon suivante :
