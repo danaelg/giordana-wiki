@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T20:12:17.950Z
+date: 2023-06-29T20:16:58.853Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -136,22 +136,21 @@ serviceB is Starting
 serviceBscript is ""
 
 @+1
-serviceAscript is "Sleep 2"
-serviceBscript is Exécution
+serviceAscript is "sleep 2"
+serviceBscript is "boucle echo Hello ..."
 serviceB is Started
 
-@+20
-serviceAscript is "Notification systemd"
+@+5
+serviceAscript is "systemd-notify --ready"
 
 @+1
-serviceAscript is Exécution
+serviceAscript is "boucle echo Hello ..."
 serviceA is Started
 ```
 
 et ce qui serait attendu en cas de démarrage séquentiel.
 ```kroki
-plantuml
-scale 1 as 100 pixels
+scale 1 as 80 pixels
 
 robust "helloWorld-serviceA.sh" as serviceAscript
 robust "helloWorld-serviceB.sh" as serviceBscript
@@ -166,22 +165,24 @@ serviceAscript is ""
 serviceBscript is ""
 
 @+1
-serviceAscript is "Sleep 2"
+serviceAscript is "sleep 2"
 
-@+2
-serviceAscript is "Notification systemd"
+@+5
+serviceAscript is "systemd-notify --ready"
 
 @+1
 serviceA is Started
 serviceB is Starting
 
-serviceAscript is Exécution
+serviceAscript is "boucle echo Hello ..."
 
 @+1
 serviceB is Started
-serviceBscript is Exécution
-
+serviceBscript is "boucle echo Hello ..."
 ```
+
+> Ne faites pas attention à l'unité de temps qui ne correspond à rien.
+{.is-info}
 
 # Before et After
 Les options `Before` et `After` sont définis de la façon suivante :
