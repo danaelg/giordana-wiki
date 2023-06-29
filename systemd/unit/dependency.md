@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T20:17:17.001Z
+date: 2023-06-29T20:23:24.829Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -131,13 +131,15 @@ concise "serviceB.service" as serviceB
 
 @0
 serviceA is Starting
-serviceAscript is ""
 serviceB is Starting
-serviceBscript is ""
+
 
 @+1
+serviceA -> serviceAscript : ExecStart=helloWorld-serviceA.sh
 serviceAscript is "sleep 2"
 serviceBscript is "boucle echo Hello ..."
+
+serviceB -> serviceBscript : ExecStart=helloWorld-serviceB.sh
 serviceB is Started
 
 @+5
@@ -162,10 +164,8 @@ concise "serviceB.service" as serviceB
 @0
 serviceA is Starting
 
-serviceAscript is ""
-serviceBscript is ""
-
 @+1
+serviceA -> serviceAscript : ExecStart=helloWorld-serviceA.sh
 serviceAscript is "sleep 2"
 
 @+5
@@ -178,7 +178,9 @@ serviceB is Starting
 serviceAscript is "boucle echo Hello ..."
 
 @+1
+serviceB -> serviceBscript : ExecStart=helloWorld-serviceB.sh
 serviceB is Started
+
 serviceBscript is "boucle echo Hello ..."
 ```
 
