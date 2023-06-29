@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-29T20:23:24.829Z
+date: 2023-06-29T20:25:43.011Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -109,6 +109,8 @@ StandardOutput=journal
 ```
 > Pour l'instant, serviceB n'a aucune dépendance, nous allons modifier cela par la suite en fonction des exemples.
 {.is-info}
+
+### Différence entre serviceA et serviceB
 
 Comme on peut le voir, il y a une légère différence entre les deux services. ServiceA est configuré avec l'option `Type=notify` et l'option `NotifyAccess=all`. ServiceB, quant à lui est configuré avec l'option `Type=simple`.
 
