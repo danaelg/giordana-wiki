@@ -2,7 +2,7 @@
 title: Inventaires
 description: 
 published: true
-date: 2023-06-30T09:35:21.413Z
+date: 2023-06-30T09:45:13.320Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -74,49 +74,11 @@ all:
 ```
 
 # Variables
-## Priorité des variables dans les fichiers d'inventaire
-Il est possible de définir des variables dans le fichier d'inventaire à plusieurs niveaux : par hôte ou par groupes.
-```yaml
-all:
-  vars:
-    var: '!'
-    ansible_connection: local
-  children:
-    apache:
-      hosts:
-        apache-1:
-          my_var: 'Hello'
-    mysql:
-      hosts:
-        mysql-1:
-	      mysql-2:
-      vars:
-        my_var: 'World'
-    proxy:
-      hosts:
-        proxy-1:
-```
-Si on lance la commande :
-```bash
-ansible -m setup -a var=my_var -i inventory.yml all
-```
-On obtient le résultat suivant :
-```
-apache-1 | SUCCESS => {
-	"my_var": "Hello"
-}
-mysql-1 | SUCCESS => {
-	"my_var": "World"
-}
-mysql-2 | SUCCESS => {
-	"my_var": "World"
-}
-proxy-1 | SUCCESS => {
-	"my_var": "!"
-}
-```
+Les fichiers d'inventaire peuvent contenir des variables au niveau des hôtes ou des groupes.
 
-On voit qu'un ordre de priorité s'applique. Plus la variable est défini proche de l'hôte, plus elle est prioritaires.
+Pour en savoir plus :
+- [Définir des variables d'inventaire](/ansible/inventory/variable)
+{.links-list}
 
 # Commande
 La commande `ansible-inventory` permet de lister les hôtes, groupes et variables des fichiers d'inventaires.
