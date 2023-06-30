@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:54:53.807Z
+date: 2023-06-30T17:57:38.685Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -321,7 +321,7 @@ Jun 28 11:44:39 ansible systemd[1387]: Started Hello World Service A.
 Jun 28 11:44:37 ansible systemd[1387]: Started Hello World Service B.
 Jun 28 11:44:39 ansible helloWorld-ServiceB.sh[5138]: Hello Service B
 ```
-On observe que les deux services sont démarrés et que la ligne `Active: active (running) since [...]` de service indique une heure de démarrage postérieur à celle de serviceB (cf. ligne 3 et 17). Le log d'exécution des services indique que le lancement du démarrage du serviceA est fait à  11h44 et 37 secondes tandis que serviceB passe dans le statut démarré à ce même moment (cf. ligne 12 et 26). Cela indique que le démarrage des deux services est fait en même temps (serviceA fini son démarrage après serviceB)
+On observe que les deux services sont démarrés alors que nous avons démarré uniquement serviceB. De plus, la ligne `Active: active (running) since [...]` de serviceA indique une heure de démarrage postérieur à celle de serviceB (cf. ligne 3 et 17). Le log d'exécution des services indique que le lancement du démarrage du serviceA est fait à  11h44 et 37 secondes tandis que serviceB passe dans le statut démarré à ce même moment (cf. ligne 12 et 26). Cela indique que le démarrage des deux services est fait en même temps (serviceA fini son démarrage après serviceB).
 
 ## Cas d'un arrêt (ou redémarrage) de serviceA pendant que serviceB tourne
 Lorsque nos deux services tournent correctement, que se passe-t-il si l'on arrête serviceA qui est déclaré en tant que dépendance de serviceB ?
