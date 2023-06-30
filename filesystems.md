@@ -2,7 +2,7 @@
 title: Filesystems
 description: 
 published: true
-date: 2023-06-27T15:04:20.326Z
+date: 2023-06-30T05:50:49.034Z
 tags: filesystem, storage
 editor: markdown
 dateCreated: 2023-06-20T09:29:09.640Z
@@ -27,6 +27,10 @@ LVM (Logical Volume Manager) est un système de gestion de volumes. Il intervien
 {.links-list}
 
 # Commandes
+## Top 10 des plus gros dossiers et fichiers
+```bash
+du -ahx MOUNTPOINT | sort -hr | head -10
+```
 
 # Références
 - [File system - Wikipedia](https://en.wikipedia.org/wiki/File_system)
