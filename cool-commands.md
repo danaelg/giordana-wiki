@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-30T05:51:15.072Z
+date: 2023-06-30T05:51:52.165Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -99,12 +99,7 @@ lsb_release -a
 hostname HOSTNAME
 ```
 
-## Déterminer le système de fichiers d'une partition sous Linux
-```bash
-file -s -L DEVICE
-```
-> L'option `-L` permet de suivre les liens symbolique (pratique pour les volumes logiques)
-{.is-info}
+
 
 ## Définir la date ou l'heure manuellement avec `date`
 ```bash
