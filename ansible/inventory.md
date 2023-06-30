@@ -2,8 +2,8 @@
 title: Inventaires
 description: 
 published: true
-date: 2023-06-22T19:04:48.581Z
-tags: ansible, ansible_inventory
+date: 2023-06-30T09:35:21.413Z
+tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
 ---
@@ -101,17 +101,22 @@ Si on lance la commande :
 ansible -m setup -a var=my_var -i inventory.yml all
 ```
 On obtient le résultat suivant :
-> apache-1 | SUCCESS => {
-> 	"my_var": "Hello"
-> }
-> mysql-1 | SUCCESS => {
-> 	"my_var": "World"
-> }
-> mysql-2 | SUCCESS => {
-> 	"my_var": "World"
-> }
-> proxy-1 | SUCCESS => {
-> 	"my_var": "!"
-> }
+```
+apache-1 | SUCCESS => {
+	"my_var": "Hello"
+}
+mysql-1 | SUCCESS => {
+	"my_var": "World"
+}
+mysql-2 | SUCCESS => {
+	"my_var": "World"
+}
+proxy-1 | SUCCESS => {
+	"my_var": "!"
+}
+```
 
-On voit qu'un ordre de priorité s'applique. Plus la variable est définit proche de l'hôte, plus elle est prioritaires. 
+On voit qu'un ordre de priorité s'applique. Plus la variable est défini proche de l'hôte, plus elle est prioritaires.
+
+# Commande
+La commande `ansible-inventory` permet de lister les hôtes, groupes et variables des fichiers d'inventaires.
