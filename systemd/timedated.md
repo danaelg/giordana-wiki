@@ -2,7 +2,7 @@
 title: systemd-timedated.service
 description: 
 published: true
-date: 2023-06-30T06:55:47.332Z
+date: 2023-06-30T07:11:43.883Z
 tags: systemd, timedatectl, systemd-timedated.service
 editor: markdown
 dateCreated: 2023-06-30T05:55:35.329Z
@@ -46,9 +46,7 @@ et le contenu du fichier `80-systemd-timesync.list`
 systemd-timesyncd.service
 ```
 
-Ainsi, *systemd-timedated* sait quels services sont disponibles et lequel il doit activer si on lui fait la demande (le premier de la liste).
-
-# Configuration
+Ainsi, *systemd-timedated* sait quels services sont disponibles et lequel il doit activer si on lui fait la demande (le premier de la liste). Dans notre exemple, la commande `timedatectl set-ntp true` activera le service `chronyd`.
 
 # Commandes
 Le commande `timedatectl` est un client pour ce service
@@ -58,16 +56,19 @@ Le commande `timedatectl` est un client pour ce service
 timedatectl set-timezone TIMEZONE
 ```
 
-## Lister les fuseaux horaire
+## Lister les fuseaux horaires
 ```bash
 timedatectl list-timezones
 ```
 
 ## Définir l'heure manuellement
 ```bash
-timedatectl set-time HH:mm:ss
+timedatectl set-time TIME
 ```
-> Remplacer `HH:mm:ss` par l'heure, par exemple `22:04:25` pour 22h04 et 25s
+> `TIME` peut être défini avec le format :
+> - `2012-10-30 18:17:16`
+> - `2012-10-30`
+> - `18:17:16`
 {.is-info}
 
 # Références
