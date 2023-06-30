@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-30T07:13:48.899Z
+date: 2023-06-30T07:13:53.850Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -39,7 +39,6 @@ Voici quelques  options courantes pour la section `[Unit]`:
 
 > Des exemples d'utilisation des différentes options de dépendance et d'ordonnancement sont listés ici : [Gestion des dépendances systemd](/systemd/unit/dependency)
 {.is-info}
-
 
 La liste complète des options se trouve ici :
 - [systemd.unit - [Unit] Section Options - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
