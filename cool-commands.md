@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-30T05:51:52.165Z
+date: 2023-06-30T05:56:26.931Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -99,32 +99,12 @@ lsb_release -a
 hostname HOSTNAME
 ```
 
-
-
 ## Définir la date ou l'heure manuellement avec `date`
 ```bash
 date --set {HH:mm:ss | YYYY-MM-DD}
 ```
 > Remplacer `HH:mm:ss` par l'heure, par exemple `22:04:25` pour 22h04 et 25s
 > Remplacer `YYYY-MM-DD` par la date, par exemple `2023-06-23` pour le 23 juin 2023
-{.is-info}
-
-# timedatectl
-## Changer le fuseau horaire
-```
-timedatectl set-timezone TIMEZONE
-```
-
-## Lister les fuseaux horaire
-```bash
-timedatectl list-timezones
-```
-
-## Définir l'heure manuellement
-```bash
-timedatectl set-time HH:mm:ss
-```
-> Remplacer `HH:mm:ss` par l'heure, par exemple `22:04:25` pour 22h04 et 25s
 {.is-info}
 
 # Tar
