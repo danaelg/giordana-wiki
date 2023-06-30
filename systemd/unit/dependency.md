@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T18:08:09.331Z
+date: 2023-06-30T18:17:11.261Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -321,7 +321,7 @@ Jun 28 11:44:39 ansible systemd[1387]: Started Hello World Service A.
 Jun 28 11:44:37 ansible systemd[1387]: Started Hello World Service B.
 Jun 28 11:44:39 ansible helloWorld-ServiceB.sh[5138]: Hello Service B
 ```
-On observe que les deux services sont démarrés alors que nous avons démarré uniquement serviceB. De plus, la ligne `Active: active (running) since [...]` de serviceA indique une heure de démarrage postérieur à celle de serviceB (cf. ligne 3 et 17). Le log d'exécution des services indique que le lancement du démarrage du serviceA est fait à  11h44 et 37 secondes tandis que serviceB passe dans le statut démarré à ce même moment (cf. ligne 12 et 26). Cela indique que le démarrage des deux services est fait en même temps (serviceA fini son démarrage après serviceB).
+On observe que les deux services sont démarrés alors que nous avons lancé uniquement le démarrage de serviceB. De plus, la ligne `Active: active (running) since [...]` de serviceA indique une heure de démarrage postérieur à celle de serviceB (cf. ligne 3 et 17). Le log d'exécution des services indique que le lancement du démarrage du serviceA est fait à  11h44 et 37 secondes tandis que serviceB passe dans le statut démarré à ce même moment (cf. ligne 12 et 26). Cela indique que le démarrage des deux services est fait en même temps (serviceA fini son démarrage après serviceB).
 
 ## Cas d'un arrêt (ou redémarrage) de serviceA pendant que serviceB tourne
 Lorsque **les deux services tournent** correctement, que se passe-t-il si l'on arrête serviceA qui est déclaré en tant que dépendance de serviceB ?
@@ -461,11 +461,11 @@ Le cas d'un démarrage de serviceB avec serviceA qui entre en échec va être di
 ## Conclustion
 L'option `Requires` permet de déclarer des dépendances et se comporte comme suit :
 - Le démarrage du service entraîne le démarrage des dépendances.
-- L'arrêt (ou le redémarrage) des dépendances entraîne également l'arrêt du service.
+- L'arrêt (ou le redémarrage) des dépendances **entraîne également** l'arrêt du service.
 - 
 
 # Requisite
-
+;
 # BindsTo
 
 # PartOf
@@ -473,3 +473,9 @@ L'option `Requires` permet de déclarer des dépendances et se comporte comme su
 # Upholds
 
 # Conflicts
+
+# Conclusion
+| Option | Démarrage automatique des dépendances | Arrêt automatique des dépendances | Non démarrage en cas d'échec des dépendances |
+| --- | :---: | :---: | :---: |
+| Wants  | ✅ | ❌ | ❌ |
+| Requires | ✅ | ✅ | |
