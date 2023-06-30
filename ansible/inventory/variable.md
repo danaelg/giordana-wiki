@@ -2,14 +2,14 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T10:13:54.289Z
+date: 2023-06-30T10:14:46.241Z
 tags: ansible, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
 ---
 
 # Introduction
-Les variables peuvent être défini dans de nombreux endroits dont les fichiers d'inventaires.
+Les variables peuvent être défini dans de nombreux endroits dont les fichiers d'inventaires. Les variables d'inventaire peuvent être défini au niveau des hôtes, des groupes ou dans des dossiers `host_vars` et `group_vars`.
 
 # Variable de groupes
 # Variable d'hôtes
