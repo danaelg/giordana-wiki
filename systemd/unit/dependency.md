@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T18:07:32.076Z
+date: 2023-06-30T18:08:09.331Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -211,7 +211,7 @@ Dans nos exemples on ne va utiliser que l'option `After`, car le comportement de
 
 ## Cas d'un démarrage sans erreur
 ### Démarrage de serviceB
-Les deux services sont arrêtés, on lance le démarrage de serviceB via la commande `systemctl --user start serviceB`
+**Les deux services sont arrêtés**, on lance le démarrage de serviceB via la commande `systemctl --user start serviceB`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
 ```
 ○ serviceA.service - Hello World Service A
