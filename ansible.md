@@ -2,7 +2,7 @@
 title: Ansible
 description: 
 published: true
-date: 2023-06-30T08:52:06.662Z
+date: 2023-06-30T08:52:15.576Z
 tags: linux, windows, iac, yaml, automatisation, ansible, software
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
@@ -38,8 +38,7 @@ Toute la configuration Ansible est présente dans des fichiers INI ou YAML qui e
 -   [ansible vs ansible-core](/ansible/ansible-vs-ansible-core)
 {.links-list}
 
-# Configuration
-Ansible s'appui sur des fichiers qui 
+
 # Inventaire
 Pour en savoir plus :
 - [Inventaires](/ansible/inventory)
