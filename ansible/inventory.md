@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T10:23:29.393Z
+date: 2023-06-30T13:25:45.344Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -76,7 +76,7 @@ all:
 ## Exemple complexe
 Mon expérience m'a confronté à un cas un peu complexe où je devais avoir trois niveaux :
 - L'environnement: `prod`, `preprod` ou `dev`
-- L'application: Spécifique au métier, on définira `APP1`, `APP2`, `APP3`
+- L'application: Spécifique au métier, on définira `APP1`, `APP2`
 - La fonction: `db`, `front`, `proxy`, etc.
 
 Nous devions avoir la possibilité d'appliquer des actions sur :
@@ -86,6 +86,48 @@ Nous devions avoir la possibilité d'appliquer des actions sur :
 - Tous les hôtes d'une même application et d'une même fonction (ex: *Les front de APP1*)
 
 Cala a donné une structure d'inventaire relativement complexe mais assez simple à exploiter.
+
+Les hôtes de chaque environnement ont été déclaré dans des fichiers différent. On a donc un fichier d'inventaire par environnement. Pour le reste du découpage, selon l'exemple suivant :
+```yaml
+all:
+  children:
+    app1_front:
+      hosts:
+        prodapacheapp1:
+        prodhttpdapp1:
+    app2_front:
+      hosts:
+        prodapacheapp2:
+        prodhttpdapp2:
+    app1_bdd:
+      hosts:
+        prodmariadbapp1:    
+    app2_bdd:
+      hosts:
+      	prodmariadbapp2:
+  
+  # Groupes de fonction
+  children:
+    front:
+      children:
+        app1_front:
+        app2_front:
+    bdd:
+      children:
+        app1_bdd:
+        app2_bdd:
+  # Groupes d'application  
+    app1:
+      children:
+        app1_front:
+        app1_bdd:
+    app2:
+      cildren:
+        app2_front:
+        app2_bdd:
+```
+
+
 
 # Variables
 Les fichiers d'inventaire peuvent contenir des variables au niveau des hôtes ou des groupes.
