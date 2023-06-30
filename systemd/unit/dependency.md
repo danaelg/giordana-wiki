@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:57:38.685Z
+date: 2023-06-30T17:59:14.576Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -328,7 +328,6 @@ Lorsque nos deux services tournent correctement, que se passe-t-il si l'on arrê
 
 On arrête serviceA via la commande : `systemctl --user stop serviceA`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
-Donne la sortie
 ```
 ○ serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
@@ -352,7 +351,7 @@ Donne la sortie
 On observe que que seul serviceA est arrêté, serviceB continu de tourner correctement.
 
 ## Cas d'un démarrage où serviceA échoue
-On va maintenant complexifier un peu, on va modifier serviceA pour que son démarrage échoue. Pour cela on modifie l'option `ExecStart` de serviceA :
+Pour forcer l'échec d'exécution du serviceA, on modifie l'option `ExecStart` :
 ```ini
 [Unit]
 Description=Hello World Service A
@@ -363,10 +362,10 @@ NotifyAccess=all
 ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -x
 StandardOutput=journal
 ```
-> L'option `-x` fera échoué l'exécution du script
+> L'option `-x` fera échouer l'exécution du script
 {.is-info}
 
-> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+> Pensez à exécuter la commande `systemctl --user daemon-reload` après chaque modification de l'unit
 {.is-info}
 
 En partant du principe que nos deux services sont arrêtés. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus) via la commande : `systemctl --user start serviceB`
