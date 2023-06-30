@@ -2,7 +2,7 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T10:02:05.530Z
+date: 2023-06-30T10:08:35.502Z
 tags: ansible, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
@@ -65,4 +65,6 @@ On voit qu'un ordre de priorité s'est appliqué, plus la variable est défini p
 
 ## Priorité des dossiers de variables *host_vars* et *group_vars*
 
-
+# Références
+- [How to build your inventory - Adding variables to inventory - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#adding-variables-to-inventory)
+{.links-list}
