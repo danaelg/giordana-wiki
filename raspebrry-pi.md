@@ -2,7 +2,7 @@
 title: Raspberry Pi
 description: 
 published: true
-date: 2023-06-27T14:29:44.411Z
+date: 2023-06-30T07:54:21.136Z
 tags: hardware, raspberry-pi
 editor: markdown
 dateCreated: 2023-06-20T19:20:19.517Z
@@ -10,12 +10,12 @@ dateCreated: 2023-06-20T19:20:19.517Z
 
 # Introduction
 
-# Configuration
+# Configuration sans redémarrage
+Les configurations suivante peuvent être faites directement après avoir insérer la carte SD dans un ordinateur.
 ## Activer le serveur SSH sans démarrage
-1. Insérer la carte SD dans un ordinateur
-2. Montez la partition `boot`
-3. Créez un fichier vide `ssh` à la racine
-4. Démonter la partition
+1. Montez la partition `boot`
+2. Créez un fichier vide `ssh` à la racine
+3. Démonter la partition
 
 ## Définir l'adresse IP sans démarrage
 1. Montez la partition `rootfs`
