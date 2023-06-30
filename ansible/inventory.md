@@ -1,8 +1,8 @@
 ---
-title: Inventaires
+title: Inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T09:46:53.245Z
+date: 2023-06-30T09:47:00.633Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
