@@ -2,27 +2,27 @@
 title: Ansible
 description: 
 published: true
-date: 2023-06-30T09:19:38.889Z
+date: 2023-06-30T09:21:22.122Z
 tags: linux, windows, iac, yaml, automatisation, ansible, software
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
 ---
 
 # Introduction
-Ansible est un outil d'automatisation de tâches utilisé pour gérer la configuration de serveur et déployer des applications. Il se veut sans agent, car il ne se reposant que sur Python pour l'exécution des tâches et SSH pour la connexion aux machines.
+Ansible est un outil d'automatisation de tâches utilisé pour gérer la configuration de serveur et déployer des applications. Il se veut sans agent, car il ne se repose que sur Python pour l'exécution des tâches et SSH pour la connexion aux machines.
 
 # Fonctionnement
 ## Architecture
 Pour se connecter aux machines, appelé *managed nodes*, Ansible va s'appuyer sur un fichier d'inventaire pour obtenir la liste des hôtes. Il est ensuite possible d'exécuter des actions sur ces dernières.
 ![ansible_architecture.svg](/ansible/ansible_architecture.svg =25%x)
 
-La machine exécuant Ansible est appelé *control node*. A l'exécution d'une commande Ansible, ce dernier interprète les fichiers qui composent sa configuration pour former un script python. Ce dernier est transféré puis exécuté sur les *managed nodes*. Il n'y a aucun service qui tournent en arrière plan, **tout** se fait à l'exécution. 
+La machine exécuant Ansible est appelé *control node*. A l'exécution d'une commande Ansible, ce dernier interprète les fichiers qui composent sa configuration pour former un script python. Ce script est transféré puis exécuté sur les *managed nodes*. Il n'y a aucun service qui tournent en arrière plan, **tout** se fait à l'exécution. 
 
 - [Getting started with Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/getting_started/index.html#getting-started-with-ansible)
 {.links-list}
 
 ## Inventaires
-La liste des hôtes (ou *managed nodes*) sur lesquels seront exécuté des actions est défini par un ou plusieurs fichiers d'inventaire. Ce sont des fichiers INI ou YAML.
+La liste des hôtes (ou *managed nodes*) sur lesquels sont exécutés les actions est défini par un ou plusieurs fichiers d'inventaire. Ce sont des fichiers INI ou YAML.
 
 Pour en savoir plus :
 - [Inventaire Ansible](/ansible/inventory)
