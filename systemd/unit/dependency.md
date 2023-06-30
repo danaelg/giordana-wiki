@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:40:16.549Z
+date: 2023-06-30T17:46:57.181Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -204,7 +204,7 @@ After=serviceA.service
 [Service]
 Type=simple
 ```
-> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+> Pensez à exécuter la commande `systemctl --user daemon-reload` après chaque modification de l'unit
 {.is-info}
 
 Dans nos exemples on ne va utiliser que l'option `After`, car le comportement de l'option `Before` est similaire à la différence qu'il serait configuré dans serviceA plutôt que serviceB.
@@ -264,7 +264,7 @@ Jun 28 11:27:21 ansible helloWorld-ServiceA.sh[4087]: Hello Service A
 Jun 28 11:27:19 ansible systemd[1387]: Started Hello World Service B.
 Jun 28 11:27:21 ansible helloWorld-ServiceB.sh[4091]: Hello Service B
 ```
-On observe que les deux services sont démarrés et que la ligne `Active: active (running) since [...]` indique une heure de démarrage identique pour les deux services (cf. ligne 3 et 19). Le log d'exécution des services indique que serviceA passe dans le statut démarré à 11h27 et 17 secondes tandis que serviceB passe dans ce statut à 11h27 et 19 secondes (cf. ligne 14 et 28). Cela indique que le démarrage de serviceB a été lancé après serviceA. 
+On observe que les deux services sont démarrés et que la ligne `Active: active (running) since [...]` indique une heure de démarrage identique pour les deux services (cf. ligne 3 et 18). Le log d'exécution des services indique que serviceA passe dans le statut démarré à 11h27 et 17 secondes tandis que serviceB passe dans ce statut à 11h27 et 19 secondes (cf. ligne 14 et 28). Cela indique que le démarrage de serviceB a été lancé après serviceA. 
 
 ## Conclusion
 Les options `Before` et `After` permettent de définir un ordre de démarrage des services sans que cela n'implique de dépendances (par exemple, démarrage de serviceA lorsque l'instruction de démarrage du serviceB est lancé). Pour cela il faut utiliser une option de dépedance `Wants`, `Requires`, `Requisite`, etc. 
