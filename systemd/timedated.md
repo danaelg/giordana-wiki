@@ -2,8 +2,8 @@
 title: systemd-timedated.service
 description: 
 published: true
-date: 2023-06-30T05:55:35.329Z
-tags: systemd, systemd-timedated.service
+date: 2023-06-30T05:55:52.340Z
+tags: systemd, timedatectl, systemd-timedated.service
 editor: markdown
 dateCreated: 2023-06-30T05:55:35.329Z
 ---
