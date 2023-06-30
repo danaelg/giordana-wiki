@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-28T06:16:29.210Z
+date: 2023-06-30T07:13:48.899Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -35,14 +35,17 @@ Voici quelques  options courantes pour la section `[Unit]`:
 - **Documentation**: Liste d'URIs séparés par des espaces mettant en lien la documentation. Types d'URIs supportés: `http://`, `https://`, `file:`, `info:` et `man:`.
 - **Wants**: Liste d'units séparé par des espaces. Définit une dépendance faible aux units déclarées. Les units déclarées seront démarrés si cette unit l'est aussi. Si le démarrage des units déclarées échoue, cela n'a pas d'impact sur le démarrage de cette unit.
 - **Conflicts**: Liste d'units séparé par des espaces. Définit des dépendances négatives, c'est à dire des units qui entreraient en conflit avec cette unit. Le démarrage de cette unit entraînera l'arrêt des units déclarées et inversement. 
-- **Before** et **After**: Liste d'units séparé par des espaces. Définit une séquence de dépendance entre les units. Si l'unit `a.service` contient l'option `Before=b.service`, alors si le démarrage des deux services est lancé, `b.service` démarrera lorsque le service `a.service` aura terminé son démarrage. 
+- **Before** et **After**: Liste d'units séparé par des espaces. Définit un ordonnancement entre les units. Si l'unit `a.service` contient l'option `Before=b.service`, alors si le démarrage des deux services est lancé, `b.service` démarrera lorsque le service `a.service` aura terminé son démarrage. 
+
+> Des exemples d'utilisation des différentes options de dépendance et d'ordonnancement sont listés ici : [Gestion des dépendances systemd](/systemd/unit/dependency)
+{.is-info}
+
 
 La liste complète des options se trouve ici :
 - [systemd.unit - [Unit] Section Options - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#%5BUnit%5D%20Section%20Options)
 {.links-list}
 
-> L'option `Wants` est loin d'être la seule à permettre la déclaration de dépendances. Des exemples d'utilisation des différentes options sont listés ici : [Gestion des dépendances systemd](/systemd/unit/dependency)
-{.is-info}
+
 
 ### Section [Install]
 à compléter
