@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:59:38.154Z
+date: 2023-06-30T18:03:56.276Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -415,7 +415,7 @@ Type=simple
 ExecStart=/home/danael/bin/helloWorld-ServiceB.sh -n "Service B"
 StandardOutput=journal
 ```
-> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+> Pensez à exécuter la commande `systemctl --user daemon-reload` après chaque modification de l'unit
 {.is-info}
 
 On s'assure également que l'option `ExecStart` permet au serviceA de démarrer correctement.
@@ -429,7 +429,7 @@ NotifyAccess=all
 ExecStart=/home/danael/bin/helloWorld-ServiceA.sh -n "Service A"
 StandardOutput=journal
 ```
-> Pensez à exécuter la commande `systemctl --user daemon-reload` en cas de modification de l'unit
+> Pensez à exécuter la commande `systemctl --user daemon-reload` après chaque modification de l'unit
 {.is-info}
 
 ## Cas d'un démarrage sans erreur
