@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:59:14.576Z
+date: 2023-06-30T17:59:38.154Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -368,9 +368,8 @@ StandardOutput=journal
 > Pensez à exécuter la commande `systemctl --user daemon-reload` après chaque modification de l'unit
 {.is-info}
 
-En partant du principe que nos deux services sont arrêtés. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus) via la commande : `systemctl --user start serviceB`
-Regardons maintenant le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0`
-Donne la sortie
+En partant du principe que **les deux services sont arrêtés**. On démarre serviceB (ce qui déclenchera automatiquement le démarrage de serviceA, comme vu ci-dessus) via la commande : `systemctl --user start serviceB`
+Regardons maintenant le statut des deux services via la commande : `systemctl --user status serviceA serviceB -n 0` :
 ```
 × serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
