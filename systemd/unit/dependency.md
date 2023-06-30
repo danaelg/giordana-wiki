@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:54:09.670Z
+date: 2023-06-30T17:54:41.719Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -290,8 +290,8 @@ StandardOutput=journal
 {.is-info}
 
 ## Cas d'un démarrage sans erreur
-Commençons par un exemple simple, nos deux services sont arrêté et on démarre serviceB via la commande : `systemctl --user start serviceB`
-Regardons ce qu'il se passe en affichant le statut des deux services via la commande `systemctl --user status serviceA serviceB` :
+Commençons par un exemple simple, **les deux services sont arrêtés** et on démarre serviceB via la commande : `systemctl --user start serviceB`
+Regardons maintenant le statut des deux services via la commande `systemctl --user status serviceA serviceB` :
 ```
 ● serviceA.service - Hello World Service A
      Loaded: loaded (/home/danael/.config/systemd/user/serviceA.service; static)
