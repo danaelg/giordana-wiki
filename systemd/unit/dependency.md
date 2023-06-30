@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:54:41.719Z
+date: 2023-06-30T17:54:53.807Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -232,7 +232,7 @@ Regardons alors le statut des deux services via la commande : `systemctl --user 
 On observe que seul serviceB est démarré. serivceA est toujours arrêté.
 
 ### Démarrage simultané
-On part du principe que les deux services sont arrêtés. On lance le démarrage simultané des deux service via la commande : `systemctl --user start serviceA serviceB`
+On part du principe que **les deux services sont arrêtés**. On lance le démarrage simultané des deux service via la commande : `systemctl --user start serviceA serviceB`
 Regardons alors le statut des deux services via la commande : `systemctl --user status serviceA serviceB`
 ```
 ● serviceA.service - Hello World Service A
