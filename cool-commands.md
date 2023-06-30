@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-28T12:16:41.936Z
+date: 2023-06-30T05:51:15.072Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -33,11 +33,6 @@ cp /path/to/file.ext{,.$(date +%F)}
 ## Obtenir la date de création du système
 ```bash
 df / | awk '{print $1}' | grep dev | xargs tune2fs -l | grep create
-```
-
-## Top 10 des plus gros dossiers et fichiers
-```bash
-du -ahx MOUNTPOINT | sort -hr | head -10
 ```
 
 ## Recherche d'une chaîne de caractère dans tous les fichiers d'un répertoire
