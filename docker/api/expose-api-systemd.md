@@ -2,7 +2,7 @@
 title: Exposer l'API docker via systemd
 description: 
 published: true
-date: 2023-06-30T07:59:28.240Z
+date: 2023-06-30T07:59:52.662Z
 tags: linux, docker, systemd, api
 editor: markdown
 dateCreated: 2023-06-20T12:21:40.070Z
@@ -20,11 +20,6 @@ Puis ajouter les lignes suivantes :
 ```ini
 [Service]
 ExecStart=/usr/bin/dockerd -H fd:// -H tcp://LISTEN_IP:2375
-```
-Exemple :
-```ini
-[Service]
-ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375
 ```
 > LISTEN_IP correspond à l'adresse IP sur laquel l'instance Docker écoutera. `0.0.0.0` signifie que l'API sera exposé sur toutes les interfaces. Mais on peut aussi spéicifier l'adresse IP d'une interface précise : `127.0.0.1` 
 {.is-info}
