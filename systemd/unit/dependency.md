@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T17:46:57.181Z
+date: 2023-06-30T17:47:20.730Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -120,7 +120,7 @@ Le type `notify` indique à systemd que le service doit être considéré comme 
 
 Pour faire très faire simple, on simule un long temps de démarrage de serviceA tandis que serviceB démarre immédiatement. Cela a pour but de mettre en évidence l'ordonnancement de démarrage des services. Si serviceA et serviceB sont démarrés en même temps, l'heure de démarrage du serviceA sera après celle du serviceB (puisqu'il met plus de temps à démarrer). Si serviceB démarre après serviceA, l'heure de démarrage des deux services sera quasiment identique.
 
-Pour résumer cela dans des diagrammes de temps. Voici ce qui serait attendu en cas de démarrage parallèle des deux services :
+On peut illustrer cela dans des diagrammes de temps. Voici ce qui serait attendu en cas de démarrage parallèle des deux services :
 ```kroki
 plantuml
 scale 1 as 80 pixels
