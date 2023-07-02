@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-07-02T20:07:56.028Z
+date: 2023-07-02T20:08:15.295Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -38,11 +38,13 @@ Lorsque le système utilise [systemd](/systemd), ce dernier exécutera le script
 {.links-list}
 
 ## Local
+| | |
 | --- | --- |
 | systemd service | cloud-init-local.service |
 | runs | as soon as possible with / mounted read-write |
 | blocks | as much of boot as possible, must block network |
 | objectif | déterminer le *datasource* et appliquer la configuration réseau |  
+
 A compléter
 
 ## 
