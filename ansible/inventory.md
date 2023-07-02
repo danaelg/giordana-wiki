@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T13:25:45.344Z
+date: 2023-07-02T20:13:55.867Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -15,6 +15,8 @@ A titre personnel, je préfère le format YAML, tous les exemples seront donc da
 
 # Structure d'un fichier d'inventaire
 ## Exemple simple
+### Tabs {.tabset}
+#### YAML
 ```yaml
 all:
   hosts:
