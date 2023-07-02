@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-02T20:40:23.744Z
+date: 2023-07-02T21:03:08.229Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -63,6 +63,8 @@ all:
         one.example.com:
         two.example.com:
 ```
+> A titre personnel, je n'aime pas faire ce genre de chose, car cela peut surcharger l'inventaire. Je préfère alors imbriquer les groupes (voir exemple ci-dessous)
+
 #### INI
 ```ini
 [webservers]
@@ -81,7 +83,6 @@ two.example.com
 one.example.com
 two.example.com
 ```
-###
 > A titre personnel, je n'aime pas faire ce genre de chose, car cela peut surcharger l'inventaire. Je préfère alors imbriquer les groupes (voir exemple ci-dessous)
 
 ## Groupes imbriqués
