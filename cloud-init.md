@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-06-23T06:54:36.115Z
+date: 2023-07-02T20:07:56.028Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
