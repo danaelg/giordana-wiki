@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-07-02T20:04:12.038Z
+date: 2023-07-02T20:04:18.541Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -32,7 +32,7 @@ Dans le premier cas, lorsque je trouve une commande qui m'est utile, je la place
 
 Dans le second cas, lorsque j'étudie un outil (ex: ansible, systemd ou cloud-init) je crée une page sur ce dernier et je synthétise l'information qui m'est utile.
 
-Je m'appuie au maximum sur les documentions des officielles.
+Je m'appuie au maximum sur les documentions officielles.
 
 # Pourquoi ce wiki ?
 La raison de la création de ce wiki part d'un constat simple : notre cerveau oublie les informations dont il ne se sert pas (il a son *garbage collector* le coquin). Ce wiki sert alors de "*second cerveau*" qui garde en mémoire la connaissance que j'ai eu à un moment donné et que je peux relire facilement.
