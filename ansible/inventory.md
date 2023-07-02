@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-02T20:34:41.160Z
+date: 2023-07-02T20:40:23.744Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -41,7 +41,10 @@ two.example.com
 ```
 
 ## Hôtes dans plusieurs groupes
+### Tabs {.tabset}
+#### YAML
 ```yaml
+all:
   children:
     webservers:
       hosts:
@@ -60,6 +63,25 @@ two.example.com
         one.example.com:
         two.example.com:
 ```
+#### INI
+```ini
+[webservers]
+one.example.com
+
+[dbservers]
+two.example.com
+
+[east]
+one.example.com
+
+[west]
+two.example.com
+
+[prod]
+one.example.com
+two.example.com
+```
+###
 > A titre personnel, je n'aime pas faire ce genre de chose, car cela peut surcharger l'inventaire. Je préfère alors imbriquer les groupes (voir exemple ci-dessous)
 
 ## Groupes imbriqués
