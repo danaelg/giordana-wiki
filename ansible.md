@@ -2,7 +2,7 @@
 title: Ansible
 description: 
 published: true
-date: 2023-06-30T09:21:22.122Z
+date: 2023-07-02T20:11:59.481Z
 tags: linux, windows, iac, yaml, automatisation, ansible, software
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
@@ -22,7 +22,7 @@ La machine exécuant Ansible est appelé *control node*. A l'exécution d'une co
 {.links-list}
 
 ## Inventaires
-La liste des hôtes (ou *managed nodes*) sur lesquels sont exécutés les actions est défini par un ou plusieurs fichiers d'inventaire. Ce sont des fichiers INI ou YAML.
+La liste des hôtes (ou *managed nodes*), sur lesquels sont exécutés les actions, est défini par un ou plusieurs fichiers d'inventaire. Ce sont des fichiers INI ou YAML.
 
 Pour en savoir plus :
 - [Inventaire Ansible](/ansible/inventory)
