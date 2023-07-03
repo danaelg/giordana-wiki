@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T17:51:03.310Z
+date: 2023-07-03T17:54:29.468Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -225,4 +225,5 @@ ansible-inventory [-i INVENTORY] --list
 
 # Références
 - [Building Ansible inventories - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/index.html)
+- [Working with dynmic inventories - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_dynamic_inventory.html)
 {.links-list}
