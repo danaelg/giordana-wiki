@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T09:26:59.113Z
+date: 2023-07-03T09:34:35.509Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -141,7 +141,12 @@ Nous devions avoir la possibilité d'appliquer des actions sur :
 
 Cala a donné une structure d'inventaire relativement complexe mais assez simple à exploiter.
 
-Les hôtes de chaque environnement ont été déclaré dans des fichiers différent. On a donc un fichier d'inventaire par environnement. Pour le reste du découpage, selon l'exemple suivant :
+Les hôtes de chaque environnement ont été déclaré dans des fichiers différent. On a donc un fichier d'inventaire par environnement. Pour le reste du découpage, un groupe d'hôtes nommé `APPLICATION_FONCTION`. Ce group est ensuite membre de groupes nommé `APPLICATION` et `FONCTION` correspondant.
+
+> `APPLICATION` et `FONCTION` sont remplacés par les valeurs adéquate
+{.is-info}
+
+Voici un exemple suivant :
 ```yaml
 all:
   children:
@@ -161,7 +166,6 @@ all:
       	prodmariadbapp2:
   
   # Groupes de fonction
-  children:
     front:
       children:
         app1_front:
@@ -180,8 +184,6 @@ all:
         app2_front:
         app2_bdd:
 ```
-
-
 
 # Variables
 Les fichiers d'inventaire peuvent contenir des variables au niveau des hôtes ou des groupes.
