@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T09:38:24.543Z
+date: 2023-07-03T09:38:51.771Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -11,7 +11,7 @@ dateCreated: 2023-06-21T06:49:31.521Z
 # Introduction
 Les fichiers d'inventaire au format *INI* ou *YAML* permettent de lister les hôtes, de les grouper et de leurs associer des variables.
 
-A titre personnel, je préfère le format YAML, tous les exemples seront donc dans ce format.
+A titre personnel, je préfère le format YAML, certains exemples ne seront que dans ce format.
 
 # Structure d'un fichier d'inventaire
 ## Exemple simple
