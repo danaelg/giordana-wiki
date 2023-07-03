@@ -2,7 +2,7 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T09:50:35.384Z
+date: 2023-07-03T09:59:45.701Z
 tags: ansible, work-in-progress, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
@@ -34,6 +34,23 @@ foo.example.com
 bar.example.com
 ```
 # Variable d'hôtes
+On peut définir des variables au niveau des hôtes, pour du YAML, elles sont ajoutésen en tant que couple `key: value` de l'hôte, pour du INI, elles sont ajoutés sur la même ligne que l'hôte en étant séparé par des espaces.
+## Tabs {.tabset}
+### YAML
+```yaml
+all:
+  hosts:
+    foo.example.com:
+      my_var: Hello
+      my_var2: World!
+    bar.example.com:
+      my_var: Coucou
+```
+### INI
+```ini
+foo.example.com my_var=Hello my_var2=World!
+bar.example.com my_var=Coucou
+```
 # Dossiers *host_vars* et *group_vars*
 # Priorité des variables
 ## Priorité dans le fichier d'inventaire
