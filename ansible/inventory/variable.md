@@ -2,8 +2,8 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T14:37:08.186Z
-tags: ansible, work-in-progress, ansible-inventory, ansible_variables
+date: 2023-07-03T14:37:18.733Z
+tags: ansible, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
 ---
