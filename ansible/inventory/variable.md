@@ -2,7 +2,7 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T11:58:47.025Z
+date: 2023-07-03T14:37:08.186Z
 tags: ansible, work-in-progress, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
@@ -52,12 +52,40 @@ foo.example.com my_var=Hello my_var2=World!
 bar.example.com my_var=Coucou
 ```
 # Dossiers *host_vars* et *group_vars*
+Les variables peuvent être défini dans répertoire `group_vars` et `host_vars` situé à côté des fichiers d'inventaires. Ansible chargera alors les fichiers YAML présent des ces dossiers (respectivement les variables de groupe dans le dossier `group_vars` et les variables d'hôte dans le dossier `host_vars`).
 
+Les fichiers YAML présent dans ces dossiers doivent porter le nom du groupe ou de l'hôte. Par exemple si on à un groupe *apache*, *mysql* et *proxy* ainsi qu'un hôte *foo.example.com* et *bar.example.com*, voici la structure possible
+```bash
+hosts # Fichier d'inventaire contenant la liste des hôtes et les groupes.
+host_vars/foo.example.com # Fichier de variable YAML
+group_vars/apache # Fichier de variable YAML
+group_vars/mysql # Fichier de variable YAML
+group_vars/proxy # Fichier de variable YAML
+```
+
+> Les fichier de variables peuvent prendre l'extension `.yml` ou `.yaml`
+{.is-info}
+
+Notez que pour les variables de groupes, il est possible de créer un sous-dossier portant le nom du groupe peut être créé. Ansible chargera l'ensemble des fichiers se trouvant à l'intérieur. Voici un exemple de structure :
+```bash
+group_vars/apache/apache_settings.yml # Fichier de variable YAML
+group_vars/apache/connection_settings.yml # Fichier de variable YAML
+...
+```
+
+Voici un exemple de fichier de variable au format YAML
+```yaml
+---
+my_var: coucou
+environment: prod
+users:
+  - name: John
+    lastname: Doe
+```
 
 # Priorité des variables
+Comme on l'a vu, les variables peuvent être défini à différents niveaux. Si un même variable est défini plusieurs fois quelle priorité s'applique ?
 ## Priorité dans le fichier d'inventaire
-Il est possible de définir des variables dans le fichier d'inventaire à plusieurs niveaux : par hôte ou par groupes. Quelle priorité s'applique si une même variable est défini au niveau d'un hôte et au niveau d'un groupe auquel il appartient ?
-
 Voici un exemple de fichier d'inventaire nommé `inventory.yml`
 ```yaml
 all:
@@ -78,7 +106,7 @@ all:
       hosts:
         proxy-1:
 ```
-Pour voir la valeur des variables suite à l'exécution, on lance la commande :
+Pour voir quelle valeur est prise en compte au moment de l'exécution, on lance la commande :
 ```bash
 ansible-inventory -i inventory.yml --list
 ```
@@ -105,6 +133,68 @@ On obtient le résultat suivant :
 On voit qu'un ordre de priorité s'est appliqué, plus la variable est défini proche de l'hôte, plus elle est prioritaires.
 
 ## Priorité des dossiers de variables *host_vars* et *group_vars*
+Avec le même fichier d'inventaire `inventory.yml` que précédemment :
+```yaml
+all:
+  vars:
+    my_var: '!'
+  children:
+    apache:
+      hosts:
+        apache-1:
+          my_var: 'Hello'
+    mysql:
+      hosts:
+   			mysql-1:
+	      mysql-2:
+      vars:
+        my_var: 'World'
+    proxy:
+      hosts:
+        proxy-1:
+```
+On définit les fichiers suivants :
+`group_vars/all.yml`
+```yaml
+---
+my_var: 'var from group_vars/all.yml'
+```
+`group_vars/mysql.yml`
+```yaml
+---
+my_var: 'var from group_vars/mysql.yml'
+```
+`host_vars/apache-1.yml`
+```yaml
+---
+my_var: 'var defined from host_vars/apache-1.yml'
+```
+
+Si on exécute la commande suivante :
+```bash
+ansible-inventory -i inventory.yml --list
+```
+On obtient le résultat suivant :
+```json
+[...]
+{
+	"apache-1": {
+		"my_var": "var defined from host_vars/apache-1.yml"
+	},
+	"mysql-1": {
+		"my_var": "var from group_vars/mysql.yml"
+	},
+	"mysql-2": {
+		"my_var": "var from group_vars/mysql.yml"
+	},
+	"proxy-1": {
+		"my_var": "var from group_vars/all.yml"
+	}
+}
+[...]
+```
+
+On observe que les variables définies directement dans le fichier d'inventaire sont écrasés et que la même priorité "*au plus proche de l'hôte*" s'applique.
 
 # Références
 - [How to build your inventory - Adding variables to inventory - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#adding-variables-to-inventory)
