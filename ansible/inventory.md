@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T09:34:35.509Z
+date: 2023-07-03T09:38:24.543Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -196,6 +196,12 @@ Pour en savoir plus :
 
 # Commande
 La commande `ansible-inventory` permet de lister les hôtes, groupes et variables des fichiers d'inventaires.
+## Lister toutes les informations des fichiers d'inventaires
+```bash
+ansible-inventory [-i INVENTORY] --list
+```
+> On peut définir autant de fois l'option `-i` que nécessaire si on a plusieurs fichiers d'inventaires.
+{.is-info}
 
 # Références
 - [Building Ansible inventories - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/index.html)
