@@ -2,7 +2,7 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T09:59:45.701Z
+date: 2023-07-03T11:58:47.025Z
 tags: ansible, work-in-progress, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
@@ -52,6 +52,8 @@ foo.example.com my_var=Hello my_var2=World!
 bar.example.com my_var=Coucou
 ```
 # Dossiers *host_vars* et *group_vars*
+
+
 # Priorité des variables
 ## Priorité dans le fichier d'inventaire
 Il est possible de définir des variables dans le fichier d'inventaire à plusieurs niveaux : par hôte ou par groupes. Quelle priorité s'applique si une même variable est défini au niveau d'un hôte et au niveau d'un groupe auquel il appartient ?
