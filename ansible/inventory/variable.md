@@ -2,8 +2,8 @@
 title: Définir des variables dans les inventaires Ansible
 description: 
 published: true
-date: 2023-06-30T10:14:46.241Z
-tags: ansible, ansible-inventory, ansible_variables
+date: 2023-07-03T09:50:35.384Z
+tags: ansible, work-in-progress, ansible-inventory, ansible_variables
 editor: markdown
 dateCreated: 2023-06-30T09:46:27.964Z
 ---
@@ -12,6 +12,27 @@ dateCreated: 2023-06-30T09:46:27.964Z
 Les variables peuvent être défini dans de nombreux endroits dont les fichiers d'inventaires. Les variables d'inventaire peuvent être défini au niveau des hôtes, des groupes ou dans des dossiers `host_vars` et `group_vars`.
 
 # Variable de groupes
+On peut définir des variables au niveau des groupes en ajoutant le mot clef `vars:` dans la cas du YAML et en ajoutant le suffixe `:vars` à la section INI
+## Tabs {.tabset}
+### YAML
+```yaml
+all:
+  vars:
+    my_var: Hello
+    my_var2: World!
+  hosts:
+    foo.example.com:
+    bar.example.com:
+```
+### INI
+```ini
+[all:vars]
+my_var=Hello
+my_var2=World!
+
+foo.example.com
+bar.example.com
+```
 # Variable d'hôtes
 # Dossiers *host_vars* et *group_vars*
 # Priorité des variables
