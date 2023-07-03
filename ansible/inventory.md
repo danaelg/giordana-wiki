@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-07-03T14:38:09.918Z
+date: 2023-07-03T17:50:40.549Z
 tags: yaml, ansible, work-in-progress, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -13,7 +13,7 @@ Les fichiers d'inventaire au format *INI* ou *YAML* permettent de lister les hô
 
 A titre personnel, je préfère le format YAML, certains exemples ne seront que dans ce format.
 
-# Structure d'un fichier d'inventaire
+# Inventaires statiques
 ## Exemple simple
 ### Tabs {.tabset}
 #### YAML
@@ -193,6 +193,26 @@ Pour en savoir plus :
 {.links-list}
 
 # Inventaires dynamiques
+Les inventaires dynamiques ammènent une approches différentes qui consiste, non pas lister les hôtes et les regrouper, mais à utiliser un plugin qui s'interface avec un système externe (par exemple, VMWare, vSphere, Nutanix, GLPI, Netbox, etc.).
+
+Le contenu du fichier d'inventaire dynamique varie en fonction du plugin utilisé, mais généralement il regroupe un ensemble de requête pour obtenir une liste d'hôte et une façon de les regrouper.
+
+Voici un exemple de fichier d'inventaire dynamique utilisant le plugin netbox.
+```yaml
+---
+plugin: netbox.netbox.nb_inventory
+api_endpoint: https://netbox.example.org
+token: SECRET_TOKEN
+query_filters:
+  - status: active
+  - role: container
+  - role: server
+group_by:
+  - device_roles
+```
+Dans cet exemple, on récupère l'ensemble des hôtes portant le rôle container ou server et étant actif. Les hôtes sont regroupés par rôle.
+
+Il n'est pas possible d'être exhaustif tellement il existe de plugins.
 
 # Commande
 La commande `ansible-inventory` permet de lister les hôtes, groupes et variables des fichiers d'inventaires.
