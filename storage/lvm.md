@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-06-20T15:47:03.121Z
+date: 2023-07-04T18:29:59.083Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -73,8 +73,14 @@ Exemple : Créer un volume logique utilisant tout l'espace restant dans le group
 ```bash
 lvcreate -n LV_NAME -l 100%FREE VG 
 ```
+### Créer un volume logique à allocation dynamique (thin-provisioning)
+Les volumes à allocation dynamique écrivent les blocs en fonction de l'usage réel. Cela permet de créer des volumes avec une taille maximale mais dont seul l'espace réellement utilisé est écrit sur le disque. 
 
-## Etendre un volume logique
+Par opposition, les volumes "classique", à allocation fixe, mettent à disposition les blocs dès leur création. L'espace défini est alors fixe et ne peux être modifié facilement.
+
+Pour créer un volume thin, il suffit d'ajouter l'option `-T` à la commanbde de création de volume logique (voir [Créer un volume logique](/storage/lvm#créer-un-volume-logique).
+
+### Etendre un volume logique
 En exprimant une taille fixe
 ```bash
 lvextend -L +SIZE VG_NAME/LV_NAME 
@@ -96,7 +102,7 @@ lvextend -l EXTENT[%{FREE|PVS|VG|ORIGIN}] VG/LV
 > D'autre suffixes existent, se référer au manuel
 {.is-info}
 
-## Suppression d'un volume logique
+### Suppression d'un volume logique
 Il faut d'abord désactiver le volume
 ```bash
 lvchange -an VG_NAME/LV_NAME 
