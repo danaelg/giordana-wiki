@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-07-04T18:30:20.803Z
+date: 2023-07-04T18:56:46.730Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -80,6 +80,12 @@ Par opposition, les volumes "classique", à allocation fixe, mettent à disposit
 
 Pour créer un volume thin, il suffit d'ajouter l'option `-T` à la commanbde de création de volume logique (voir [Créer un volume logique](/storage/lvm#créer-un-volume-logique)).
 
+Par exemple :
+```bash
+lvcreate -T -n LV_NAME -L SIZE[UNIT] [--poolmetadatasize SIZE[UNIT] ] VG
+```
+> L'option `--poolmetadatasize` permet de définir la taille réservés aux métadonnées. Il n'y a pas de règle parfaite pour déterminer la bonne taille. [La documentation](https://man7.org/linux/man-pages/man7/lvmthin.7.html) recommande une taille de 1G et de l'augmenter en cas de besoin. Sans l'option, la taille prise réservé aux métadonnées est calculé de la façon suivante : `Pool_LV_size / Pool_LV_chunk_size * 64b`
+
 ### Etendre un volume logique
 En exprimant une taille fixe
 ```bash
@@ -126,4 +132,5 @@ lvremove VG_NAME/LV_NAME
 - https://linux.die.net/man/8/lvcreate
 - https://linux.die.net/man/8/lvextend
 - https://linux.die.net/man/8/lvremove
+- https://man7.org/linux/man-pages/man7/lvmthin.7.html
 {.links-list}
