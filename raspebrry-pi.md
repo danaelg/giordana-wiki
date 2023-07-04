@@ -2,13 +2,14 @@
 title: Raspberry Pi
 description: 
 published: true
-date: 2023-07-04T15:14:50.351Z
+date: 2023-07-04T15:16:22.617Z
 tags: hardware, raspberry-pi
 editor: markdown
 dateCreated: 2023-06-20T19:20:19.517Z
 ---
 
 # Introduction
+La Rapsberry Pi est un nano-ordinateur monocarte intégrant un processeur ARM. Son format compact et sa faible consommation en font un candiat parfait pour des projets d'hébergement à bas coût ou pour de l'embarqué.
 
 # Matériel
 | Modèle | CPU | Architecture | Coeurs | Fréquence (GHz) | RAM (Go)
