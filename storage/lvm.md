@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-07-04T18:56:46.730Z
+date: 2023-07-04T19:00:24.574Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -85,6 +85,7 @@ Par exemple :
 lvcreate -T -n LV_NAME -L SIZE[UNIT] [--poolmetadatasize SIZE[UNIT] ] VG
 ```
 > L'option `--poolmetadatasize` permet de définir la taille réservés aux métadonnées. Il n'y a pas de règle parfaite pour déterminer la bonne taille. [La documentation](https://man7.org/linux/man-pages/man7/lvmthin.7.html) recommande une taille de 1G et de l'augmenter en cas de besoin. Sans l'option, la taille prise réservé aux métadonnées est calculé de la façon suivante : `Pool_LV_size / Pool_LV_chunk_size * 64b`
+{.is-info}
 
 ### Etendre un volume logique
 En exprimant une taille fixe
