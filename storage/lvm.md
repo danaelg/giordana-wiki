@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-07-04T18:29:59.083Z
+date: 2023-07-04T18:30:20.803Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -78,7 +78,7 @@ Les volumes à allocation dynamique écrivent les blocs en fonction de l'usage r
 
 Par opposition, les volumes "classique", à allocation fixe, mettent à disposition les blocs dès leur création. L'espace défini est alors fixe et ne peux être modifié facilement.
 
-Pour créer un volume thin, il suffit d'ajouter l'option `-T` à la commanbde de création de volume logique (voir [Créer un volume logique](/storage/lvm#créer-un-volume-logique).
+Pour créer un volume thin, il suffit d'ajouter l'option `-T` à la commanbde de création de volume logique (voir [Créer un volume logique](/storage/lvm#créer-un-volume-logique)).
 
 ### Etendre un volume logique
 En exprimant une taille fixe
