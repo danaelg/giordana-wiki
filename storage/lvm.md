@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-07-04T19:00:24.574Z
+date: 2023-07-04T19:04:31.752Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -124,14 +124,14 @@ lvremove VG_NAME/LV_NAME
 
 # Références
 
-- https://linux.die.net/man/8/pvcreate
-- https://linux.die.net/man/8/pvextend
-- https://linux.die.net/man/8/pvremove
-- https://linux.die.net/man/8/vgcreate
-- https://linux.die.net/man/8/vgextend
-- https://linux.die.net/man/8/vgremove
-- https://linux.die.net/man/8/lvcreate
-- https://linux.die.net/man/8/lvextend
-- https://linux.die.net/man/8/lvremove
-- https://man7.org/linux/man-pages/man7/lvmthin.7.html
+- [pvcreate(8) - Linux man page](https://linux.die.net/man/8/pvcreate)
+- [pvextend(8) - Linux man page](https://linux.die.net/man/8/pvextend)
+- [pvremove(8) - Linux man page](https://linux.die.net/man/8/pvremove)
+- [vgcreate(8) - Linux man page](https://linux.die.net/man/8/vgcreate)
+- [vgextend(8) - Linux man page](https://linux.die.net/man/8/vgextend)
+- [vgremove(8) - Linux man page](https://linux.die.net/man/8/vgremove)
+- [lvcreate(8) - Linux man page](https://linux.die.net/man/8/lvcreate)
+- [lvextend(8) - Linux man page](https://linux.die.net/man/8/lvextend)
+- [lvremove(8) - Linux man page](https://linux.die.net/man/8/lvremove)
+- [lvmthin(7) - Linux manual page](https://man7.org/linux/man-pages/man7/lvmthin.7.html)
 {.links-list}
