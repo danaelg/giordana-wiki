@@ -2,13 +2,22 @@
 title: Raspberry Pi
 description: 
 published: true
-date: 2023-06-30T07:55:19.660Z
+date: 2023-07-04T15:14:50.351Z
 tags: hardware, raspberry-pi
 editor: markdown
 dateCreated: 2023-06-20T19:20:19.517Z
 ---
 
 # Introduction
+
+# Matériel
+| Modèle | CPU | Architecture | Coeurs | Fréquence (GHz) | RAM (Go)
+| --- | --- | --- | --- | --- | --- |
+| 2B+ | ARM Cortex-A7 | ARMv7 | 4 | 0.9 | 1 |
+| 3B | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.2 | 1 |
+| 3A+ | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.4 | 0.5 |
+| 3B+ | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.4 | 1 |
+| 4B | ARM Cortex-A72 | ARMv8 (64bits) | 4 | 1.5 | 1, 2, 4 ou 8 |
 
 # Configuration sans redémarrage
 Les configurations suivante peuvent être faites directement après avoir insérer la carte SD dans un ordinateur.
