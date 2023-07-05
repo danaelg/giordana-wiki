@@ -2,7 +2,7 @@
 title: Playbooks Ansible
 description: 
 published: true
-date: 2023-07-05T07:41:04.077Z
+date: 2023-07-05T07:41:32.178Z
 tags: ansible, work-in-progress, ansible-playbook
 editor: markdown
 dateCreated: 2023-07-03T17:34:59.507Z
@@ -690,7 +690,7 @@ excalidraw
     }
   ],
   "appState": {
-    "gridSize": 20,
+    "gridSize": null,
     "viewBackgroundColor": "#ffffff"
   }
 }
