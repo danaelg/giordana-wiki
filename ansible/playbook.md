@@ -2,7 +2,7 @@
 title: Playbooks Ansible
 description: 
 published: true
-date: 2023-07-05T07:46:58.352Z
+date: 2023-07-05T08:08:11.518Z
 tags: ansible, work-in-progress, ansible-playbook
 editor: markdown
 dateCreated: 2023-07-03T17:34:59.507Z
@@ -12,10 +12,18 @@ dateCreated: 2023-07-03T17:34:59.507Z
 Les playbooks sont des fichiers texte YAML qui servent de plan pour exécuter des tâches sur une liste d'hôte définie par les fichiers d'[inventaire](/ansible/inventory). Comme pour des script *bash* ou *powershell* classique, quasiment toutes les actions peuvent être décrite dans des playbooks. La différence réside dans l'approche descriptive qui s'oppose à une approche plus itérative que l'on retrouve dans les scripts.
 
 # Syntaxe
-Voici un exemple de playbooks :
+Les playbooks sont écris au format YAML et sont composés d'un ou plusieurs *plays* qui sont eux-même composés d'une ou plusieurs tâches. Chaque tâche appelle un module qui contient un ensemble de paramètres.
+Voici un exemple :
 ![playbook-example.png](/ansible/playbook-example.png =40%x)
 
-On peut voir qu'un playbook est composé d'un ou plusieurs *plays* qui sont eux-même composés d'une ou plusieurs tâches. Chaque tâche appelle un module qui contient un ensemble de paramètres. 
+# Mot clefs
+Les mots clefs utilisés pour décrire le playbook, les plays et les tâches. Dans les exmples ci-dessous, on trouve les mots clefs `name`, `hosts`, `tasks` et `remote_user`. On remarque qu'ils peuvent être réutilisés et définis à des niveaux différents (play ou tâche).
+
+Référez-vous à la documentation pour obtenir la liste complète des mots clefs :
+- [Playbook Keyword - Ansible Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html)
+{.links-list}
+
+
 
 # Commandes
 ## Exécuter un playbook
