@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-06-30T08:20:56.955Z
+date: 2023-07-05T14:12:10.277Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -15,6 +15,9 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 ## SNMP MIB Explorer
 - https://mib-explorer.com
 - https://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/
+
+## Système
+- https://brendangregg.com/usemethod.html
 
 # Commandes En vrac
 ## Désactiver le mode visuel de VIM
