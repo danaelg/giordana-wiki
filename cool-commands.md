@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-07-05T14:12:10.277Z
+date: 2023-07-05T14:35:27.287Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -18,6 +18,9 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 
 ## Système
 - https://brendangregg.com/usemethod.html
+
+## Images
+- https://linuxfr.org/news/des-formats-d-image
 
 # Commandes En vrac
 ## Désactiver le mode visuel de VIM
