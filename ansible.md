@@ -2,7 +2,7 @@
 title: Ansible
 description: 
 published: true
-date: 2023-07-03T17:53:44.729Z
+date: 2023-07-05T06:57:12.611Z
 tags: linux, windows, iac, yaml, automatisation, ansible, software
 editor: markdown
 dateCreated: 2023-06-20T08:37:49.880Z
@@ -19,6 +19,13 @@ Pour se connecter aux machines, appelé *managed nodes*, Ansible va s'appuyer su
 La machine exécuant Ansible est appelé *control node*. A l'exécution d'une commande Ansible, ce dernier interprète les fichiers qui composent sa configuration pour former un script python. Ce script est transféré puis exécuté sur les *managed nodes*. Il n'y a aucun service qui tournent en arrière plan, **tout** se fait à l'exécution. 
 
 - [Getting started with Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/getting_started/index.html#getting-started-with-ansible)
+{.links-list}
+
+## Connexion aux hôtes
+Par défaut, Ansible utilise le protocole SSH pour se connecter aux hôtes, mais cela est configurable via des variables. Il est notamment possible de choisir le type de connexion (mot de passe, clef privée), le port, le protocole, etc.
+
+La liste comlète des variables est ici :
+- [Connecting to hosts: behavioral inventory parameters - Ansible Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#connecting-to-hosts-behavioral-inventory-parameters)
 {.links-list}
 
 ## Inventaires
