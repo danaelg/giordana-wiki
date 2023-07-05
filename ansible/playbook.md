@@ -2,7 +2,7 @@
 title: Playbooks Ansible
 description: 
 published: true
-date: 2023-07-05T07:34:53.909Z
+date: 2023-07-05T07:35:26.507Z
 tags: ansible, work-in-progress, ansible-playbook
 editor: markdown
 dateCreated: 2023-07-03T17:34:59.507Z
@@ -15,6 +15,7 @@ Les playbooks sont des fichiers texte YAML qui servent de plan pour exécuter de
 Voici un exemple de playbooks
 ```kroki
 excalidraw
+
 {
   "type": "excalidraw",
   "version": 2,
