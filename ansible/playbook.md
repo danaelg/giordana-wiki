@@ -2,7 +2,7 @@
 title: Playbooks Ansible
 description: 
 published: true
-date: 2023-07-05T07:45:43.834Z
+date: 2023-07-05T07:46:58.352Z
 tags: ansible, work-in-progress, ansible-playbook
 editor: markdown
 dateCreated: 2023-07-03T17:34:59.507Z
@@ -14,6 +14,8 @@ Les playbooks sont des fichiers texte YAML qui servent de plan pour exécuter de
 # Syntaxe
 Voici un exemple de playbooks :
 ![playbook-example.png](/ansible/playbook-example.png =40%x)
+
+On peut voir qu'un playbook est composé d'un ou plusieurs *plays* qui sont eux-même composés d'une ou plusieurs tâches. Chaque tâche appelle un module qui contient un ensemble de paramètres. 
 
 # Commandes
 ## Exécuter un playbook
