@@ -2,17 +2,17 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-06T08:54:18.160Z
+date: 2023-07-06T08:55:45.928Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
 ---
 
 # Introduction
-Ceph est une technologie de stockage distribué libre qui fournit du stockage objet, block et sous forme de système de fichiers ([CephFS](/filesystem/cephfs)).
+Ceph est une technologie de stockage distribué libre qui fournit du [stockage objet](/storage/object), [block](/storage/block) et sous forme de système de fichiers ([CephFS](/filesystem/cephfs)).
 
 # Fonctionnalités
-Ceph fournit trois méthodes de stockage différentes que sont : le stockage object, le stockage block et le stockage système de fichiers. Les fonctionnalités de ces trois méthodes sont résumés dans les onglets ci-dessous :
+Ceph fournit trois méthodes de stockage différentes que sont : le stockage object, le stockage block et le stockage sous forme de système de fichiers. Les fonctionnalités de ces trois méthodes sont résumés dans les onglets ci-dessous :
 ## Tabs {.tabset}
 ### Stockage objet
 - RESTful Interface
