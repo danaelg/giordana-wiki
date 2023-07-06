@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-06T08:53:21.485Z
+date: 2023-07-06T08:54:18.160Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -39,7 +39,7 @@ Ceph fournit trois méthodes de stockage différentes que sont : le stockage obj
 - Incremental backup
 - Disaster recovery (multisite asynchronous replication)
 
-### Système de fichiers
+### CephFS (système de fichiers)
 - POSIX-compliant semantics
 - Separates metadata from data
 - Dynamic rebalancing
