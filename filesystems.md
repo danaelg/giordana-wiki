@@ -2,7 +2,7 @@
 title: Filesystems
 description: 
 published: true
-date: 2023-06-30T05:52:10.215Z
+date: 2023-07-06T08:53:46.921Z
 tags: filesystem, storage
 editor: markdown
 dateCreated: 2023-06-20T09:29:09.640Z
@@ -17,6 +17,7 @@ Il existe de nombreux type de système de fichiers qui offrent des fonctionnalit
 - [BTRFS](/filesystems/btrfs)
 - [EXT4](/filesystems/ext4)
 - [XFS](/filesystems/xfs)
+- [CephFS](/filesystem/cephfs)
 {.links-list}
 
 # Et LVM ?
