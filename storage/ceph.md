@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-06T09:28:32.523Z
+date: 2023-07-06T09:30:29.577Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -52,11 +52,11 @@ Ceph fournit trois méthodes de stockage différentes que sont : le stockage obj
 
 # Fonctionnement
 Ceph fonctionne sous forme de cluster contenant plusieurs noeuds. On trouve les éléments suivant dans un cluster :
-- **Monitors (`ceph-mon`)**:
-- **Managers (`ceph-mgr`)**:
-- **Ceph OSDs (`ceph-osd`)**:
-- **MDSs (`ceph-mds`)**:
-
+- [Monitors (`ceph-mon`)](/storage/ceph/monitors)
+- [Managers (`ceph-mgr`)](/storage/ceph/managers)
+- [Ceph OSDs (`ceph-osd`)](/storage/ceph/osd)
+- [MDSs (`ceph-mds`)](/storage/ceph/mds)
+{.links-list}
 
 # Références
 - [Ceph Documentation](https://docs.ceph.com/en/latest/)
