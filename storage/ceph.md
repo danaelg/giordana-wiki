@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-10T20:20:54.088Z
+date: 2023-07-10T20:21:08.706Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -55,7 +55,7 @@ Ceph est une solution de stockage distribué qui s'appuie sur [RADOS](https://ce
 
 ![architecture_ceph.svg](/storage/ceph/architecture_ceph.png =50%x)
 
-Sur l'illustration, les rectangles bleu représentent des services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
+Sur l'illustration, les rectangles bleu représentent les services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
 
 On observe que les I/Os se font par l'intermédiaire d'un client qui représente les données sous forme d'objets. Il récupère également la [cluster map](/storage/ceph#cluster-map) auprès du service [monitor](/storage/ceph/monitor) qui, avec les informations du [pool](/storage/storage/ceph#pool), permettent de déterminer le [placement groups (PG)](/storage/ceph#placement-group) dans lequel l'objet doit se trouver. L'algorithme [CRUSH](https://ceph.io/assets/pdfs/weil-crush-sc06.pdf) permet de définir dans quel OSD doit être placé un PG.
 
