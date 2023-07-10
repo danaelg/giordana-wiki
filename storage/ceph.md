@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-10T20:19:29.832Z
+date: 2023-07-10T20:19:44.466Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -52,6 +52,7 @@ Ceph fournit trois méthodes de stockage différentes que sont : le stockage obj
 
 # Fonctionnement
 Ceph est une solution de stockage distribué qui s'appuie sur [RADOS](https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf). Il s'architecture sous forme de cluster que l'on nomme *Ceph Storage Cluster*. Voici une illustration libre des différents éléments que l'on trouve dans un cluster Ceph avec leurs interractions :
+
 ![architecture_ceph.svg](/storage/ceph/architecture_ceph.png =50%x)
 
 Sur l'illustration, les rectangles bleu représentent des services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
