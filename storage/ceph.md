@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-10T20:20:22.153Z
+date: 2023-07-10T20:20:54.088Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -76,6 +76,7 @@ Pour en savoir plus sur chaque service :
 ## Cluster Map
 ## Pool
 ## Placement Group
+## Bluestore
 
 # Références
 - [Ceph Documentation](https://docs.ceph.com/en/latest/)
