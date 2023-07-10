@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-10T20:25:29.927Z
+date: 2023-07-10T20:28:00.482Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -62,7 +62,7 @@ Les I/Os sont réalisés par un *client* qui représente les données sous forme
 > Lorsque l'on parle d'objets au niveau d'un cluster Ceph, on parle en fait d'un objet RADOS.
 {.is-info}
 
-L'une des forces de Ceph est la communication directe entre le client et les OSDs, il n'y a pas de service central qui pourrait faire goulot d'étranglement.
+Bien que cela ne ressorte pas sur l'illustration, il faut bien comprendre que le client communique **directement** avec les OSDs. C'est l'une des forces de Ceph ! Cela évite d'avoir un service central qui pourrait faire goulot d'étranglement.
 
 Pour en savoir plus sur chaque service :
 - [Monitors (`ceph-mon`)](/storage/ceph/monitor)
