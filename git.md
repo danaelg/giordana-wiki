@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-06-20T20:09:26.831Z
+date: 2023-07-11T14:00:03.849Z
 tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -76,7 +76,7 @@ git push -f
 
 ## Modifier la description du dernier commit
 ```bash
-git commit -amend
+git commit --amend
 ```
 
 # Branches
