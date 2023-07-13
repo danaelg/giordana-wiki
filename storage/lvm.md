@@ -2,7 +2,7 @@
 title: LVM
 description: Logical Volume Manager
 published: true
-date: 2023-07-04T19:04:31.752Z
+date: 2023-07-13T13:51:05.180Z
 tags: linux, storage, lvm
 editor: markdown
 dateCreated: 2023-06-20T15:37:26.474Z
@@ -90,7 +90,7 @@ lvcreate -T -n LV_NAME -L SIZE[UNIT] [--poolmetadatasize SIZE[UNIT] ] VG
 ### Etendre un volume logique
 En exprimant une taille fixe
 ```bash
-lvextend -L +SIZE VG_NAME/LV_NAME 
+lvextend -L +SIZE[UNIT] VG_NAME/LV_NAME 
 ```
 > *SIZE* doit être exprimé avec une unité K, M, G, T, P ou E
 {.is-info}
