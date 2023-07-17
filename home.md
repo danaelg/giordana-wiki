@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-07-17T20:20:42.147Z
+date: 2023-07-17T20:22:19.087Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -19,6 +19,9 @@ Trois solutions sont possibles pour trouver de l'informations :
 1. La barre de navigation à gauche
 2. La recherche de contenu via la barre de recherche en haut
 3. La recherche par tag via le petit bouton à droite de la barre de recherche
+
+# Nouveautés
+Le wiki évolue constamment, je vous invite à consulter le wiki régulièrement et à surveiller les commits de le [github](https://github.com/danaelg/giordana-wiki) pour identifier les pages récemment modifiés. 
 
 # Format de la documentation
 Pour l'écriture des commandes j'essaye de me rapprocher de la convention de google : https://developers.google.com/style/code-syntax.
