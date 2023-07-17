@@ -2,14 +2,14 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-17T19:57:55.663Z
+date: 2023-07-17T20:18:23.737Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
 ---
 
 # Introduction
-Ceph est une technologie de stockage distribué libre qui fournit du [stockage objet](/storage/object), [bloc](/storage/block) et sous forme de [système de fichiers](/filesystems) ([CephFS](/filesystem/cephfs)).
+Ceph est une technologie de stockage distribué libre qui fournit des interfaces de stockage  [objet S3/Swifft](/storage/object), [bloc](/storage/block) ou [système de fichiers](/filesystems) ([CephFS](/filesystem/cephfs)).
 
 # Fonctionnalités
 Ceph fournit trois méthodes de stockage différentes : le stockage objet, le stockage bloc et le stockage sous forme de système de fichiers. Les fonctionnalités de ces trois méthodes sont résumés dans les onglets ci-dessous :
@@ -54,11 +54,11 @@ Ceph fournit trois méthodes de stockage différentes : le stockage objet, le st
 Ceph est une solution de stockage distribué qui s'appuie sur [RADOS](https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf). Il s'architecture sous forme de cluster que l'on nomme *Ceph Storage Cluster*. Voici une illustration libre des différents éléments que l'on trouve dans un cluster Ceph avec leurs interractions :
 
 ![architecture_ceph.svg](/storage/ceph/architecture_ceph.png =50%x)
-*Schéma d'interraction entre les éléments d'un cluster Ceph*
+*Schéma d'interraction entre les éléments d'un cluster Ceph - Danaël Giordana*
 
 Sur l'illustration, les rectangles bleu représentent les services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
 
-Les I/Os sont réalisés par un *client* qui représente les données sous forme d'objets. Il récupère également la [cluster map](/storage/ceph#cluster-map) auprès du service [monitor](/storage/ceph/monitor) qui, avec les informations du [pool](/storage/storage/ceph#pool), permettent de déterminer le [placement groups (PG)](/storage/ceph#placement-group) dans lequel l'objet doit se trouver. L'algorithme [CRUSH](https://ceph.io/assets/pdfs/weil-crush-sc06.pdf) permet de définir dans quel OSD doit être placé un PG. Enfin, un disque est associé à un OSD, ce dernier a la charge de représenter les objets sur le disque. Il effectue cette action à l'aide du backend [Bluestore](/storage/ceph#bluestore).
+Les I/Os sont réalisés par un [client](/storage/ceph#client) qui représente les données sous forme d'objets. Il récupère également la [cluster map](/storage/ceph#cluster-map) auprès du service [monitor](/storage/ceph/monitor) qui, avec les informations du [pool](/storage/storage/ceph#pool), permettent de déterminer le [placement groups (PG)](/storage/ceph#placement-group) dans lequel l'objet doit se trouver. L'algorithme [CRUSH](https://ceph.io/assets/pdfs/weil-crush-sc06.pdf) permet de définir dans quel OSD doit être placé un PG. Enfin, un disque est associé à un OSD, ce dernier a la charge de représenter les objets sur le disque. Il effectue cette action à l'aide du backend [Bluestore](/storage/ceph#bluestore).
 
 > Lorsque l'on parle d'objets au niveau d'un cluster Ceph, on parle en fait d'un objet RADOS.
 {.is-info}
@@ -70,6 +70,17 @@ Pour en savoir plus sur chaque service :
 - [Managers (`ceph-mgr`)](/storage/ceph/manager)
 - [OSDs (`ceph-osd`)](/storage/ceph/osd)
 - [MDSs (`ceph-mds`)](/storage/ceph/mds)
+{.links-list}
+
+## Client
+Le client est l'élément qui interragi avec un cluster Ceph pour réaliser des I/Os. Ce dernier communique directement avec les OSDs grâce à la [cluster map](/storage/ceph#cluster-map). C'est donc un programme externe au cluster. Le client utilise des librairies différente pour chaque interface de stockage (object S3/Swift, Bloc ou système de fichier). Voici un schéma d'architecture haut niveau :
+
+![ceph-client-architecture.webp](/storage/ceph/ceph-client-architecture.webp =50%x)
+*Schéma d'architecture haut niveau d'un client Ceph - [Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#ceph-clients)*
+
+
+
+* [Ceph clients - Architecture - Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#ceph-clients)
 {.links-list}
 
 ## Processus de lecture/écriture
