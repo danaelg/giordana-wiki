@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-17T20:18:23.737Z
+date: 2023-07-17T20:19:26.955Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -77,8 +77,6 @@ Le client est l'élément qui interragi avec un cluster Ceph pour réaliser des 
 
 ![ceph-client-architecture.webp](/storage/ceph/ceph-client-architecture.webp =50%x)
 *Schéma d'architecture haut niveau d'un client Ceph - [Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#ceph-clients)*
-
-
 
 * [Ceph clients - Architecture - Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#ceph-clients)
 {.links-list}
