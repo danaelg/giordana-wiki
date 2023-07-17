@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-10T20:38:17.267Z
+date: 2023-07-17T19:57:55.663Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -54,6 +54,7 @@ Ceph fournit trois méthodes de stockage différentes : le stockage objet, le st
 Ceph est une solution de stockage distribué qui s'appuie sur [RADOS](https://ceph.io/assets/pdfs/weil-rados-pdsw07.pdf). Il s'architecture sous forme de cluster que l'on nomme *Ceph Storage Cluster*. Voici une illustration libre des différents éléments que l'on trouve dans un cluster Ceph avec leurs interractions :
 
 ![architecture_ceph.svg](/storage/ceph/architecture_ceph.png =50%x)
+*Schéma d'interraction entre les éléments d'un cluster Ceph*
 
 Sur l'illustration, les rectangles bleu représentent les services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
 
@@ -73,7 +74,61 @@ Pour en savoir plus sur chaque service :
 
 ## Processus de lecture/écriture
 ## Objet (RADOS)
+
 ## Cluster Map
+La cluster map doit être connu des clients et des OSDs, c'est ce qui permet la communication directe entre les deux éléments. C'est le service [Monitor](/storage/ceph/monitor) qui se charge de maintenir une copie de la cluster map.
+
+La *Cluster Map* est composé de cinq maps :
+- La monitor map 
+- L'OSD map
+- La PG (Placement Group) map
+- la CRUSH map
+- la MDS map
+
+En d'autres termes, elle contient l'ensemble des informations du cluster, elle est donc centrale dans le fonctionnement de ce dernier. C'est pourquoi, il est recommandé d'avoir au moins trois services [monitor](/storage/ceph/monitor).
+
+* [Cluster Map - Architecture - Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#architecture-cluster-map)
+{.links-list}
+
+### Monitor map
+La monitor map contient le `fsid` (identifiant unique du cluster), l'emplacment (adresse + port) des services monitor, l'epoch, la date de création et de dernière modification de la map.
+
+On peut afficher la map avec la commande :
+```bash
+ceph mon dump
+```
+
+### OSD map
+L'OSD map contient également le `fsid`, la date de création et de la dernière modification de la map, la liste des [pools](/storage/ceph/ceph#pool), des tailles de replica, des numéros des PG ainsi que la liste des service [OSD](/storage/ceph/osd) avec leur statut.
+
+On peut afficher la map avec la commande :
+```bash
+ceph osd dump
+```
+
+### PG map
+La PG map contient la version PG, sa date, le dernier epoch de l'OSD map et des détails sur les PGs (PG ID, l'*up set* et l'*active set*, le statut des PGs et des statistiques d'usage des données pour chaque pool).
+
+### CRUSH map
+La CRUSH map contient la liste des disques, la hiérarchie du domaine de défaillance et les règles de parcours de cette hiérarchie lors du stockage des données.
+
+On peut afficher la map en la récupérant compilé :
+```bash
+ceph osd getcrushmap -o COMPILED_FILENAME
+```
+puis en la décompilant avec la commande :
+```bash
+crushtool -d COMPILED_FILENAME -o FILENAME
+```
+
+### MDS map
+La MDS map contient un epoch, la date de création et de la dernière modification de la map, le pool de stockage des métadonnées, l'emplacement des services [MDS](/storage/ceph/mds) et leur statut. 
+
+On peut afficher la map avec la commande :
+```bash
+ceph fs dump
+```
+
 ## Pool
 ## Placement Group
 ## Bluestore
