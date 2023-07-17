@@ -2,7 +2,7 @@
 title: Home
 description: Page d'accueil
 published: true
-date: 2023-07-02T20:04:18.541Z
+date: 2023-07-17T20:20:42.147Z
 tags: 
 editor: markdown
 dateCreated: 2023-06-20T08:16:19.198Z
@@ -21,7 +21,7 @@ Trois solutions sont possibles pour trouver de l'informations :
 3. La recherche par tag via le petit bouton à droite de la barre de recherche
 
 # Format de la documentation
-Pour toutes les commandes j'essaye de me rapprocher de la convention de google : https://developers.google.com/style/code-syntax
+Pour l'écriture des commandes j'essaye de me rapprocher de la convention de google : https://developers.google.com/style/code-syntax.
 
 # Méthode de création de pages
 Il y a deux cas  :
