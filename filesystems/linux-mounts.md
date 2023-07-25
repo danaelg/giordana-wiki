@@ -2,7 +2,7 @@
 title: Montage des système de fichiers sous Linux
 description: 
 published: true
-date: 2023-06-26T06:06:33.187Z
+date: 2023-07-25T13:47:23.613Z
 tags: linux, filesystem, fstab
 editor: markdown
 dateCreated: 2023-06-20T13:15:17.460Z
@@ -31,8 +31,8 @@ DEVICE    MOUNTPOINT    TYPE    OPTIONS    DUMP    PASS
 ```
 - *DEVICE*:	Indique la partition à monter. Il y a plusieurs solutions, mais les 3 principales sont :
   - l'UUID (Universal Unique Identifier) de la partition : `UUID=UUID_VALUE` 
-	- La référence directe à la partition : `/dev/XXX` 
-	- Le label de la partition à monter. `LABEL=PART_LABEL`
+  - La référence directe à la partition : `/dev/XXX` 
+  - Le label de la partition à monter. `LABEL=PART_LABEL`
 - *MOUNTPOINT*: indique le répertoire de montage (celui-ci doit exister).
 - *TYPE*:	indique le système de fichiers de la partition montée (ext4, ntfs, btrfs, etc.).
 - *OPTIONS*:	indique les options au montage.
