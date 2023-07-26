@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-07-06T08:16:08.110Z
+date: 2023-07-26T07:14:11.707Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -22,6 +22,9 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 ## Images
 - https://linuxfr.org/news/des-formats-d-image
 
+## sed
+- https://sed.js.org/
+
 # Commandes En vrac
 ## Désactiver le mode visuel de VIM
 En mode commande
@@ -35,6 +38,12 @@ cp /path/to/file.ext{,.$(date +%F)}
 ```
 > Créer une copie du fichier /path/to/file.ext dans /path/to/file.ext.2023-06-28 (dans le cas où la date du jour est le 28 juin 2023).
 {.is-info}
+
+## sed
+### Sauvegarder un fichier avant remplacement
+```bash
+sed -i.$(date +%F) COMMANDE FILE
+```
 
 ## Obtenir la date de création du système
 ```bash
