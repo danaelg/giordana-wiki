@@ -2,7 +2,7 @@
 title: Systemd
 description: 
 published: true
-date: 2023-06-30T07:11:56.417Z
+date: 2023-07-27T06:40:04.015Z
 tags: linux, systemd, software, systemctl
 editor: markdown
 dateCreated: 2023-06-22T18:49:04.579Z
@@ -26,7 +26,10 @@ En savoir plus :
 {.links-list}
 
 # Autres services
-Systemd se voulant être une suite logiciels permettant de gérer le système dans son ensemble, ce dernier intègre des services supplémentaires pour gérer par exemple la journalisation et ou le nom d'hôte.
+Systemd se voulant être une suite logiciels permettant de gérer le système dans son ensemble, ce dernier intègre des services supplémentaires pour gérer, par exemple, la journalisation ou le nom d'hôte.
+
+> Ces services supplémentaire sont dépendant de systemd, **mais** ce n'est pas parce que votre système utilise systemd qu'il utilise ces services.
+{.is-info}
 
 Vous pouvez retrouver les pages de ces différents services :
 
