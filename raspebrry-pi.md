@@ -2,7 +2,7 @@
 title: Raspberry Pi
 description: 
 published: true
-date: 2023-07-04T15:16:22.617Z
+date: 2023-07-29T20:38:33.217Z
 tags: hardware, raspberry-pi
 editor: markdown
 dateCreated: 2023-06-20T19:20:19.517Z
@@ -40,3 +40,38 @@ static domain_name_servers=DNS_IP
 > *GATEWAY_IP*: IP de la passerelle, ex: `192.0.2.1`
 > *DNS_IP*: IP du serveur DNS, ex: `1.1.1.1`
 {.is-info}
+
+# Configuration d'une clef Wifi Asus usb-ac53 nano
+La clef [Asus USB AC53 Nano](https://www.amazon.fr/Usb-ac53-Adaptateur-Wi-FI-Mu-MIMO-Double/dp/B06XQ2V4QM) est un carte wifi qui peut être utilisé sur une Raspberry Pi à condition de compiler le driver. Voici la procédure suivi sur une Rapsberry Pi 2B+ avec un kernel en version 6.1.21.
+
+Récupération du code source :
+```bash
+git clone https://github.com/RinCat/RTL88x2BU-Linux-Driver
+cd RTL88x2BU-Linux-Driver
+```
+
+Installation des dépendances :
+```bash
+apt install raspberrypi-kernel-headers
+```
+
+Compilation :
+```bash
+make ARCH=arm
+```
+
+Installation :
+```bash
+make install
+``` 
+
+Redémarrage
+```bash
+reboot
+```
+
+Après le redémarrage, la carte apparaît avec l'identifiant `wlan0`
+
+- https://edimax.freshdesk.com/support/solutions/articles/14000062079-how-to-install-ew-7822ulc-adapter-on-raspberry-pi
+- https://github.com/RinCat/RTL88x2BU-Linux-Driver
+{.links-list}
