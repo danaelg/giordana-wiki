@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-06-30T07:13:53.850Z
+date: 2023-08-02T11:23:36.564Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -47,7 +47,13 @@ La liste complète des options se trouve ici :
 
 
 ### Section [Install]
-à compléter
+Les sections *[Install]* contient les informations d'installation de l'unit qui sont interprétés par les commandes `systemctl enable` et `systemctl disable`.
+
+Voici les options que l'on peut configurer dans cette section :
+- **Alias**
+- **WantedBy**, **RequiredBy** et **UpheldBy**
+- **Also**
+- **DefaultInstance**
 
 ## Exemple
 Voici l'exemple d'une unit de type service nommée `hello-world.service`
