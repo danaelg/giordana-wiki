@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:31:34.815Z
+date: 2023-08-02T20:40:54.031Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -63,14 +63,8 @@ La commande `chcon` permet de modifier le contexte d'un fichier de façon tempor
 semanage fcontext -a -t TYPE FILE
 ```
 
-## Afficher le contexte des fichiers
-```bash
-ls -Z PATH
-```
-## Afficher le contexte des processus
-```bash
-ps -Z
-```
+## Afficher le contexte d'un objet
+La plupart des commandes d'affichage des objets (quel que soit leur classe) permettent d'afficher le contexte de ce dernier avec le paramètre `-Z`. Par exemple `ls -Z` pour les fichiers ou `ps -Z` pour les processus.
 
 ## Recontextualier un fichier
 Si un changement de contexte temporaire a été réalisé sur un fichier (via `chcon`), on peut le recontextualisé avec la commande :
