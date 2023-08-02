@@ -2,7 +2,7 @@
 title: SELinus denying access for something you believe should be allowed, you can x
 description: 
 published: true
-date: 2023-08-02T19:19:33.208Z
+date: 2023-08-02T19:29:32.218Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -54,6 +54,12 @@ la liste complète des objets avec leur permission se trouve ici :
 {.links-list}
 
 # Commandes
+## Changement de contexte temporaire `chcon`
+La commande `chcon` permet de modifier le contexte d'un fichier de façon temporaire. Ainsi, les fichiers peuvent être recontextualisé via la commande `restorecon` ou via un `touch /.autorelabel` suivi d'un redémarrage de la machine. 
+
+## Changement de contexte permanent `semanage fcontext`
+
+
 ## Afficher le contexte des fichiers
 ```bash
 ls -Z PATH
@@ -62,6 +68,15 @@ ls -Z PATH
 ```bash
 ps -Z
 ```
+
+## Recontextualier un fichier
+Si un changement de contexte temporaire a été réalisé sur un fichier (via `chcon`), on peut le recontextualisé avec la commande :
+`restorecon FILE`
+
+## Recontextualiser tous les fichiers du système
+Si des changements de contexte temporaires ont été réalisés sur plusieurs fichiers (via `chcon`), on peut les recontextualisé en faisant :
+1. `touch /.autorelabel`
+2. Redémarrer le système
 
 # Références
 - https://debian-handbook.info/browse/fr-FR/stable/sect.selinux.html
