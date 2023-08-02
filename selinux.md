@@ -2,7 +2,7 @@
 title: SELinus denying access for something you believe should be allowed, you can x
 description: 
 published: true
-date: 2023-08-02T19:30:42.968Z
+date: 2023-08-02T20:04:20.614Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -27,7 +27,7 @@ Les types sont le moyen principal pour déterminer l'accès. Le type d'un proces
 La convention de nommage des types consiste à ajouter le suffixe *_t* (ex: *user_t*).
 
 ## Contexte
-Tous les objets et processus du système ont un contexte (aussi appelé label). C'est ce qui permet de déterminer si l'accès entre un objet et un processus est autorisé.
+Tous les objets et processus du système ont un contexte. C'est ce qui permet de déterminer si l'accès entre un objet et un processus est autorisé.
 
 Le contexte s'écris de la façon suivante :
 ```
