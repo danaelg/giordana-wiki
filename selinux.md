@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:40:54.031Z
+date: 2023-08-02T20:46:49.973Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -22,8 +22,11 @@ La convention de nommage des utilisateurs SELinux consiste à ajouter le suffixe
 ## Roles
 Un utilisateur SELinux peut avoir un ou plusieurs roles. Les rôles sont définis par les politiques.
 
+### object_r
+Le role `object_r` est un role générique qui regroupe l'ensemble des objets du système.
+
 ## Types
-Les types sont le moyen principal pour déterminer l'accès. Le type d'un processus est aussi appelé *domaine*.
+Les types sont le moyen principal pour déterminer l'accès.
 
 La convention de nommage des types consiste à ajouter le suffixe *_t* (ex: *user_t*).
 
