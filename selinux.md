@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T18:58:57.052Z
+date: 2023-08-02T19:10:06.162Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -25,6 +25,26 @@ Un utilisateur SELinux peut avoir un ou plusieurs roles. Les rôles sont défini
 Les types sont le moyen principal pour déterminer l'accès. Le type d'un processus est aussi appelé *domaine*.
 
 La convention de nommage des types consiste à ajouter le suffixe *_t* (ex: *user_t*).
+
+## Contexte
+Tous les objets et processus du système ont un contexte (aussi appelé label). C'est ce qui permet de déterminer si l'accès entre un objet et un processus est autorisé.
+
+Le contexte s'écris de la façon suivante :
+```
+user:role:type:range
+ |    |    |    |
+ |    |    |    └── (optionnel) range MLS
+ |    |    └─────── type SELinux
+ |    └──────────── role SELinux
+ └───────────────── utilisateur SELinux
+```
+
+## Règles
+Les règles permettent de définir les autorisations par type. Voici un exemple de règle :
+```
+allow user_t user_home_t:file { create read write unlink };
+```
+Cette règle autoriser le type *user_t* à créer (*create*), lire (*read*), écrire (*write*) et supprimer (*delete*) des objets de classe fichier (*file*) ayant pour type SELinux *user_home_t*. 
 
 # Commandes
 
