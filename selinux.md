@@ -1,8 +1,8 @@
 ---
-title: SELinux
+title: SELinus denying access for something you believe should be allowed, you can x
 description: 
 published: true
-date: 2023-08-02T19:10:06.162Z
+date: 2023-08-02T19:19:33.208Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -44,15 +44,26 @@ Les règles permettent de définir les autorisations par type. Voici un exemple 
 ```
 allow user_t user_home_t:file { create read write unlink };
 ```
-Cette règle autoriser le type *user_t* à créer (*create*), lire (*read*), écrire (*write*) et supprimer (*delete*) des objets de classe fichier (*file*) ayant pour type SELinux *user_home_t*. 
+Cette règle autoriser le type *user_t* à créer (*create*), lire (*read*), écrire (*write*) et supprimer (*delete*) des objets de classe fichier (*file*) ayant pour type SELinux *user_home_t*.
+
+## Classe d'objet
+SELinux possède de nombreuses classes d'objet, on peut citer par exemple les répertoire ou les fichiers (*dir* et *file*). Chaque classe possède un certain nombre de permissions, par exemple pour les fichiers, on trouvera les permissions *read*, *write*, *create* et *unlink*, tandis que pour les sockets on trouvera *connect*, *create* et *sendto*.
+
+la liste complète des objets avec leur permission se trouve ici :
+- [ObjectClassesPerms - SELinux Wiki](https://selinuxproject.org/page/ObjectClassesPerms)
+{.links-list}
 
 # Commandes
-
+## Afficher le contexte des fichiers
 ```bash
 ls -Z PATH
+```
+## Afficher le contexte des processus
+```bash
+ps -Z
 ```
 
 # Références
 - https://debian-handbook.info/browse/fr-FR/stable/sect.selinux.html
-- https://selinuxproject.org/page/BasicConcepts
+- [SELinux Wiki](https://selinuxproject.org/page/Main_Page)
 {.links-list}
