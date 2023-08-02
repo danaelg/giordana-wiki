@@ -2,13 +2,14 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:11:09.186Z
+date: 2023-08-02T20:29:23.998Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
 ---
 
 # Introduction
+SELinux (Security Enhanced Linux) est un module du noyau Linux qui permet de contrôler l'accès aux ressources système en se basant sur [MAC (Mandatory Access Control)](/dac)
 
 # Fonctionnement
 ## Utilisateurs SELinux
