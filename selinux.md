@@ -2,7 +2,7 @@
 title: SELinus denying access for something you believe should be allowed, you can x
 description: 
 published: true
-date: 2023-08-02T19:30:19.634Z
+date: 2023-08-02T19:30:42.968Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -55,7 +55,7 @@ la liste complète des objets avec leur permission se trouve ici :
 
 # Commandes
 ## Changement de contexte temporaire `chcon`
-La commande `chcon` permet de modifier le contexte d'un fichier de façon temporaire. Ainsi, les fichiers peuvent être recontextualisé à leur contexte d'origine. 
+La commande `chcon` permet de modifier le contexte d'un fichier de façon temporaire. Ainsi, les fichiers peuvent être recontextualisé à leur contexte d'origine.
 
 ## Changement de contexte permanent `semanage fcontext`
 
