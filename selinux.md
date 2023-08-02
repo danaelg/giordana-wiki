@@ -1,8 +1,8 @@
 ---
-title: SELinus denying access for something you believe should be allowed, you can x
+title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:04:20.614Z
+date: 2023-08-02T20:05:48.669Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
