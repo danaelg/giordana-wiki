@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:05:48.669Z
+date: 2023-08-02T20:11:09.186Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -58,7 +58,9 @@ la liste complète des objets avec leur permission se trouve ici :
 La commande `chcon` permet de modifier le contexte d'un fichier de façon temporaire. Ainsi, les fichiers peuvent être recontextualisé à leur contexte d'origine.
 
 ## Changement de contexte permanent `semanage fcontext`
-
+```bash
+semanage fcontext -a -t TYPE FILE
+```
 
 ## Afficher le contexte des fichiers
 ```bash
