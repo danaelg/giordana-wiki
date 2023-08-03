@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-03T09:26:04.759Z
+date: 2023-08-03T09:52:48.968Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -57,8 +57,9 @@ La liste des booléens s'obtient avec la commande :
 ```bash
 semanage boolean -l
 ```
-Voici un extrait de quelque booléen existant :
+Voici un extrait de booléens existant :
 ```
+SELinux boolean                State  Default Description
 privoxy_connect_any            (on   ,   on)  Allow privoxy to connect any
 smartmon_3ware                 (off  ,  off)  Allow smartmon to 3ware
 mpd_enable_homedirs            (off  ,  off)  Allow mpd to enable homedirs
@@ -70,6 +71,11 @@ mount_anyfile                  (on   ,   on)  Allow mount to anyfile
 cron_userdomain_transition     (on   ,   on)  Allow cron to userdomain transition
 xdm_write_home                 (off  ,  off)  Allow xdm to write home
 openvpn_can_network_connect    (on   ,   on)  Allow openvpn to can network connect
+```
+
+L'activation ou la désactivation d'un booléen se fait via la commande :
+```
+semanage boolean -m {--on|--off} BOOLEAN
 ```
 
 ## Classe d'objet
