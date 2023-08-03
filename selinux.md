@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-03T08:51:47.407Z
+date: 2023-08-03T09:26:04.759Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -49,6 +49,28 @@ Les règles permettent de définir les autorisations par type. Voici un exemple 
 allow user_t user_home_t:file { create read write unlink };
 ```
 Cette règle autoriser le type *user_t* à créer (*create*), lire (*read*), écrire (*write*) et supprimer (*delete*) des objets de classe fichier (*file*) ayant pour type SELinux *user_home_t*.
+
+## Booléen
+Pour faciliter l'administration de SELinux, les développeurs d'application ou de distribution regroupent des règles sous forme de booléen.
+
+La liste des booléens s'obtient avec la commande :
+```bash
+semanage boolean -l
+```
+Voici un extrait de quelque booléen existant :
+```
+privoxy_connect_any            (on   ,   on)  Allow privoxy to connect any
+smartmon_3ware                 (off  ,  off)  Allow smartmon to 3ware
+mpd_enable_homedirs            (off  ,  off)  Allow mpd to enable homedirs
+xdm_sysadm_login               (off  ,  off)  Allow xdm to sysadm login
+xen_use_nfs                    (off  ,  off)  Allow xen to use nfs
+mozilla_read_content           (off  ,  off)  Allow mozilla to read content
+ssh_chroot_rw_homedirs         (off  ,  off)  Allow ssh to chroot rw homedirs
+mount_anyfile                  (on   ,   on)  Allow mount to anyfile
+cron_userdomain_transition     (on   ,   on)  Allow cron to userdomain transition
+xdm_write_home                 (off  ,  off)  Allow xdm to write home
+openvpn_can_network_connect    (on   ,   on)  Allow openvpn to can network connect
+```
 
 ## Classe d'objet
 SELinux possède de nombreuses classes d'objet, on peut citer par exemple les répertoire ou les fichiers (*dir* et *file*). Chaque classe possède un certain nombre de permissions, par exemple pour les fichiers, on trouvera les permissions *read*, *write*, *create* et *unlink*, tandis que pour les sockets on trouvera *connect*, *create* et *sendto*.
