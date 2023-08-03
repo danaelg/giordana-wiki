@@ -2,7 +2,7 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-02T20:46:49.973Z
+date: 2023-08-03T08:51:47.407Z
 tags: linux, selinux, mac
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
@@ -58,6 +58,22 @@ la liste complète des objets avec leur permission se trouve ici :
 {.links-list}
 
 # Commandes
+## Désactiver SELinux
+```bash
+setenforce 0
+```
+> Cela ne désactive pas SELinux mais le passe en mode permissif
+{.is-info}
+
+> La désactivation de SELinux doit être une opération de debug ! Penser à réactiver SELinux
+> https://stopdisablingselinux.com/
+{.is-warning}
+
+## Activer SELinux
+```bash
+setenforce 1
+```
+
 ## Changement de contexte temporaire `chcon`
 La commande `chcon` permet de modifier le contexte d'un fichier de façon temporaire. Ainsi, les fichiers peuvent être recontextualisé à leur contexte d'origine.
 
