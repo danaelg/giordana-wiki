@@ -2,7 +2,7 @@
 title: AppArmor
 description: 
 published: true
-date: 2023-08-04T07:05:54.797Z
+date: 2023-08-04T08:34:31.779Z
 tags: linux, security, work-in-progress, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-04T06:37:55.463Z
@@ -11,7 +11,7 @@ dateCreated: 2023-08-04T06:37:55.463Z
 # Introduction
 
 # Fonctionnement
-AppArmor ne s'applique que sur les applications sur lequelles un profil est actif.
+AppArmor ne s'applique que sur les applications sur lequelles un profil est actif. Un profil peut être dans deux états : *enforcement* ou *complain*.
 
 # Commandes
 ## Afficher le statut d'AppArmor
@@ -45,6 +45,7 @@ Voici un exemple de retour :
     0 processes are in complain mode.
     0 processes are unconfined but have a profile defined.
 ```
+
 # Références
 - [Documentation - AppArmor](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation)
 {.links-list}
