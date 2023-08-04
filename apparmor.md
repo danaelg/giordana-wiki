@@ -2,7 +2,7 @@
 title: AppArmor
 description: 
 published: true
-date: 2023-08-04T08:42:10.932Z
+date: 2023-08-04T08:44:13.338Z
 tags: linux, security, work-in-progress, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-04T06:37:55.463Z
@@ -46,6 +46,18 @@ Voici un exemple de retour :
        /usr/sbin/cupsd (2425) 
     0 processes are in complain mode.
     0 processes are unconfined but have a profile defined.
+```
+
+## Configurer une application en mode complain
+```bash
+aa-complain BIN_PATH
+```
+> Le passage en mode complain ne doit être réalisé que pour du debug, pensez à repasser l'application en mode enforcement
+{.is-info}
+
+## Configurer une application en mode enforcement
+```bash
+aa-enforce BIN_PATH
 ```
 
 # Références
