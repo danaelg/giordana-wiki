@@ -2,8 +2,8 @@
 title: AppArmor
 description: 
 published: true
-date: 2023-08-04T06:37:55.463Z
-tags: linux, security, selinux, mac, apparmor
+date: 2023-08-04T06:38:07.683Z
+tags: linux, security, work-in-progress, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-04T06:37:55.463Z
 ---
