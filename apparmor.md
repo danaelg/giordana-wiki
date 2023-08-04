@@ -2,7 +2,7 @@
 title: AppArmor
 description: 
 published: true
-date: 2023-08-04T08:39:33.883Z
+date: 2023-08-04T08:42:10.932Z
 tags: linux, security, work-in-progress, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-04T06:37:55.463Z
@@ -11,7 +11,9 @@ dateCreated: 2023-08-04T06:37:55.463Z
 # Introduction
 
 # Fonctionnement
-AppArmor ne s'applique que sur les applications sur lequelles un profil est actif. Un profil peut être dans deux états : *enforcement* ou *complain*.
+AppArmor ne s'applique que sur les applications sur lequelles un profil est actif. Un profil peut être dans deux états : 
+- **enforcement**: le profil applique les politiques en avertissant et en bloquant.
+- **complain**: le profile applique les politiques en avertissant mais sans bloquer.
 
 # Commandes
 ## Afficher le statut d'AppArmor
