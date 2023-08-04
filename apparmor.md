@@ -2,7 +2,7 @@
 title: AppArmor
 description: 
 published: true
-date: 2023-08-04T08:34:31.779Z
+date: 2023-08-04T08:39:33.883Z
 tags: linux, security, work-in-progress, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-04T06:37:55.463Z
@@ -48,4 +48,5 @@ Voici un exemple de retour :
 
 # Références
 - [Documentation - AppArmor](https://gitlab.com/apparmor/apparmor/-/wikis/Documentation)
+- [apparmor - man page](http://man.he.net/?topic=apparmor&section=all)
 {.links-list}
