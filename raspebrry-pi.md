@@ -2,7 +2,7 @@
 title: Raspberry Pi
 description: 
 published: true
-date: 2023-07-29T20:38:33.217Z
+date: 2023-08-08T19:39:46.697Z
 tags: hardware, raspberry-pi
 editor: markdown
 dateCreated: 2023-06-20T19:20:19.517Z
@@ -14,7 +14,7 @@ La Rapsberry Pi est un nano-ordinateur monocarte intégrant un processeur ARM. S
 # Matériel
 | Modèle | CPU | Architecture | Coeurs | Fréquence (GHz) | RAM (Go)
 | --- | --- | --- | --- | --- | --- |
-| 2B+ | ARM Cortex-A7 | ARMv7 | 4 | 0.9 | 1 |
+| 2B+ | ARM Cortex-A7 | ARMv7 (32bits) | 4 | 0.9 | 1 |
 | 3B | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.2 | 1 |
 | 3A+ | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.4 | 0.5 |
 | 3B+ | ARM Cortex-A53 | ARMv8 (64bits) | 4 | 1.4 | 1 |
