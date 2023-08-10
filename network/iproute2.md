@@ -2,7 +2,7 @@
 title: iproute2
 description: 
 published: true
-date: 2023-06-27T14:25:57.612Z
+date: 2023-08-10T11:46:40.825Z
 tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
@@ -29,33 +29,33 @@ Il est censé remplacé la suite d'outils `net-tools`. Le tableau suivant montre
 apt install iproute2
 ```
 
-# Gestion des interfaces
-## Afficher les interfaces
+# Commandes
+## Gestion des adresses, interfaces, tunnels et du routage - `ip`
+### Afficher les interfaces
 ```bash
 ip link show
 ```
 
-## Allumer/éteindre une interface
+### Allumer/éteindre une interface
 ```bash
 ip link set DEVICE {up|down}
 ```
 > *DEVICE*: Nom de l'interface associé à la route
 {.is-info}
 
-## Activer le mode promiscuous
+### Activer le mode promiscuous
 ```bash
 ip link set DEVICE promisc on
 ```
 > *DEVICE*: Nom de l'interface associé à la route
 {.is-info}
 
-# Configuration IP
-## Afficher les adresses IP des interfaces
+### Afficher les adresses IP des interfaces
 ```bash
 ip addr show
 ```
 
-## Ajouter une adresse IP à une interface
+### Ajouter une adresse IP à une interface
 ```bash
 ip addr add IP_CIDR dev DEVICE
 ```
@@ -63,13 +63,12 @@ ip addr add IP_CIDR dev DEVICE
 > DEVICE: Nom de l'interface
 {.is-info}
 
-# Configuration du routage
-## Afficher la table de routage
+### Afficher la table de routage
 ```bash
 ip route show
 ```
 
-## Ajouter une route
+### Ajouter une route
 ```bash
 ip route add NETWORK_CIDR via GATEWAY_IP dev DEVICE
 ```
@@ -78,15 +77,14 @@ ip route add NETWORK_CIDR via GATEWAY_IP dev DEVICE
 > *DEVICE*: Nom de l'interface associé à la route
 {.is-info}
 
-## Supprimer une route
+### Supprimer une route
 ```bash
 ip route del NETWORK_CIDR
 ```
 > *NETWORK_CIRD*: Adresse IP du réseau au format CIDR (ex: 192.0.2.0/24). Vous pouvez indiquer `default` pour configurer une route par défaut
 {.is-info}
 
-# Gestion des sockets
-## Afficher les sockets en écoute
+### Afficher les sockets en écoute
 ```bash
 ss -l
 ```
