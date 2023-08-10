@@ -2,7 +2,7 @@
 title: iproute2
 description: 
 published: true
-date: 2023-08-10T11:46:40.825Z
+date: 2023-08-10T11:55:32.765Z
 tags: linux, networking, iproute2, ss
 editor: markdown
 dateCreated: 2023-06-20T19:05:17.799Z
@@ -33,7 +33,7 @@ apt install iproute2
 ## Gestion des adresses, interfaces, tunnels et du routage - `ip`
 ### Afficher les interfaces
 ```bash
-ip link show
+ip [-brief] link show
 ```
 
 ### Allumer/éteindre une interface
