@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-08-17T20:23:05.155Z
+date: 2023-08-17T20:32:17.386Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -188,10 +188,19 @@ serviceBscript is "boucle echo Hello ..."
 {.is-info}
 
 # Before et After
-Les options `Before` et `After` sont définis de la façon suivante :
+Les options `Before` et `After` sont définis de la façon suivante dans la documentation :
 > Those two settings configure ordering dependencies between units. If unit foo.service contains the setting Before=bar.service and both units are being started, bar.service's start-up is delayed until foo.service has finished starting up. After= is the inverse of Before=[...].
 > 
 > When two units with an ordering dependency between them are shut down, the inverse of the start-up order is applied. [...] If two units have no ordering dependencies between them, they are shut down or started up simultaneously, and no ordering takes place.
+
+En d'autre termes, si un service `foo.service` contient l'option `Before=bar.service` :
+- *foo.serivce* démarrera avant *bar.service* si une demande de démarrage des deux services est faite
+- *foo.service* sera stoppé après *bar.service* si une demande d'arrêt des deux services est faite*
+- L'option `After` est l'inverse de `Before`
+- Sans option `After` ou `Before`, il n'y a pas d'ordonnancement, les deux services sont démarrés en même temps
+
+## Testons
+
 
 On modifie serviceB pour définir l'option `After`
 ```ini
