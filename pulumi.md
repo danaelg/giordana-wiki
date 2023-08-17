@@ -2,8 +2,8 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-17T20:52:15.943Z
-tags: iac, automatisation, infrastructure
+date: 2023-08-17T20:55:12.673Z
+tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
 ---
