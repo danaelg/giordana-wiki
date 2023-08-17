@@ -2,8 +2,8 @@
 title: SELinux
 description: 
 published: true
-date: 2023-08-04T06:38:33.315Z
-tags: linux, security, work-in-progress, selinux, mac, apparmor
+date: 2023-08-17T20:11:30.146Z
+tags: linux, security, selinux, mac, apparmor
 editor: markdown
 dateCreated: 2023-08-02T15:07:23.662Z
 ---
