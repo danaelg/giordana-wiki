@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-06-30T18:17:11.261Z
+date: 2023-08-17T20:19:18.786Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -73,9 +73,7 @@ while $(sleep 2); do
 done
 ```
 
-Les deux scripts sont très similaire. Sans option, ils affichent "*Hello World!*". Avec l'option `-n` qui attend un arguement, ils affichent "*Hello ARGUMENT*" avec `ARGUMENT`, l'argument défini via l'option `-n`.
-
-Si une autre option inconnu est utilisé, les scripts affichent "*Invalid syntaxe*" et s'arrêtent avec le code d'erreur 1.
+Les deux scripts sont très similaire. Sans option, ils affichent "*Hello World!*". Ce comportement peut être modifié avec l'option `-n ARGUMENT`. Si une autre option est utilisé, les scripts affichent "*Invalid syntaxe*" et s'arrêtent avec le code d'erreur 1.
 
 Le script `helloWorld-ServiceA.sh` contient deux lignes supplémentaires :
 ```bash
