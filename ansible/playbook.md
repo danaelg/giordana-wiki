@@ -2,8 +2,8 @@
 title: Playbooks Ansible
 description: 
 published: true
-date: 2023-08-17T20:38:22.853Z
-tags: ansible, work-in-progress, ansible-playbook
+date: 2023-08-17T20:38:49.372Z
+tags: ansible, ansible-playbook
 editor: markdown
 dateCreated: 2023-07-03T17:34:59.507Z
 ---
