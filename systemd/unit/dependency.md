@@ -2,7 +2,7 @@
 title: Gestion des dépendances systemd
 description: 
 published: true
-date: 2023-08-17T20:19:18.786Z
+date: 2023-08-17T20:23:05.155Z
 tags: systemd, work-in-progress, systemd.unit
 editor: markdown
 dateCreated: 2023-06-27T20:11:27.096Z
@@ -80,7 +80,7 @@ Le script `helloWorld-ServiceA.sh` contient deux lignes supplémentaires :
 sleep 2
 systemd-notify --ready
 ```
-Ces lignes nous servirons pour démontrer si les services démarrent en même temps ou non. Pour faire simple, on attend 2 second avant d'envoyer une notification à systemd indiquant que le service est prêt et peut être considéré comme démarré.
+Ces lignes nous servirons pour démontrer si les services démarrent en même temps ou non. Pour faire simple, on attend 2 secondes avant d'envoyer une notification à systemd indiquant que le service est prêt et peut être considéré comme démarré (Type=notify).
 
 Maintenant que nous avons notre programme, nous pouvons créer nos services `serviceA.service` et `serviceB.service`. Dans notre exemple, nous les placerons dans le répertoire `/home/danael/.config/systemd/user/` 
 
@@ -108,13 +108,13 @@ StandardOutput=journal
 > Pour l'instant, serviceB n'a aucune dépendance, nous allons modifier cela par la suite en fonction des exemples.
 {.is-info}
 
-### Différence entre serviceA et serviceB
-
 Comme on peut le voir, il y a une légère différence entre les deux services. ServiceA est configuré avec l'option `Type=notify` et l'option `NotifyAccess=all`. ServiceB, quant à lui est configuré avec l'option `Type=simple`.
 
 Le type `simple` indique à systemd que le service doit être considéré comme démarré lorsque ce dernier viens de créer le processus exécutant la commande défini par `ExecStart`. Le service est donc considéré comme démarré quasi immédiatement après l'instruction de démarrage. 
 
-Le type `notify` indique à systemd que le service doit être considéré comme démarré lorsqu'il reçoit le statut `READY=1` de la part du processus exécutant la commande défini par `ExecStart`. Dans le script  créé précédemment, cette notification est envoyé via la commande `systemd-notify --ready`. On ajoute l'option `NotifyAccess=all` pour permettre à tous les sous-processus d'envoyer la notification à systemd. Cela est nécessaire, car la commande `systemd-notify --ready` est exécuté dans un processus enfant du processus exécutant le script. (voir [cette issue pour les détails](https://github.com/systemd/systemd/issues/24516#issuecomment-1233032190))
+Le type `notify` indique à systemd que le service doit être considéré comme démarré lorsqu'il reçoit le statut `READY=1` de la part du processus exécutant la commande défini par `ExecStart`. Dans le script  créé précédemment, cette notification est envoyé via la commande `systemd-notify --ready`.
+> On ajoute l'option `NotifyAccess=all` pour permettre à tous les sous-processus d'envoyer la notification à systemd. Cela est nécessaire, car la commande `systemd-notify --ready` est exécuté dans un processus enfant du processus exécutant le script. (voir [cette issue pour les détails](https://github.com/systemd/systemd/issues/24516#issuecomment-1233032190))
+{.is-info}
 
 Pour faire très faire simple, on simule un long temps de démarrage de serviceA tandis que serviceB démarre immédiatement. Cela a pour but de mettre en évidence l'ordonnancement de démarrage des services. Si serviceA et serviceB sont démarrés en même temps, l'heure de démarrage du serviceA sera après celle du serviceB (puisqu'il met plus de temps à démarrer). Si serviceB démarre après serviceA, l'heure de démarrage des deux services sera quasiment identique.
 
