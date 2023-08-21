@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T09:28:00.664Z
+date: 2023-08-21T10:00:51.713Z
 tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -30,46 +30,22 @@ Si l'on prend l'arborescence du projet suivant :
 
 ```
 
-# Arborescence des projets
-Le choix de l'arborscence des projets Pulumi est fondamentale puisque c'est elle qui impactera le flux de travail, il n'y a pas de solution parfaite qui conviendra à tout le monde. De la même manière qu'un projet de développement, il faut trouver une structure qui correspond le mieux au besoin. La documentation oppose deux approches différentes : monolithique et micro-stack, il faut s'inspirer de ces méthodes pour trouver le compromis le plus adapté.
+# Organisation des projets
+Un projet se matérialisant par arborescence de fichiers, il est important de réfléchir à sa structure puisque c'est elle qui impactera le flux de travail. Il n'y a pas de solution parfaite, de la même manière qu'un projet de développement, il faut trouver une structure qui correspond le mieux au besoin. La documentation oppose deux approches différentes : monolithique et micro-stack, il faut s'inspirer de ces méthodes pour trouver le compromis le plus adapté.
 
 ## Approche monolithique
-Une arborescence monolithique consiste à n'avoir qu'un projet pour l'ensemble de l'infrastructure ou d'un service de celle-ci. Les stack Pulumi correspondent alors un environnement spécifique (production, préproduction, développement, etc.). Cette approche à le mérite d'être très simple.
-
-Voici un exemple d'arborscrence suivant l'approche monolithique :
-```
-├─ infrastructure
-  ├── index.ts
-  ├── Pulumi.yaml
-  ├── Pulumi.dev.yaml
-  ├── Pulumi.staging.yaml
-  └── Pulumi.prod.yaml
-```
-
-On peut  n'empêche pas de créer d'autres projet pour des services particulier de l'infrastructure :
-```
-├── infrastructure
-│   ├── index.ts
-│   ├── Pulumi.yaml
-│   ├── Pulumi.dev.yaml
-│   ├── Pulumi.staging.yaml
-│   └── Pulumi.prod.yaml
-├── myApp
-│   ├── index.ts
-│   ├── Pulumi.yaml
-│   ├── Pulumi.dev.yaml
-│   ├── Pulumi.staging.yaml
-│   └── Pulumi.prod.yaml
-└── ...
-```
-
+L'approche monolithique consiste à n'avoir qu'un projet pour l'ensemble de l'infrastructure ou d'un service de celle-ci. Les stack Pulumi correspondent alors un environnement spécifique (production, préproduction, développement, etc.). Cette approche à le mérite d'être très simple.
 
 ## Approche micro-stack
-De façon similaire à une architecture microservices, l'approche micro-stack permet  
+De façon similaire à une architecture microservices, l'approche micro-stack consiste à découper un projet en un ensemble de petits projets.
 
+## La gestion des versions
+Qui dit infrastructure as code, dit gestion de version (ex: [git](/git)). La façon dont sont organisés les dépôts dans l'orgnisation peut influencer l'arborescence des projets Pulumi. En effet, si l'organisation travaille de façon mono-dépôt (ex: un dépôt pour toute l'infrastructre), alors on préférera peut être une approche monolithique, à l'inverse, si l'organisation travaille avec beaucoup de dépôt (ex: un dépôt par service de l'infrastructure), alors préférera peut-être une approche micro-stack.
 
+Ceci dit, on peut tout aussi bien créer un projet par dépôt ou créer plusieurs projets dans un seul et même dépôt.
 
-
+## Sécurité
+Les exigences de sécurité déterminent généralement le positionnement du curseur entre les deux approches. En effet, si l'on veut contrôler finement qui déploit quoi, alors il est pertinent que les équipes n'aient accès qu'aux dépôts correspondant aux services de l'infrastructre qu'elles maintiennent.
 
 # Ressources
 - [Pulumi Docs](https://www.pulumi.com/docs/)
