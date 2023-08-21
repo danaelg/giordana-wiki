@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T10:08:49.396Z
+date: 2023-08-21T10:08:55.915Z
 tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -25,7 +25,7 @@ Voici un schéma issu de la documentation qui montre le lien entre les différen
 ![](https://www.pulumi.com/images/docs/pulumi-programming-model-diagram.svg =50%x)
 *[Schéma d'interraction entre les composants Pulumi - Pulimi Docs](https://www.pulumi.com/docs/concepts/)*
 
-> Les *ressources* sont fournit par les *fournisseurs de ressources*. Ces fournisseurs sont matérialisés par des bibliothèques importés dans le programme et par des plugins.
+> Les *ressources* sont fournit par les *fournisseurs de ressources*. Ces fournisseurs sont matérialisés par des bibliothèques importés dans le programme et des plugins.
 {.is-info}
 
 Si l'on prend l'arborescence du projet suivant :
