@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T10:08:55.915Z
+date: 2023-08-21T10:19:55.482Z
 tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -32,6 +32,13 @@ Si l'on prend l'arborescence du projet suivant :
 ```
 
 ```
+
+## State
+Pour géré l'infrastructure, Pulumi a besoin de connaître l'état de cette dernière. C'est ce qu'on appelle les *states*. Chaque stack possèse son propre state. Les states sont stockés dans le *backend* qui peut être le cloud Pulumi, un stockage type S3 (tel que AWS, Azure, Minio, Ceph) ou  système de fichiers local. 
+
+Par défaut, c'est le Cloud Pulumi qui est utilisé comme backend, mais on peut très bien en choisir un autre :
+- [Système de fichiers local](/pulumi/state_backend/filesystem)
+{.links-list}
 
 # Organisation des projets
 Un projet se matérialisant par arborescence de fichiers, il est important de réfléchir à sa structure puisque c'est elle qui impactera le flux de travail. Il n'y a pas de solution parfaite, de la même manière qu'un projet de développement, il faut trouver une structure qui correspond le mieux au besoin. La documentation oppose deux approches différentes : monolithique et micro-stack, il faut s'inspirer de ces méthodes pour trouver le compromis le plus adapté.
