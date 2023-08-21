@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T10:21:11.848Z
+date: 2023-08-21T12:42:19.179Z
 tags: iac, automatisation, work-in-progress, infrastructure, pulumi
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -34,10 +34,10 @@ Si l'on prend l'arborescence du projet suivant :
 ```
 
 ## State
-Pour géré l'infrastructure, Pulumi a besoin de connaître l'état de cette dernière. C'est ce qu'on appelle les *states*. Chaque stack possèse son propre state. Les states sont stockés dans le *backend* qui peut être le cloud Pulumi, un stockage type S3 (tel que AWS, Azure, Minio, Ceph) ou  système de fichiers local. 
+Pour géré l'infrastructure, Pulumi a besoin de connaître l'état de cette dernière. C'est ce qu'on appelle les *states*. Chaque stack possèse son propre state. Les states sont stockés dans le *backend* qui peut être le cloud Pulumi, un stockage type S3 (tel que AWS, Azure, Minio, Ceph) ou système de fichiers local.
 
-Par défaut, c'est le Cloud Pulumi qui est utilisé comme backend, mais on peut très bien en choisir un autre :
-- [Système de fichiers local](/pulumi/state_backend/filesystem)
+Pour en savoir plus :
+- [States & Backend](/pulumi/state-backend)
 {.links-list}
 
 # Organisation des projets
@@ -56,6 +56,11 @@ Ceci dit, on peut tout aussi bien créer un projet par dépôt ou créer plusieu
 
 ## Sécurité
 Les exigences de sécurité déterminent généralement le positionnement du curseur entre les deux approches. En effet, si l'on veut contrôler finement qui déploit quoi, alors il est pertinent que les équipes n'aient accès qu'aux dépôts correspondant aux services de l'infrastructre qu'elles maintiennent.
+
+# Gérer l'infrastructure
+Pour gérer l'infrastructure, Pulumi s'appuie sur des fournisseurs de ressources, retrouvez des pages dédié pour certains d'entre-eux :
+- [Docker](/pulumi/resource-provider/docker)
+{.links-list}
 
 # Ressources
 - [Pulumi Docs](https://www.pulumi.com/docs/)
