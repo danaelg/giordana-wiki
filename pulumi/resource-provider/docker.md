@@ -1,8 +1,8 @@
 ---
-title: Resource provider - Docker
+title: Fournisseur de ressources Pulumi - Docker
 description: 
 published: true
-date: 2023-08-21T14:29:27.033Z
+date: 2023-08-21T14:32:02.491Z
 tags: docker, pulumi, pulumi_resource_provider
 editor: markdown
 dateCreated: 2023-08-21T12:53:52.930Z
