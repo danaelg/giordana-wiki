@@ -2,7 +2,7 @@
 title: Projet Pulumi
 description: 
 published: true
-date: 2023-08-21T13:59:51.971Z
+date: 2023-08-21T14:09:57.104Z
 tags: pulumi, pulumi_project
 editor: markdown
 dateCreated: 2023-08-21T13:59:51.971Z
@@ -11,7 +11,8 @@ dateCreated: 2023-08-21T13:59:51.971Z
 # Introduction
 Un projet Pulumi est un dossier contenant un fichier `Pulumi.yaml`. Ce fichier peut être créé manuellement ou à partir d'un template via la commande `pulumi new`. Un projet est écrit dans l'un des langages supporté par Pulumi (NodeJS, Python, Go, Java, .NET ou YAML). 
 
-# Pulumi.yaml
+# Arborescence
+## Pulumi.yaml
 Le fichier `Pulumi.yaml` est le fichier de configuration du projet. Il doit être écrit en YAML et être nommé avec un `P` majuscule avec l'extention `.yaml` ou `.yml`.
 
 Voici un exemple de fichier `Pulumi.yaml` :
@@ -19,8 +20,16 @@ Voici un exemple de fichier `Pulumi.yaml` :
 name: test-project
 runtime: python
 ```
+## Fichiers runtime {.tabset}
+D'autres fichiers et dossiers accompagnent le fichier `Pulumi.yaml`. Le nom de ces derniers diffèrent  en fonction du langage défini par la variable `runtime`
 
-# Templates
+### Python
+- `__main__.py` : Point d'entrée du programme
+- `venv` : Environnement Python virtuelle (cf. [virtualenv](https://virtualenv.pypa.io/en/latest/))
+- `requirements.txt` : Fichier de dépendances Python du projet.
+
+# Création d'un projet
+Pour créer un projet on peut
 
 # Organisation des projets
 Un projet se matérialisant par arborescence de fichiers, il est important de réfléchir à sa structure puisque c'est elle qui impactera le flux de travail. Il n'y a pas de solution parfaite, de la même manière qu'un projet de développement, il faut trouver une structure qui correspond le mieux au besoin. La documentation oppose deux approches différentes : monolithique et micro-stack, il faut s'inspirer de ces méthodes pour trouver le compromis le plus adapté.
