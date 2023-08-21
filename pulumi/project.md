@@ -2,7 +2,7 @@
 title: Projet Pulumi
 description: 
 published: true
-date: 2023-08-21T14:26:45.228Z
+date: 2023-08-21T14:27:07.628Z
 tags: pulumi, pulumi_project
 editor: markdown
 dateCreated: 2023-08-21T13:59:51.971Z
@@ -20,9 +20,9 @@ Voici un exemple de fichier `Pulumi.yaml` :
 name: test-project
 runtime: python
 ```
+   
 ## Fichiers runtime {.tabset}
 D'autres fichiers et dossiers accompagnent le fichier `Pulumi.yaml`. Le nom de ces derniers diffèrent  en fonction du langage défini par la variable `runtime`
-
 ### Python
 - `__main__.py` : Point d'entrée du programme
 - `venv` : Environnement Python virtuelle (cf. [virtualenv](https://virtualenv.pypa.io/en/latest/))
