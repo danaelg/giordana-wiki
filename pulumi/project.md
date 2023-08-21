@@ -2,7 +2,7 @@
 title: Projet Pulumi
 description: 
 published: true
-date: 2023-08-21T14:27:07.628Z
+date: 2023-08-21T14:29:51.418Z
 tags: pulumi, pulumi_project
 editor: markdown
 dateCreated: 2023-08-21T13:59:51.971Z
@@ -21,15 +21,13 @@ name: test-project
 runtime: python
 ```
    
-## Fichiers runtime {.tabset}
+## Fichiers runtime 
 D'autres fichiers et dossiers accompagnent le fichier `Pulumi.yaml`. Le nom de ces derniers diffèrent  en fonction du langage défini par la variable `runtime`
-### Python
+### Tabs {.tabset}
+#### Python
 - `__main__.py` : Point d'entrée du programme
 - `venv` : Environnement Python virtuelle (cf. [virtualenv](https://virtualenv.pypa.io/en/latest/))
 - `requirements.txt` : Fichier de dépendances Python du projet.
-
-### Test
-coucou
 
 # Création d'un projet
 Pour créer un projet il est plus simple de passer par la commande `pulumi new`, la commande suivante permet de créer un projet `my-project` avec le runtime Python :
