@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T12:42:19.179Z
+date: 2023-08-21T13:29:24.533Z
 tags: iac, automatisation, work-in-progress, infrastructure, pulumi
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -17,21 +17,16 @@ Pulumi possède de nombreux plugin pour intéragir avec les fournisseurs de serv
 - [Download & install Pulumi - Pulumi Docs](https://www.pulumi.com/docs/install/)
 {.links-list}
 
-
 # Fonctionnement
+## Projet
 Pulumi fonctionne sous forme de *projets*. Un projet est une arborescence de fichiers regroupant le code de l'infrastructure (*les programmes*) et les métadonnées. Chaque programme contient un ensemble de *ressources* qui correspondent à des éléments de l'infrastructure, par exemple une instance AWS EC2, un bucket S3 ou un disque virtuel sont autant de ressources possible. Chaque ressource possède des *propriétés d'entrées et de sorties*.
 
 Voici un schéma issu de la documentation qui montre le lien entre les différents composants.
-![](https://www.pulumi.com/images/docs/pulumi-programming-model-diagram.svg =50%x)
+![](https://www.pulumi.com/images/docs/pulumi-programming-model-diagram.svg =25%x)
 *[Schéma d'interraction entre les composants Pulumi - Pulimi Docs](https://www.pulumi.com/docs/concepts/)*
 
 > Les *ressources* sont fournit par les *fournisseurs de ressources*. Ces fournisseurs sont matérialisés par des bibliothèques importés dans le programme et des plugins.
 {.is-info}
-
-Si l'on prend l'arborescence du projet suivant :
-```
-
-```
 
 ## State
 Pour géré l'infrastructure, Pulumi a besoin de connaître l'état de cette dernière. C'est ce qu'on appelle les *states*. Chaque stack possèse son propre state. Les states sont stockés dans le *backend* qui peut être le cloud Pulumi, un stockage type S3 (tel que AWS, Azure, Minio, Ceph) ou système de fichiers local.
@@ -57,7 +52,8 @@ Ceci dit, on peut tout aussi bien créer un projet par dépôt ou créer plusieu
 ## Sécurité
 Les exigences de sécurité déterminent généralement le positionnement du curseur entre les deux approches. En effet, si l'on veut contrôler finement qui déploit quoi, alors il est pertinent que les équipes n'aient accès qu'aux dépôts correspondant aux services de l'infrastructre qu'elles maintiennent.
 
-# Gérer l'infrastructure
+# Projets
+
 Pour gérer l'infrastructure, Pulumi s'appuie sur des fournisseurs de ressources, retrouvez des pages dédié pour certains d'entre-eux :
 - [Docker](/pulumi/resource-provider/docker)
 {.links-list}
