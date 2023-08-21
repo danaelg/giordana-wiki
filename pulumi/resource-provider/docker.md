@@ -2,7 +2,7 @@
 title: Resource provider - Docker
 description: 
 published: true
-date: 2023-08-21T12:54:06.234Z
+date: 2023-08-21T14:29:27.033Z
 tags: docker, pulumi, pulumi_resource_provider
 editor: markdown
 dateCreated: 2023-08-21T12:53:52.930Z
@@ -11,8 +11,9 @@ dateCreated: 2023-08-21T12:53:52.930Z
 # Introduction
 Pulumi peut gérer des ressources Docker via le fournisseur de ressources `Docker`
 
-# Installation {.tabset}
-## Python
+# Installation 
+## Tabs {.tabset}
+### Python
 ```bash
 pip install pulumi-docker
 ```
