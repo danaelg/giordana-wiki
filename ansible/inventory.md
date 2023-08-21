@@ -2,7 +2,7 @@
 title: Inventaires Ansible
 description: 
 published: true
-date: 2023-08-21T14:28:34.170Z
+date: 2023-08-21T14:28:54.413Z
 tags: yaml, ansible, ansible-inventory
 editor: markdown
 dateCreated: 2023-06-21T06:49:31.521Z
@@ -14,8 +14,9 @@ Les fichiers d'inventaire au format *INI* ou *YAML* permettent de lister les hô
 A titre personnel, je préfère le format YAML, certains exemples ne seront que dans ce format.
 
 # Inventaires statiques
-## Exemple simple {.tabset}
-### YAML
+## Exemple simple 
+### Tabs {.tabset}
+#### YAML
 ```yaml
 all:
   hosts:
@@ -28,7 +29,7 @@ all:
       hosts:
         two.example.com:
 ```
-### INI
+#### INI
 ```ini
 mail.example.com
 
