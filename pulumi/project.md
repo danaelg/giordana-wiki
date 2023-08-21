@@ -2,7 +2,7 @@
 title: Projet Pulumi
 description: 
 published: true
-date: 2023-08-21T14:09:57.104Z
+date: 2023-08-21T14:25:56.464Z
 tags: pulumi, pulumi_project
 editor: markdown
 dateCreated: 2023-08-21T13:59:51.971Z
@@ -29,7 +29,11 @@ D'autres fichiers et dossiers accompagnent le fichier `Pulumi.yaml`. Le nom de c
 - `requirements.txt` : Fichier de dépendances Python du projet.
 
 # Création d'un projet
-Pour créer un projet on peut
+Pour créer un projet il est plus simple de passer par la commande `pulumi new`, la commande suivante permet de créer un projet `my-project` avec le runtime Python :
+```bash
+mkdir my-project && mv $_
+pulumi new python
+```
 
 # Organisation des projets
 Un projet se matérialisant par arborescence de fichiers, il est important de réfléchir à sa structure puisque c'est elle qui impactera le flux de travail. Il n'y a pas de solution parfaite, de la même manière qu'un projet de développement, il faut trouver une structure qui correspond le mieux au besoin. La documentation oppose deux approches différentes : monolithique et micro-stack, il faut s'inspirer de ces méthodes pour trouver le compromis le plus adapté.
@@ -50,4 +54,5 @@ Les exigences de sécurité déterminent généralement le positionnement du cur
 
 # Ressources
 - [Project - Pulumi Docs](https://www.pulumi.com/docs/concepts/projects/)
+- [Creating a Pulumi Project - Lean Pulumi](https://www.pulumi.com/learn/pulumi-fundamentals/create-a-pulumi-project/)
 {.links-list}
