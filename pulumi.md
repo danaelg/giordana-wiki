@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T06:48:55.879Z
+date: 2023-08-21T06:49:56.830Z
 tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -18,8 +18,7 @@ Pulumi est un SDK d'[Infrastructure as Code](/iac) qui peut être utilisé sur d
 # Fonctionnement
 Pulumi fonctionne sous forme de [projets](/pulumi/project). Un projet est une arborescence de fichiers regroupant le code de l'infrastructure (*les [programmes](/pulumi/program)*) et les métadonnées. Chaque programme contient un ensemble de [ressources](/pulumi/resource) qui correspondent à des éléments de l'infrastructure, par exemple une instance AWS EC2, un bucket S3 ou un disque virtuel sont autant de ressources possible. Chaque ressource possède des [propriétés d'entrées et de sorties](/pumuli/input-output).
 
-Voici un schéma issu de la documentation qui montre le lien entre les différents composant
-
+Voici un schéma issu de la documentation qui montre le lien entre les différents composants.
 ![](https://www.pulumi.com/images/docs/pulumi-programming-model-diagram.svg =50%x)
 *[Schéma d'interraction entre les composants Pulumi - Pulimi Docs](https://www.pulumi.com/docs/concepts/)*
 
