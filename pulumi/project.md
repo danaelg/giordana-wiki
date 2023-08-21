@@ -2,7 +2,7 @@
 title: Projet Pulumi
 description: 
 published: true
-date: 2023-08-21T14:25:56.464Z
+date: 2023-08-21T14:26:45.228Z
 tags: pulumi, pulumi_project
 editor: markdown
 dateCreated: 2023-08-21T13:59:51.971Z
@@ -27,6 +27,9 @@ D'autres fichiers et dossiers accompagnent le fichier `Pulumi.yaml`. Le nom de c
 - `__main__.py` : Point d'entrée du programme
 - `venv` : Environnement Python virtuelle (cf. [virtualenv](https://virtualenv.pypa.io/en/latest/))
 - `requirements.txt` : Fichier de dépendances Python du projet.
+
+### Test
+coucou
 
 # Création d'un projet
 Pour créer un projet il est plus simple de passer par la commande `pulumi new`, la commande suivante permet de créer un projet `my-project` avec le runtime Python :
