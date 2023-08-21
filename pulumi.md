@@ -2,7 +2,7 @@
 title: Pulumi
 description: 
 published: true
-date: 2023-08-21T10:01:38.758Z
+date: 2023-08-21T10:08:49.396Z
 tags: iac, automatisation, work-in-progress, infrastructure
 editor: markdown
 dateCreated: 2023-08-17T20:52:15.943Z
@@ -19,11 +19,14 @@ Pulumi possède de nombreux plugin pour intéragir avec les fournisseurs de serv
 
 
 # Fonctionnement
-Pulumi fonctionne sous forme de *projets*. Un projet est une arborescence de fichiers regroupant le code de l'infrastructure (*les programmes*) et les métadonnées. Chaque programme contient un ensemble de *ressources* qui correspondent à des éléments de l'infrastructure, par exemple une instance AWS EC2, un bucket S3 ou un disque virtuel sont autant de ressources possible. Chaque ressource possède des propriétés d'entrées et de sorties.
+Pulumi fonctionne sous forme de *projets*. Un projet est une arborescence de fichiers regroupant le code de l'infrastructure (*les programmes*) et les métadonnées. Chaque programme contient un ensemble de *ressources* qui correspondent à des éléments de l'infrastructure, par exemple une instance AWS EC2, un bucket S3 ou un disque virtuel sont autant de ressources possible. Chaque ressource possède des *propriétés d'entrées et de sorties*.
 
 Voici un schéma issu de la documentation qui montre le lien entre les différents composants.
 ![](https://www.pulumi.com/images/docs/pulumi-programming-model-diagram.svg =50%x)
 *[Schéma d'interraction entre les composants Pulumi - Pulimi Docs](https://www.pulumi.com/docs/concepts/)*
+
+> Les *ressources* sont fournit par les *fournisseurs de ressources*. Ces fournisseurs sont matérialisés par des bibliothèques importés dans le programme et par des plugins.
+{.is-info}
 
 Si l'on prend l'arborescence du projet suivant :
 ```
