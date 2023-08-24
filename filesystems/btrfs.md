@@ -2,7 +2,7 @@
 title: BTRFS
 description: 
 published: true
-date: 2023-06-20T19:51:35.702Z
+date: 2023-08-24T09:56:51.573Z
 tags: linux, filesystem, btrfs
 editor: markdown
 dateCreated: 2023-06-20T10:03:07.577Z
@@ -68,6 +68,11 @@ btrfs replace start FAULTY_DEVICE NEW_DEVICE MOUNTPOINT
 ## Monter un volume en mode dégradé
 ```bash
 mount -o degraded DEVICE MOUNTPOINT
+```
+
+## Réinitialiser le compteur d'erreurs d'un disque
+```bash
+btrfs device stats --reset DEVICE
 ```
 
 ## Voir aussi
