@@ -1,8 +1,8 @@
 ---
-title: Cluster Map
+title: Cluster Map Ceph
 description: 
 published: true
-date: 2023-08-30T17:53:59.842Z
+date: 2023-08-30T17:54:51.486Z
 tags: ceph
 editor: markdown
 dateCreated: 2023-08-30T17:53:59.842Z
