@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-07-17T20:19:26.955Z
+date: 2023-08-30T19:19:46.985Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -85,7 +85,7 @@ Le client est l'élément qui interragi avec un cluster Ceph pour réaliser des 
 ## Objet (RADOS)
 
 ## Cluster Map
-La cluster map doit être connu des clients et des OSDs, c'est ce qui permet la communication directe entre les deux éléments. C'est le service [Monitor](/storage/ceph/monitor) qui se charge de maintenir une copie de la cluster map.
+La cluster map est l'élément que partagent le client et les OSDs pour permettre une communication directe.
 
 La *Cluster Map* est composé de cinq maps :
 - La monitor map 
@@ -94,55 +94,30 @@ La *Cluster Map* est composé de cinq maps :
 - la CRUSH map
 - la MDS map
 
-En d'autres termes, elle contient l'ensemble des informations du cluster, elle est donc centrale dans le fonctionnement de ce dernier. C'est pourquoi, il est recommandé d'avoir au moins trois services [monitor](/storage/ceph/monitor).
-
-* [Cluster Map - Architecture - Ceph Documentation](https://docs.ceph.com/en/latest/architecture/#architecture-cluster-map)
+Pour en savoir plus : 
+- [Cluster map](/storage/ceph/cluster-map)
 {.links-list}
-
-### Monitor map
-La monitor map contient le `fsid` (identifiant unique du cluster), l'emplacment (adresse + port) des services monitor, l'epoch, la date de création et de dernière modification de la map.
-
-On peut afficher la map avec la commande :
-```bash
-ceph mon dump
-```
-
-### OSD map
-L'OSD map contient également le `fsid`, la date de création et de la dernière modification de la map, la liste des [pools](/storage/ceph/ceph#pool), des tailles de replica, des numéros des PG ainsi que la liste des service [OSD](/storage/ceph/osd) avec leur statut.
-
-On peut afficher la map avec la commande :
-```bash
-ceph osd dump
-```
-
-### PG map
-La PG map contient la version PG, sa date, le dernier epoch de l'OSD map et des détails sur les PGs (PG ID, l'*up set* et l'*active set*, le statut des PGs et des statistiques d'usage des données pour chaque pool).
-
-### CRUSH map
-La CRUSH map contient la liste des disques, la hiérarchie du domaine de défaillance et les règles de parcours de cette hiérarchie lors du stockage des données.
-
-On peut afficher la map en la récupérant compilé :
-```bash
-ceph osd getcrushmap -o COMPILED_FILENAME
-```
-puis en la décompilant avec la commande :
-```bash
-crushtool -d COMPILED_FILENAME -o FILENAME
-```
-
-### MDS map
-La MDS map contient un epoch, la date de création et de la dernière modification de la map, le pool de stockage des métadonnées, l'emplacement des services [MDS](/storage/ceph/mds) et leur statut. 
-
-On peut afficher la map avec la commande :
-```bash
-ceph fs dump
-```
 
 ## Pool
 ## Placement Group
 ## Bluestore
+## Réseau
+Pour permettre aux clients de communiquer directement avec les différents services du cluster, ils doivent être configurés sur un même réseau, appelé *Public Network*. Un second réseau dédié aux oppérations entres les OSDs peut être configuré afin d'alléger la charge sur le *Public Network*, ce réseau est appelé *Cluster Network*.
 
-# Références
+L'illustration suivante montre comment les deux réseaux sont utilisés :
+![ceph-networks.png](/storage/ceph/ceph-networks.png =50%x)
+*Schéma d'interconnexion des services Ceph aux réseaux Public et Cluster - [Ceph Documentation](https://docs.ceph.com/en/latest/rados/configuration/network-config-ref/)*
+
+La documentation recommande des vitesses de réseau de 10Gb/s minimum.
+
+# Recommandations matérielles
+Les recommandations de configuration hardware de la documentation Ceph me semble plutôt adapté à de gros cluster de stockage (plusieurs dizaines d'OSDs par machine). Les recommandations Proxmox pour un cluster de virtualisation hyperconvergé me semblent être une bonne alternative pour des clusters Ceph plus modeste.
+
+- [Deploy Hyper-Converged Ceph Cluster - Precondition - Proxmox VE Administration](https://pve.proxmox.com/pve-docs/pve-admin-guide.html#_precondition)
+- [Hardware Recommendations - Ceph Documentation](https://docs.ceph.com/en/latest/start/hardware-recommendations/)
+{.links-list}
+
+# Ressources
 - [Ceph Documentation](https://docs.ceph.com/en/latest/)
 - [Architecture - Ceph Documentation](https://docs.ceph.com/en/latest/architecture/)
 - [Ceph - Wikipedia](https://en.wikipedia.org/wiki/Ceph_(software))
