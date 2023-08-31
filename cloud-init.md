@@ -2,7 +2,7 @@
 title: Cloud-Init
 description: 
 published: true
-date: 2023-08-31T17:34:16.697Z
+date: 2023-08-31T17:34:34.164Z
 tags: iac, yaml, cloud-init, virtualisation, work-in-progress
 editor: markdown
 dateCreated: 2023-06-21T10:44:17.213Z
@@ -40,12 +40,6 @@ Lorsque le système utilise [systemd](/systemd), ce dernier exécutera le script
 ## Local
 La phase *local* correspond au lancement du service *cloud-init-local.service* qui s'exécute le plus tôt possible après le montage en lecture/écriture de `/` et avant le réseau. L'objectif est déterminer la source de configuration (*datasource*) et d'appliquer la configuration réseau.
 
-| | |
-| --- | --- |
-| systemd service | cloud-init-local.service |
-| runs | as soon as possible with / mounted read-write |
-| blocks | as much of boot as possible, must block network |
-| objectif | déterminer le *datasource* et appliquer la configuration réseau |  
 
 A compléter
 
@@ -62,6 +56,14 @@ flowchart LR
   datasources -- provides --> network_config
   datasources -- provides --> user_vendor_data 
 ```
+
+
+| | |
+| --- | --- |
+| systemd service | cloud-init-local.service |
+| runs | as soon as possible with / mounted read-write |
+| blocks | as much of boot as possible, must block network |
+| objectif | déterminer le *datasource* et appliquer la configuration réseau |  
 
 # Sources de configurations
 Cloud-init va générer une configuration unique à partir de différentes sources. Le choix de la source doit se faire en fonction du besoin, notamment si l'on est plutôt un *utilisateur final*, un *développeur de distribution* ou un *fournisseur cloud*.
