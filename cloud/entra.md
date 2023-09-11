@@ -2,7 +2,7 @@
 title: Microsoft Entra
 description: Anciennement Azure Active Directory
 published: true
-date: 2023-09-11T19:18:45.233Z
+date: 2023-09-11T19:33:40.698Z
 tags: azure-ad, entra, iam
 editor: markdown
 dateCreated: 2023-09-11T19:18:45.233Z
@@ -12,7 +12,7 @@ dateCreated: 2023-09-11T19:18:45.233Z
 Microsoft Entra est un ensemble de solutions cloud de gestion des identités et des accès.
 
 # Historique et lien avec Azure Active Directory
-Le nom Microsoft Entra apparaît pour la première fois lors du renommage d'Azure Active Directory en Microsoft Entra ID. Microsoft en profite alors pour regrouper d'autres solutions dans la famille de produits Entra.
+Le nom Microsoft Entra apparaît pour la première fois lors du renommage d'Azure Active Directory en Microsoft Entra ID. Microsoft en profite alors pour regrouper d'autres solutions dans la famille de produits Entra. En fait, tout ce qui était appelé *Azure XXX* est maintenant appelé *Entra XXX*. Pour Pour Entra ID, *Active Directory* est devenu *ID* (pour *IDentity*).
 
 Dans les pages de ce wiki, les nouveaux noms seront toujours utilisé, mais il faut garder à l'esprit que de nombreuses documentation en ligne n'ont pas été mise à jour.
 
