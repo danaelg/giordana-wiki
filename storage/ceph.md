@@ -2,7 +2,7 @@
 title: Ceph
 description: 
 published: true
-date: 2023-08-30T19:19:46.985Z
+date: 2023-09-13T20:07:43.626Z
 tags: storage, work-in-progress, block_storage, object_storage
 editor: markdown
 dateCreated: 2023-07-06T08:50:12.878Z
@@ -58,7 +58,7 @@ Ceph est une solution de stockage distribué qui s'appuie sur [RADOS](https://ce
 
 Sur l'illustration, les rectangles bleu représentent les services internes à Ceph qui doivent s'exécuter sur un ou plusieurs noeuds. 
 
-Les I/Os sont réalisés par un [client](/storage/ceph#client) qui représente les données sous forme d'objets. Il récupère également la [cluster map](/storage/ceph#cluster-map) auprès du service [monitor](/storage/ceph/monitor) qui, avec les informations du [pool](/storage/storage/ceph#pool), permettent de déterminer le [placement groups (PG)](/storage/ceph#placement-group) dans lequel l'objet doit se trouver. L'algorithme [CRUSH](https://ceph.io/assets/pdfs/weil-crush-sc06.pdf) permet de définir dans quel OSD doit être placé un PG. Enfin, un disque est associé à un OSD, ce dernier a la charge de représenter les objets sur le disque. Il effectue cette action à l'aide du backend [Bluestore](/storage/ceph#bluestore).
+Les I/Os sont réalisés par un [client](/storage/ceph#client) qui représente les données sous forme d'objets. Pour réaliser les opérations de lecture et d'écriture, il doit également récupérer la [cluster map](/storage/ceph#cluster-map) auprès du service [monitor](/storage/ceph/monitor) qui, avec les informations du [pool](/storage/storage/ceph#pool), permettent de déterminer le [placement groups (PG)](/storage/ceph#placement-group) dans lequel l'objet doit se trouver. L'algorithme [CRUSH](https://ceph.io/assets/pdfs/weil-crush-sc06.pdf) permet de définir dans quel OSD doit être placé un PG. Enfin, un disque est associé à un OSD, ce dernier a la charge de représenter les objets sur le disque. Il effectue cette action à l'aide du backend [Bluestore](/storage/ceph#bluestore).
 
 > Lorsque l'on parle d'objets au niveau d'un cluster Ceph, on parle en fait d'un objet RADOS.
 {.is-info}
