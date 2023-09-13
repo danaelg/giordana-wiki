@@ -2,14 +2,14 @@
 title: Cluster Map Ceph
 description: 
 published: true
-date: 2023-09-13T20:17:23.307Z
+date: 2023-09-13T20:18:33.777Z
 tags: ceph
 editor: markdown
 dateCreated: 2023-08-30T17:53:59.842Z
 ---
 
 # Introduction
-La cluster map doit être connu des clients et des OSDs, c'est ce qui permet la communication directe entre les deux éléments. C'est le service [Monitor](/storage/ceph/monitor) qui se charge de maintenir une copie de la cluster map.
+La cluster map doit être connu des clients et des OSDs, c'est ce qui permet leur permet de communiquer directement entres-eux. C'est le service [Monitor](/storage/ceph/monitor) qui se charge de maintenir une copie de la cluster map.
 
 La *Cluster Map* est composé de cinq maps :
 - La monitor map 
