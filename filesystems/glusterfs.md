@@ -2,7 +2,7 @@
 title: GlusterFS
 description: 
 published: true
-date: 2023-09-27T20:36:44.711Z
+date: 2023-09-28T19:20:08.421Z
 tags: filesystem, glusterfs
 editor: markdown
 dateCreated: 2023-09-27T18:39:39.916Z
@@ -27,15 +27,16 @@ GlusterFS n'est pas vraiment un système de fichier, il fonctionne par dessus un
 
 ![glusterfs.png](/filesystems/glusterfs/glusterfs.png =25%x)
 
+## Trusted Storage Pool (TSP)
+Les serveurs faisant partie d'un cluster GlusterFS sont regroupés dans un Trusted Storage Pool (TSP). Un TSP peut contenir un ou plusieurs serveurs de stockage.
+
 # Configuration
 ## Installation
 - [Install - Gluster Docs](https://docs.gluster.org/en/latest/Install-Guide/Install/#glusterfs)
 {.links-list}
 
-## Création du pool de serveur (TSP)
-Le pool de serveur appelé Trusted Storage Pool (TSP) contient l'ensemble des noeuds d'un cluster GlusterFS. Sans TSP, aucun volume ne peut être créé.
-
-Pour ajouter un noeud au TSP, il suffit d'exécuter la commande : 
+## Configuration du TSP
+Un serveur qui démarre le service *glusterd* fait partie de son propre TSP, pour ajouter un serveur à un TSP, il suffit [d'ajouter un serveur au TSP](
 ```bash
 gluster peer probe SERVER
 ```
