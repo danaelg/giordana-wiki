@@ -2,7 +2,7 @@
 title: GlusterFS
 description: 
 published: true
-date: 2023-09-28T19:24:30.338Z
+date: 2023-09-28T20:37:28.882Z
 tags: filesystem, glusterfs
 editor: markdown
 dateCreated: 2023-09-27T18:39:39.916Z
@@ -38,8 +38,15 @@ Les serveurs faisant partie d'un cluster GlusterFS sont regroupés dans un Trust
 ## Configuration du TSP
 Un serveur qui démarre le service *glusterd* fait partie de son propre TSP, pour ajouter un serveur à un TSP, il suffit [d'ajouter un serveur au TSP](/filesystems/glusterfs#ajout-dun-serveur-au-tsp)
 
-## Partitionnement des disques
+## Configuration des disques
+### Paritionnement et formatage
 GlusterFS fonctionne par dessus un système de fichier existant. Il est donc nécessaire de partitionner le disque et de formater la ou les partitions qui seront alloué au volume GlusterFS. GlusterFS recommande l'usage de [XFS](/filesystems/xfs).
+
+### Montage automatique
+Tout comme NFS, les partitions mises à disposition de GlusterFS doivent être monté automatiquement (Voir [Montage des systèmes de fichiers sous Linux](/filesystems/linux-mounts)).
+
+## Configuration d'un volume GlusterFS
+
 
 # Commandes
 ## TSP
