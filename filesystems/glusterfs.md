@@ -2,7 +2,7 @@
 title: GlusterFS
 description: 
 published: true
-date: 2023-09-28T19:20:08.421Z
+date: 2023-09-28T19:21:37.045Z
 tags: filesystem, glusterfs
 editor: markdown
 dateCreated: 2023-09-27T18:39:39.916Z
@@ -36,12 +36,7 @@ Les serveurs faisant partie d'un cluster GlusterFS sont regroupés dans un Trust
 {.links-list}
 
 ## Configuration du TSP
-Un serveur qui démarre le service *glusterd* fait partie de son propre TSP, pour ajouter un serveur à un TSP, il suffit [d'ajouter un serveur au TSP](
-```bash
-gluster peer probe SERVER
-```
-> La commande ci-dessus ajoute le serveur défini par SERVER dans le TSP. Il est possible d'indiquer une adresse IP ou un nom DNS. Un serveur déjà présent dans un TSP ne peut pas être ajouté.
-{.is-info}
+Un serveur qui démarre le service *glusterd* fait partie de son propre TSP, pour ajouter un serveur à un TSP, il suffit [d'ajouter un serveur au TSP](/filesystems/glusterfs#ajout-dun-serveur-au-tsp)
 
 # Commandes
 ## TSP
@@ -49,6 +44,9 @@ gluster peer probe SERVER
 ```
 gluster peer probe SERVER
 ```
+> La commande ci-dessus ajoute le serveur défini par SERVER dans le TSP. Il est possible d'indiquer une adresse IP ou un nom DNS. Un serveur déjà présent dans un TSP ne peut pas être ajouté.
+{.is-info}
+
 ### Afficher le statut des hôtes du TSP
 ```
 gluster peer status
