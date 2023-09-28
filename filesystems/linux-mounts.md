@@ -1,8 +1,8 @@
 ---
-title: Montage des système de fichiers sous Linux
+title: Montage des systèmes de fichiers sous Linux
 description: 
 published: true
-date: 2023-07-25T13:47:23.613Z
+date: 2023-09-28T19:27:20.304Z
 tags: linux, filesystem, fstab
 editor: markdown
 dateCreated: 2023-06-20T13:15:17.460Z
