@@ -2,7 +2,7 @@
 title: iptables
 description: 
 published: true
-date: 2023-11-01T18:09:54.134Z
+date: 2023-11-01T19:09:48.468Z
 tags: linux, security, networking, firewall, iptables, netfilter
 editor: markdown
 dateCreated: 2023-11-01T18:09:54.134Z
@@ -20,6 +20,12 @@ Une chaine regroupe des règles qui seront appliquer au moment où le paquet pas
 Une table à un rôle spécifique (modifier ou filtrer le paquet).
 
 ## Chaine
+- PREROUTING
+- INPUT
+- OUTPUT
+- FORWARD
+- POSTROUTING
+
 ## Tables
 ### Mangle
 Utilisé pour manipuler des paquet (changement TOS, TTL, MARK, etc.) pas pour du NAT ou du filtrage
