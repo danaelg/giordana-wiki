@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-11-07T20:40:47.567Z
+date: 2023-12-29T07:41:31.116Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -26,6 +26,11 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 - https://sed.js.org/
 
 # Commandes En vrac
+
+## SAR
+sar (System Activity Reporter) est une commande permettant de collecter des informations détaillées sur l'activité système comme le CPU, la mémoire, les IOs, le réseaux, etc.
+sar est utile pour réaliser un suivi de l'activité système et ainsi assurer le dépannage et l'optimisation des performances d'un systèmes Linux.
+
 ## Générer certificat SSL (avec la clef privée)
 ```
 openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout example.com.key -days 730 -out example.com.pem
