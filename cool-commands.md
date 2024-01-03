@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2023-12-29T07:41:31.116Z
+date: 2024-01-03T15:57:53.313Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -26,6 +26,15 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 - https://sed.js.org/
 
 # Commandes En vrac
+
+## Redirection de stderr et stdout dans un fichier et sur stdout
+La commande suivante permet de rediriger la sortie des erreurs et la sortie standard à la fois dans un fichier et sur l'écran (sortie standard)
+```bash
+command 2&1 > tee -a file.log 
+```
+> L'option `-a` permet d'ouvrir le fichier *file.log* en mode *append* (ajout, équivalement à `>>`).
+{.is-info}
+
 
 ## SAR
 sar (System Activity Reporter) est une commande permettant de collecter des informations détaillées sur l'activité système comme le CPU, la mémoire, les IOs, le réseaux, etc.
