@@ -2,8 +2,8 @@
 title: TigerVNC
 description: 
 published: true
-date: 2024-02-14T14:35:15.243Z
-tags: vnc
+date: 2024-02-14T14:36:23.806Z
+tags: work-in-progress, vnc
 editor: markdown
 dateCreated: 2024-02-14T14:35:15.243Z
 ---
