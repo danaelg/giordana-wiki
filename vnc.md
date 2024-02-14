@@ -2,7 +2,7 @@
 title: VNC
 description: 
 published: true
-date: 2024-02-14T11:01:11.190Z
+date: 2024-02-14T13:16:07.762Z
 tags: linux, vnc, remote-control
 editor: markdown
 dateCreated: 2024-02-14T09:40:27.708Z
