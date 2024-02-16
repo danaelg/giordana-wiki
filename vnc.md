@@ -2,7 +2,7 @@
 title: VNC
 description: 
 published: true
-date: 2024-02-14T14:36:33.490Z
+date: 2024-02-16T12:38:31.802Z
 tags: linux, work-in-progress, vnc, remote-control
 editor: markdown
 dateCreated: 2024-02-14T09:40:27.708Z
@@ -14,6 +14,9 @@ VNC (Virtual Network Computing) est un système de prise en main à distance de 
 
 # Fonctionnement
 VNC se base sur le protocole RFB (Remote Framebuffer Protocol)
+
+## VNC basé sur X
+![](https://cam-orl.co.uk/vnc/Xvnc.gif)
 
 # Historique
 Initialement publié en 1998 par le laboratoire Oracle & Olivetti Research Laboratory en version 3.3. A la fermeture du laboratoire en 2002, certains memebres fondent la société RealVNC ltd pour continuer le développement de VNC et du protocole RFB. les versions 3.7 et 3.8 sont publiés en 2003 et 2007. En mars 2011, les spécifications de la version 3.8 sont publiés sous la [RFC 6143](https://datatracker.ietf.org/doc/html/rfc6143). 
@@ -37,6 +40,7 @@ Le projet [rfbproto](https://github.com/rfbproto/rfbproto) a pour objectif de fo
 - [All you need to know about VNC remote access technology - RealVNC](https://discover.realvnc.com/what-is-vnc-remote-access-technology)
 - [Virtual Network Computing - IEEE Internal Computing](https://help.realvnc.com/hc/article_attachments/6864678826397/tr.98.1.pdf)
 - [rfbproto - Github](https://github.com/rfbproto/rfbproto)
+- [VNC - How it works](https://cam-orl.co.uk/vnc/howitworks.html)
 {.links-list}
 
 
