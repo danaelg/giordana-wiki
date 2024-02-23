@@ -2,7 +2,7 @@
 title: Prometheus server
 description: 
 published: true
-date: 2024-02-23T22:27:24.153Z
+date: 2024-02-23T22:31:38.749Z
 tags: prometheus, supervision
 editor: markdown
 dateCreated: 2024-02-23T22:27:24.153Z
