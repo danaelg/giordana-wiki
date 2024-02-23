@@ -2,24 +2,29 @@
 title: Prometheus
 description: 
 published: true
-date: 2023-10-01T10:45:21.411Z
+date: 2024-02-23T22:32:43.650Z
 tags: prometheus, supervision
 editor: markdown
 dateCreated: 2023-10-01T09:19:46.375Z
 ---
 
 # Introduction
-Prometheus est outil libre de supervision et d'alerte. Il récupère des métriques qu'il stocke dans une base de données de série chronologique (timeseries database).
+Prometheus est outil libre de supervision et d'alerte. Il récupère des métriques qu'il stocke dans une base de données chronologique (timeseries database).
 
-# Notes en vrac
-Ecrit en go. Il inclus un serveur Web, un moteur et une base de donnée. Prometheus va chercher les métriques. Les métriques sont mise à disposition sur un fichier texte via HTTP. 
+# Fonctionnement
+Prometheus est écrit en Go et inclus plusieurs éléments : 
+![](https://prometheus.io/assets/architecture.png)
+*Schéma d'architecture Prometheus - [Prometheus](https://prometheus.io/docs/introduction/overview/)*
 
-## Configuration
-Fichier de configuration *prometheus.yml* décomposé en plusieurs parties :
-- global : configuration globale
-- rule_files : configuration des alertes
-- scrape_configs : configuration du scrapping
+Comme on peut le voir, Prometheus se découpe en quatres éléments 
+- [Prometheus server](/prometheus/server)
+- [Alertmanager](/prometheus/alertmanager)
+- [Exporter](/prometheus/exporter)
+- [Pushgateway](/prometheus/pushgateway)
+{.links-list}
 
+
+# Vocabulaire
 ## Instances et Jobs
 Une instance correspond un couple ip:port, on peut voir ça comme le noeud ou le serveur que l'on souhaite surveiller.
 Le job correspond à un processus dont le rôle est défini et peut être répliqué sur plusieurs instances. 
@@ -34,5 +39,7 @@ For example, an API server job with four replicated instances:
 Les métriques sont toujours associé à une série chronologique unique qui est identifié par son nom et possède des labels (paire clef/valeur) optionnelles. Le nom de la métrique indique la fonction de l'élement surveiller, par exemple `prometheus_http_requests_total` correspond au nombre total de requêtes HTTP reçu par l'application prometheus.
 Les labels permettent d'ajouter des dimensions à la métrique, dans notre exemple précédent, la métrique `prometheus_http_requests_total` offre les labels `handler` et `code` qui permettent de spécifier la ressource qui a été requêté (handler) et le code de retour (code). On peut alors accéder au nombre total de requête http par l'application prometheus reçu uniquement sur la ressource `/graph` via la métrique : `prometheus_http_requests_total{handler="/graph"}`.
 
-## Exporteur
-Les exporteur permettent de d'exporter des données d'un système local en métrique utilisable par prometheus. En quelque sorte, les exporteurs agissent comme un traducteur pour prometheus 
+# Ressources
+- [Prometheus - Overview](https://prometheus.io/docs/introduction/overview/)
+- [Prometheus - Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/)
+{.links-list}
