@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2024-02-21T15:17:46.621Z
+date: 2024-03-01T15:49:11.142Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -26,7 +26,10 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 - https://sed.js.org/
 
 # Commandes En vrac
-
+## Optenir version journald
+```
+journalctl --version
+```
 ## SAR
 sar (System Activity Reporter) est une commande permettant de collecter des informations détaillées sur l'activité système comme le CPU, la mémoire, les IOs, le réseaux, etc.
 sar est utile pour réaliser un suivi de l'activité système et ainsi assurer le dépannage et l'optimisation des performances d'un systèmes Linux.
