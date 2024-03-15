@@ -2,7 +2,7 @@
 title: iptables
 description: 
 published: true
-date: 2023-11-01T19:09:48.468Z
+date: 2024-03-15T13:25:22.770Z
 tags: linux, security, networking, firewall, iptables, netfilter
 editor: markdown
 dateCreated: 2023-11-01T18:09:54.134Z
@@ -91,7 +91,21 @@ Utilisé pour filtrer des paquets.
 | 12 | | | Goes out on the outgoing interface (i.e., eth1). |
 | 13 | | | Out on the wire again (i.e., LAN). |
 
+# Commandes
+```
+iptables [-t TABLE] COMMANDE
+```
+## Lister les règles
+```
+iptables -S
+```
 
+## Lister les règles par chaine
+```
+iptables -nL
+```
+> `-n` Empêche la résolution des IP ou des noms
+{.is-info}
 
 
 # Références
