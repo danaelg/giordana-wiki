@@ -2,7 +2,7 @@
 title: iptables
 description: 
 published: true
-date: 2024-03-15T13:25:22.770Z
+date: 2024-03-15T13:46:06.392Z
 tags: linux, security, networking, firewall, iptables, netfilter
 editor: markdown
 dateCreated: 2023-11-01T18:09:54.134Z
@@ -102,11 +102,12 @@ iptables -S
 
 ## Lister les règles par chaine
 ```
-iptables -nL
+iptables -nL [CHAINE] --line-number
 ```
 > `-n` Empêche la résolution des IP ou des noms
 {.is-info}
 
+## Insérer
 
 # Références
 - https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html
