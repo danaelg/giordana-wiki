@@ -2,7 +2,7 @@
 title: iptables
 description: 
 published: true
-date: 2024-03-15T13:46:06.392Z
+date: 2024-03-15T13:46:48.713Z
 tags: linux, security, networking, firewall, iptables, netfilter
 editor: markdown
 dateCreated: 2023-11-01T18:09:54.134Z
@@ -107,7 +107,10 @@ iptables -nL [CHAINE] --line-number
 > `-n` Empêche la résolution des IP ou des noms
 {.is-info}
 
-## Insérer
+## Insérer une règle iptables dans une chaine
+```
+iptables -I CHAINE LINE-NUMER REGLE
+```
 
 # Références
 - https://www.frozentux.net/iptables-tutorial/iptables-tutorial.html
