@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2024-03-01T15:49:11.142Z
+date: 2024-03-19T16:01:14.503Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -136,12 +136,22 @@ date --set {HH:mm:ss | YYYY-MM-DD}
 
 # Tar
 ## Créer une archive avec Tar
+### archive standard
 ```bash
 tar -cf FILE FOLDER
 ```
 > *FILE*: nom de l'archive (par convention on met l'extension .tar) 
 > *FOLDER*: dossier à archiver
 {.is-info}
+
+### archive uniquement du contenu
+```bash
+tar -cf FILE -C FOLDER .
+```
+> *FILE*: nom de l'archive (par convention on met l'extension .tar) 
+> *FOLDER*: dossier à archiver
+{.is-info}
+
 
 ## Extraire une archive avec Tar
 ```bash
