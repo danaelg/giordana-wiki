@@ -2,7 +2,7 @@
 title: systemd-journald.service
 description: 
 published: true
-date: 2024-03-19T15:46:05.778Z
+date: 2024-03-19T15:48:11.663Z
 tags: systemd, systemd-journald
 editor: markdown
 dateCreated: 2024-03-19T15:46:05.778Z
@@ -17,7 +17,7 @@ dateCreated: 2024-03-19T15:46:05.778Z
 
 Exemple 
 ```
-MaxFileSec=1d
+MaxFileSec=1day
 MaxRetentionSec=1month
 ```
 Avec cette configuration, chaque fichier de journal contient des entrées sur une journée. Les fichiers de journal contenant des entrées de plus de 1 mois sont supprimés. 
