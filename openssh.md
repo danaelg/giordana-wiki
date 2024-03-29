@@ -2,7 +2,7 @@
 title: OpenSSH
 description: 
 published: true
-date: 2023-06-20T19:56:14.061Z
+date: 2024-03-29T13:30:36.175Z
 tags: linux, windows, openssh, software
 editor: markdown
 dateCreated: 2023-06-20T14:14:35.446Z
@@ -28,6 +28,11 @@ ssh-keygen -b 4096 -C 'user@hostname' -f '~/.ssh/id_rsa'
 
 ### Port forwarding
 - [Utilisation du transfert de port SSH](/openssh/port-forwarding)
+
+### Afficher la clef publique à partir de la clef privée
+```
+ssh-keygen -yf PRIVATE_KEY
+```
 
 ## Serveur
 On retrouve le serveur OpenSSH sous le nom de `sshd` ou `openssh-server`
