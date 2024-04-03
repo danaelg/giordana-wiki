@@ -2,7 +2,7 @@
 title: iptables
 description: 
 published: true
-date: 2024-03-15T13:46:48.713Z
+date: 2024-04-03T09:11:07.320Z
 tags: linux, security, networking, firewall, iptables, netfilter
 editor: markdown
 dateCreated: 2023-11-01T18:09:54.134Z
@@ -109,7 +109,12 @@ iptables -nL [CHAINE] --line-number
 
 ## Insérer une règle iptables dans une chaine
 ```
-iptables -I CHAINE LINE-NUMER REGLE
+iptables -I CHAINE LINE-NUMBER REGLE
+```
+
+## Supprimer une règle iptables dans une chaine
+```
+iptables -D CHAINE LINE-NUMBER
 ```
 
 # Références
