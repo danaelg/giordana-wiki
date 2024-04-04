@@ -2,7 +2,7 @@
 title: Git
 description: 
 published: true
-date: 2023-07-11T14:00:03.849Z
+date: 2024-04-04T08:34:28.653Z
 tags: linux, windows, git, software, vcs, development
 editor: markdown
 dateCreated: 2023-06-20T19:43:57.782Z
@@ -22,6 +22,14 @@ dateCreated: 2023-06-20T19:43:57.782Z
 {.links-list}
 
 # Dépôts
+## Créer un dépôt
+```bash
+cd folder
+git init
+```
+> Le dossier courant sera considéré comme le working directory git et la branche `main` sera créé automatiqument 
+{.is-info}
+
 ## Cloner un dépôt
 ```bash
 git clone URL
@@ -30,6 +38,12 @@ git clone URL
 > http: `https://github.com/torvalds/linux.git`
 > ssh: `git@github.com:torvalds/linux.git`
 {.is-info}
+
+## Ajouter un dépôt distant
+```bash
+git remote add origin URL
+git push -u origin main
+```
 
 # Commits
 ## Définir les informations d'auteur des commit
@@ -88,6 +102,20 @@ git branch -d BRANCH_NAME
 ## Afficher les branches supprimés dans le dépôt distant
 ```bash
 git fetch -p
+```
+# .gitignore
+Le fichier `.gitignore` permet de lister des dossiers ou fichier qui doivent être exclus du suivi de version (fichier de mot de passe, secrets, etc.)
+
+## Fonctionnement par whitelist
+Pour spécifier explicitement quels fichiers doivent être suivi par git et ignorer tous les autres (whitelist), on peut procéder comme suit :
+```
+# Exclure tous les fichiers
+* 
+
+# Inclure des fichiers et des dossiers
+!config/*
+!src/*
+!index.html
 ```
 
 # Log
