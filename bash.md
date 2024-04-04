@@ -2,7 +2,7 @@
 title: Bash
 description: 
 published: true
-date: 2024-02-21T15:17:57.666Z
+date: 2024-04-04T06:27:43.183Z
 tags: linux, bash
 editor: markdown
 dateCreated: 2024-02-21T15:17:57.666Z
@@ -12,6 +12,10 @@ dateCreated: 2024-02-21T15:17:57.666Z
 Bash (Bourne-again shell) est un shell Unix développé pour le projet GNU qui vise à remplacer Bourne shell (sh). 
 
 # Commandes
+## Ecrire dans stderr
+```bash
+>&2 echo "ERROR"
+```
 ## Redirection de stderr et stdout dans un fichier et sur stdout
 La commande suivante permet de rediriger la sortie des erreurs et la sortie standard à la fois dans un fichier et sur l'écran (sortie standard)
 ```bash
