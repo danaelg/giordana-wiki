@@ -2,7 +2,7 @@
 title: Commandes cool 😎  | En vrac
 description: Listes de commandes utiles qui doivent encore être triées
 published: true
-date: 2024-04-10T08:00:36.486Z
+date: 2024-04-10T08:01:07.896Z
 tags: linux, command, tips&tricks, work-in-progress
 editor: markdown
 dateCreated: 2023-06-20T13:25:40.644Z
@@ -26,17 +26,6 @@ Cette page se veut d'être mal construite. L'objectif est de me permettre de dé
 - https://sed.js.org/
 
 # Commandes En vrac
-## journald
-### Optenir version journald
-```
-journalctl --version
-```
-### Obtenir le nombre d'entrée de log par jour
-```
-journalctl --since "2024-04-04" --until "2024-04-05" | wc -l
-```
-> Donne le nombre d'entrée de log de la journée du 04/04/2024
-{.is-info}
 
 ## SAR
 sar (System Activity Reporter) est une commande permettant de collecter des informations détaillées sur l'activité système comme le CPU, la mémoire, les IOs, le réseaux, etc.
@@ -186,6 +175,18 @@ tar -tf FILE
 
 ## Afficher la commande complète des processus
 Appuyer sur `c`
+
+# journald
+## Optenir version journald
+```
+journalctl --version
+```
+## Obtenir le nombre d'entrée de log par jour
+```
+journalctl --since "2024-04-04" --until "2024-04-05" | wc -l
+```
+> Donne le nombre d'entrée de log de la journée du 04/04/2024
+{.is-info}
 
 # Cisco IOS
 ## Afficher les informations Spanning Tree sous Cisco IOS
