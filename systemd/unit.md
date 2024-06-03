@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2024-06-03T08:56:41.109Z
+date: 2024-06-03T08:57:25.318Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -125,6 +125,8 @@ systemctl --user --machine=USER@ COMMAND
 ```
 > - `USER` correspond au nom d'utilisateur cible
 {.is-info}
+
+
 
 # Références
 - [systemd.unit - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
