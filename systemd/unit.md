@@ -2,7 +2,7 @@
 title: Unit systemd
 description: 
 published: true
-date: 2023-08-02T11:23:36.564Z
+date: 2024-06-03T08:56:41.109Z
 tags: systemd, systemd.unit, ini
 editor: markdown
 dateCreated: 2023-06-23T06:25:09.939Z
@@ -111,6 +111,20 @@ systemd-analyze unit-paths
 ```bash
 systemctl cat UNIT
 ```
+
+## Contrôler les units utilisateurs
+Les units peuvent être placé dans un répertoire utilisateur, dans ce cas, on ajouter l'option `--user` à toutes les commandes `systemctl`
+```bash
+systemctl --user COMMAND
+```
+
+## Contrôler les units d'un autre utilisateur
+Si l'on souhaitre contrôler les units utilisateurs d'un autre utilisateurs, on doit spécifier l'option `--user` et `--machine`
+```bash
+systemctl --user --machine=USER@ COMMAND
+```
+> - `USER` correspond au nom d'utilisateur cible
+{.is-info}
 
 # Références
 - [systemd.unit - freedesktop](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
